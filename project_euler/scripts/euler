@@ -5,7 +5,11 @@ import importlib
 import sys
 
 def get_latest_solution(euler_module):
-    pass
+    attrs = dir(euler_module)
+    solution_funcs = filter(lambda s: 'solution' in s, attrs)
+    solution_funcs = list(reversed(sorted(solution_funcs)))
+    
+    return solution_funcs[0]
 
 
 def get_args():
@@ -25,11 +29,13 @@ def main():
     module = 'project_euler.euler_{:03d}.euler_{:03d}'.format(number, number)
     module = importlib.import_module(module)
     
+    solver = None
     if solution_num is None:
         solver = get_latest_solution(module)
     else:
         solver = 'solution_{:02d}'.format(solution_num)
-        solver = getattr(module, solver)
+    
+    solver = getattr(module, solver)
     
     solution = solver()
     print(str(solution))

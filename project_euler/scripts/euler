@@ -1,0 +1,38 @@
+#!/usr/bin/env python
+
+import argparse
+import importlib
+import sys
+
+def get_latest_solution(euler_module):
+    pass
+
+
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-s', '--solution', type=int, default=None)
+    parser.add_argument('-v', '--verbose', action='store_true', default=False)
+    parser.add_argument('number', type=int)
+    
+    args = parser.parse_args()
+
+    return args.number, args.solution
+
+
+def main():
+    number, solution_num = get_args()
+
+    module = 'project_euler.euler_{:03d}.euler_{:03d}'.format(number, number)
+    module = importlib.import_module(module)
+    
+    if solution_num is None:
+        solver = get_latest_solution(module)
+    else:
+        solver = 'solution_{:02d}'.format(solution_num)
+        solver = getattr(module, solver)
+    
+    solution = solver()
+    print(str(solution))
+
+if __name__ == '__main__':
+    sys.exit(main())

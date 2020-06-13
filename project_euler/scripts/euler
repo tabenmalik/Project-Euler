@@ -2,8 +2,31 @@
 
 import argparse
 import importlib
+import logging
 import sys
 import time
+
+LOGGER = logging.getLogger(__name__)
+
+
+def configure_logger(verbosity):
+    trace_level_num = 5
+    logging.addLevelName(trace_level_num, 'TRACE')
+
+    def _trace(self, message, *args, **kwargs):
+        if self.isEnabledFor(trace_level_num):
+            self._log(trace_level_num, message, args, **kwargs)
+
+    logging.Logger.trace = _trace
+
+    level = logging.WARNING
+    if verbosity == 1:
+        level = logging.INFO
+    elif verbosity == 2:
+        level = logging.DEBUG
+    elif verbosity == 3:
+        level = trace_level_num
+    logging.basicConfig(level=level)
 
 def get_latest_solution(euler_module):
     attrs = dir(euler_module)
@@ -16,10 +39,11 @@ def get_latest_solution(euler_module):
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-s', '--solution', type=int, default=None)
-    parser.add_argument('-v', '--verbose', action='store_true', default=False)
+    parser.add_argument('-v', '--verbose', action='count', default=0)
     parser.add_argument('number', type=int)
     
     args = parser.parse_args()
+    configure_logger(args.verbose)
 
     return args.number, args.solution
 
@@ -42,7 +66,7 @@ def main():
     solution = solver()
     tend = time.time()
 
-    print('Solution took {} seconds'.format(tend - tstart))
+    LOGGER.info('Solution took {} seconds'.format(tend - tstart))
     print(str(solution))
 
 if __name__ == '__main__':

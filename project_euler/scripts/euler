@@ -3,6 +3,7 @@
 import argparse
 import importlib
 import sys
+import time
 
 def get_latest_solution(euler_module):
     attrs = dir(euler_module)
@@ -37,7 +38,11 @@ def main():
     
     solver = getattr(module, solver)
     
+    tstart = time.time()
     solution = solver()
+    tend = time.time()
+
+    print('Solution took {} seconds'.format(tend - tstart))
     print(str(solution))
 
 if __name__ == '__main__':

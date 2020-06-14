@@ -93,3 +93,15 @@ def even_fibonacci_seq(under=None):
         fib_2 = fib_new 
 
         fib_new = 4*fib_2 + fib_1
+
+
+def sum_of_n(n):
+    return int((n * (n + 1)) / 2)
+
+
+def sum_of_sqrs(n):
+    return int((((2 * n) + 1) * (n + 1) * n) / 6)
+
+
+def sum_of_cubes(n):
+    return int(((n * n) * (n + 1) * (n + 1)) / 4)

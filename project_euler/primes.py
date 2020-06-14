@@ -27,3 +27,14 @@ def trial_division(num):
 
 def is_prime(num):
     return len(list(trial_division(num))) == 1
+
+
+def prime_seq(under=None):
+    i = 2
+    while True:
+        if under is not None and i >= under:
+            break
+        
+        if is_prime(i):
+            yield i
+        i += 1

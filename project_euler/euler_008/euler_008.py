@@ -5,6 +5,7 @@ import operator
 DIGIT_FILE = '1000_digit_num.txt'
 ADJ_DIGITS = 13
 
+ANSWER = 23514624000
 
 def read_digit_file():
     this_dir, this_filename = os.path.split(__file__)

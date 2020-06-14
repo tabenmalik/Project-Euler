@@ -1,6 +1,8 @@
 import itertools
 
-from project_euler import primes
+from project_euler import misc
+
+ANSWER = 104743
 
 MAX_NUM = 10_001
 
@@ -8,7 +10,7 @@ def primes_it():
     yield 2
     i = 3
     while True:
-        if primes.is_prime(i):
+        if misc.is_prime(i):
             yield i
         i += 2
 

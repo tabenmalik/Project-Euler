@@ -3,7 +3,9 @@ import operator
 
 import numpy as np
 
-MAX_NUM=1000
+ANSWER = 233168
+
+MAX_NUM = 1000
 
 def solution_01():
     total = 0

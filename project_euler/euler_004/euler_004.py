@@ -4,6 +4,8 @@ import operator
 
 LOGGER = logging.getLogger(__name__)
 
+ANSWER = 906609
+
 NUM_DIGITS = 3
 
 
@@ -41,6 +43,25 @@ def solution_02():
 
     pairs = itertools.product(a, b)
     products = map(lambda x: operator.mul(*x), pairs)
+    palindromes = filter(is_palindrome, products)
+    largest_palindrome = max(palindromes)
+    
+    return largest_palindrome
+
+
+def solution_03():
+    """
+    Just like solution 02 but removes duplicate
+    products before testing palindromes
+    """
+    num_low = 10 ** (NUM_DIGITS - 1)
+    num_high = 10 ** NUM_DIGITS
+    a = list(range(num_low, num_high))
+    b = a.copy()
+
+    pairs = itertools.product(a, b)
+    products = map(lambda x: operator.mul(*x), pairs)
+    products = set(products)
     palindromes = filter(is_palindrome, products)
     largest_palindrome = max(palindromes)
     

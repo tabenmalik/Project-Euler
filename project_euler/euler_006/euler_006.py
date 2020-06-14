@@ -1,3 +1,5 @@
+ANSWER = 25164150
+
 MAX_NUM = 100
 
 def solution_01():

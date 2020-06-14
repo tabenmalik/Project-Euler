@@ -26,10 +26,16 @@ def trial_division(num):
 
 
 def is_prime(num):
+    """
+    Returns True if the given number 
+    """
     return len(list(trial_division(num))) == 1
 
 
 def prime_seq(under=None):
+    """
+    A generator of prime numbers
+    """
     if under is None or 2 < under:
         yield 2
 
@@ -44,32 +50,46 @@ def prime_seq(under=None):
 
 
 def fibonacci_seq(under=None):
+    """
+    A generator of fibonacci numbers
+    """
     fib_1 = 1
     fib_2 = 2
 
-    yield fib_1
-    yield fib_2
+    if under is None or fib_1 < under:
+        yield fib_1
+    
+    if under is None or fib_2 < under:
+        yield fib_2
 
-    while under is None or fib_2 < under:
-        fib_new = fib_2 + fib_1
-        
+    fib_new = fib_2 + fib_1
+    while under is None or fib_new < under:
         yield fib_new
         
         fib_1 = fib_2
         fib_2 = fib_new 
+
+        fib_new = fib_2 + fib_1
 
 
 def even_fibonacci_seq(under=None):
+    """
+    A generator of even fibonacci numbers
+    """
     fib_1 = 2
     fib_2 = 8
 
-    yield fib_1
-    yield fib_2
+    if under is None or fib_1 < under:
+        yield fib_1
+    
+    if under is None or fib_2 < under:
+        yield fib_2
 
-    while under is None or fib_2 < under:
-        fib_new = 4*fib_2 + fib_1
-        
+    fib_new = 4*fib_2 + fib_1
+    while under is None or fib_new < under:
         yield fib_new
         
         fib_1 = fib_2
         fib_2 = fib_new 
+
+        fib_new = 4*fib_2 + fib_1

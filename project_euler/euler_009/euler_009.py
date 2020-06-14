@@ -2,6 +2,9 @@ import itertools
 from functools import reduce
 import operator
 
+ANSWER = 31875000
+
+
 def solution_01():
     SUM_NUM = 1000
 

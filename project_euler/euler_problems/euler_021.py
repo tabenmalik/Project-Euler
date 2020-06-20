@@ -1,5 +1,6 @@
 import math
 
+SOLUTION = 31626
 MAX_NUM = 10_000
 
 def proper_divisors(n):
@@ -16,10 +17,10 @@ def proper_divisors(n):
 
 
 def is_amicable(n):
-    d_a = sum(proper_divisors(n))
-    d_b = sum(proper_divisors(d_a))
+    b = sum(proper_divisors(n))
+    d_b = sum(proper_divisors(b))
     
-    return n == d_b and n != d_a
+    return n == d_b and n != b
 
 
 def solution_01():

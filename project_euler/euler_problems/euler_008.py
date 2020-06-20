@@ -2,13 +2,13 @@ import os
 from functools import reduce
 import operator
 
-DIGIT_FILE = '1000_digit_num.txt'
+DIGIT_FILE = 'euler_008.txt'
 ADJ_DIGITS = 13
 
 ANSWER = 23514624000
 
 def read_digit_file():
-    this_dir, this_filename = os.path.split(__file__)
+    this_dir, _ = os.path.split(__file__)
     
     digits = []
     with open(os.path.join(this_dir, DIGIT_FILE)) as fhdl:

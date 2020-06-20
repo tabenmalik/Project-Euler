@@ -51,7 +51,7 @@ def get_args():
 def main():
     number, solution_num = get_args()
 
-    module = 'project_euler.euler_{:03d}.euler_{:03d}'.format(number, number)
+    module = 'project_euler.euler_problems.euler_{:03d}'.format(number)
     module = importlib.import_module(module)
     
     solver = None

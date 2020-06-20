@@ -83,6 +83,9 @@ RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requ
 WORKDIR /usr/src/project_euler/
 
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --disable-pip-version-check --no-warn-script-location --no-cache-dir \
+        pylint \
+        autopep8 \
+    && pip install --disable-pip-version-check --no-warn-script-location --no-cache-dir -r requirements.txt
 
 CMD ["bash"]

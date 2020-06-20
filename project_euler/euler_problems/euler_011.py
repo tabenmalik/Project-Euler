@@ -2,12 +2,12 @@ import os
 from functools import reduce
 import operator
 
-NUM_GRID_FILE = 'number_grid.txt'
+NUM_GRID_FILE = 'euler_011.txt'
 ADJ_NUMS = 4
 
 
 def read_grid_file():
-    this_dir, this_filename = os.path.split(__file__)
+    this_dir, _ = os.path.split(__file__)
     
     num_matrix = []
     with open(os.path.join(this_dir, NUM_GRID_FILE)) as fhdl:

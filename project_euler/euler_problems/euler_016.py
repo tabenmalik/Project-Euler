@@ -1,3 +1,5 @@
+SOLUTION = 1366
+
 def solution_01():
     num = 2 ** 1000
     num_str = str(num)

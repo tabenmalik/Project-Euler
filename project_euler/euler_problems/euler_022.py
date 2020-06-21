@@ -1,6 +1,7 @@
 import os
 import operator
 
+SOLUTION = 871198282
 NUM_FILE = 'euler_022.txt'
 
 def read_name_file():

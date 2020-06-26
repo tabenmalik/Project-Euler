@@ -1,3 +1,5 @@
+import math
+
 def trial_division_naive(num):
     factor = 2
 
@@ -25,11 +27,25 @@ def trial_division(num):
         yield num
 
 
+PRIME_CACHE = set()
+
 def is_prime(num):
     """
     Returns True if the given number 
     """
-    return len(list(trial_division(num))) == 1
+    global PRIME_CACHE
+
+    if num <= 1:
+        return False
+
+    if num in PRIME_CACHE:
+        return True
+
+    if len(PRIME_CACHE) > 0 and num < max(PRIME_CACHE):
+        return False
+
+    PRIME_CACHE = set(sieve_of_eratosthenes_fast(3*num))
+    return num in PRIME_CACHE
 
 
 def prime_seq(under=None):

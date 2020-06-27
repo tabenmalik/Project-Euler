@@ -155,4 +155,4 @@ def sieve_of_eratosthenes_naive(under):
 
     primes = [i for i, status in enumerate(bools) if not status]
 
-
+    return primes

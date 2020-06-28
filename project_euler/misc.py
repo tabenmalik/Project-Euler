@@ -1,6 +1,6 @@
 import math
 
-def trial_division_naive(num):
+def prime_factors_trial_division_naive(num):
     factor = 2
 
     while num > 1:
@@ -10,7 +10,7 @@ def trial_division_naive(num):
         else:
             factor += 1
 
-def trial_division(num):
+def prime_factors_trial_division(num):
     while num % 2 == 0:
         yield 2
         num //= 2
@@ -25,6 +25,22 @@ def trial_division(num):
 
     if num != 1:
         yield num
+
+
+def prime_factors(num):
+    return prime_factors_trial_division(num)
+
+
+def divisors(n, sort=False):
+    divisors = [1, n]
+    for i in range(2, int(math.sqrt(n))):
+        if n % i == 0:
+            divisors.extend([i, int(n / i)])
+    
+    if sort:
+        divisors = sorted(divisors)
+        
+    return tuple(divisors)
 
 
 PRIME_CACHE = set()

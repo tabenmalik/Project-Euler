@@ -1,4 +1,4 @@
-from project_euler.misc import sum_of_n, trial_division, sieve_of_eratosthenes_fast
+from project_euler.misc import sum_of_n, prime_factors_trial_division, sieve_of_eratosthenes_fast
 import math
 from functools import reduce
 

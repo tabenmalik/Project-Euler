@@ -172,3 +172,11 @@ def sieve_of_eratosthenes_naive(under):
     primes = [i for i, status in enumerate(bools) if not status]
 
     return primes
+
+
+def num_to_digits(num):
+    return list(map(int, str(num)))
+
+
+def digits_to_num(digits):
+    return int(''.join(str(i) for i in digits))

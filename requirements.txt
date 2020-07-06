@@ -2,4 +2,6 @@ pandas
 numpy
 pylint
 ipython
+matplotlib
+bokeh
 

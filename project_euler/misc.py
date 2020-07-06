@@ -1,4 +1,6 @@
-def trial_division_naive(num):
+import math
+
+def prime_factors_trial_division_naive(num):
     factor = 2
 
     while num > 1:
@@ -8,7 +10,7 @@ def trial_division_naive(num):
         else:
             factor += 1
 
-def trial_division(num):
+def prime_factors_trial_division(num):
     while num % 2 == 0:
         yield 2
         num //= 2
@@ -25,11 +27,41 @@ def trial_division(num):
         yield num
 
 
+def prime_factors(num):
+    return prime_factors_trial_division(num)
+
+
+def divisors(n, sort=False):
+    divisors = [1, n]
+    for i in range(2, int(math.sqrt(n))):
+        if n % i == 0:
+            divisors.extend([i, int(n / i)])
+    
+    if sort:
+        divisors = sorted(divisors)
+        
+    return tuple(divisors)
+
+
+PRIME_CACHE = set()
+
 def is_prime(num):
     """
     Returns True if the given number 
     """
-    return len(list(trial_division(num))) == 1
+    global PRIME_CACHE
+
+    if num <= 1:
+        return False
+
+    if num in PRIME_CACHE:
+        return True
+
+    if len(PRIME_CACHE) > 0 and num < max(PRIME_CACHE):
+        return False
+
+    PRIME_CACHE = set(sieve_of_eratosthenes_fast(3*num))
+    return num in PRIME_CACHE
 
 
 def prime_seq(under=None):
@@ -105,3 +137,46 @@ def sum_of_sqrs(n):
 
 def sum_of_cubes(n):
     return int(((n * n) * (n + 1) * (n + 1)) / 4)
+
+
+def sieve_of_eratosthenes_fast(under):
+    sieve_len = int((under - 1) // 2) + 1 
+    sieve = [False for i in range(0, sieve_len)]
+
+    check_limit = (math.floor(math.sqrt(under)) - 1) // 2
+    check_limit = int(check_limit) + 1
+
+    for i in range(1, check_limit):
+        if not sieve[i]:
+            for j in range(2*i*(i+1), sieve_len, (2*i)+1):
+                sieve[j] = True
+
+    primes = [2]
+    primes.extend([(2*i) + 1 for i in range(1, sieve_len) if not sieve[i]])
+
+    return primes 
+
+def sieve_of_eratosthenes_naive(under):
+    bools = [False for i in range(0, under)]
+    bools[0] = True
+    bools[1] = True
+
+    for i in range(4, under, 2):
+        bools[i] = True
+
+    for i in range(3, math.floor(math.sqrt(under))):
+        if not bools[i]:
+            for j in range(i*i, under, 2*i):
+                bools[j] = True
+
+    primes = [i for i, status in enumerate(bools) if not status]
+
+    return primes
+
+
+def num_to_digits(num):
+    return list(map(int, str(num)))
+
+
+def digits_to_num(digits):
+    return int(''.join(str(i) for i in digits))

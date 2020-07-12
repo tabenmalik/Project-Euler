@@ -86,7 +86,7 @@ def fibonacci_seq(under=None):
     A generator of fibonacci numbers
     """
     fib_1 = 1
-    fib_2 = 2
+    fib_2 = 1
 
     if under is None or fib_1 < under:
         yield fib_1

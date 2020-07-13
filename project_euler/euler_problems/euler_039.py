@@ -1,6 +1,6 @@
 import pprint
 
-SOLUTIONS = 840
+SOLUTIONS = '840'
 
 def solution_01():
 
@@ -27,4 +27,6 @@ def solution_01():
     p_solutions = {k: len(v) for k, v in p_solutions.items()}
     return max(p_solutions.keys(), key=lambda x: p_solutions[x])
 
-        
+
+def solve():
+    return str(solution_01())

@@ -1,6 +1,6 @@
 import math
 
-SOLUTION = 872187
+SOLUTION = '872187'
 
 def is_palindrome(string):
     reverse_str = string[::-1]
@@ -18,3 +18,7 @@ def solution_01():
     ints = map(int, ints)
 
     return sum(ints)
+
+
+def solve():
+    return str(solution_01())

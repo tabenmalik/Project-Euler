@@ -1,4 +1,4 @@
-SOLUTION = 669171001
+SOLUTION = '669171001'
 
 GRID_SIZE = 1001
 
@@ -16,3 +16,7 @@ def solution_01():
     total = sum(map(sum, [up_left, up_right, down_left, down_right]))
     total -= 3 # 1 is counted multiple times
     return total
+
+
+def solve():
+    return str(solution_01())

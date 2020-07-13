@@ -2,6 +2,8 @@ from project_euler.misc import sum_of_n, prime_factors_trial_division, sieve_of_
 import math
 from functools import reduce
 
+SOLUTION = '76576500'
+
 NUM_DIVISORS = 500
 
 
@@ -64,4 +66,8 @@ def solution_02():
             break
     
     return triangle_num
+
+
+def solve():
+    return str(solution_02())
 

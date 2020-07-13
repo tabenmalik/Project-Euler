@@ -3,7 +3,7 @@ import operator
 
 import numpy as np
 
-ANSWER = 233168
+SOLUTION = '233168'
 
 MAX_NUM = 1000
 
@@ -32,3 +32,6 @@ def solution_03():
     total = np.sum(num_3s) + np.sum(num_5s) - np.sum(num_15s)
 
     return total
+
+def solve():
+    return str(solution_03())

@@ -1,16 +1,18 @@
 import pkgutil
 import importlib
-import unittest
+import pytest
 
 from project_euler import euler_problems
 
-class EulerTest(unittest.TestCase):
+def euler_modules():
+    for module_info in pkgutil.iter_modules(path=euler_problems.__path__):
+        yield module_info.name
 
-    def test_euler_problem(self):
-        for module_info in pkgutil.iter_modules(path=euler_problems.__path__):
-            with self.subTest(problem=str(module_info.name)):
-                module = importlib.import_module('.' + module_info.name, package=euler_problems.__name__)
-                
-                exp_solution = module.SOLUTION
-                act_solution = module.solve()
-                self.assertEqual(exp_solution, act_solution)
+
+@pytest.mark.parametrize('module_name', euler_modules())
+@pytest.mark.timeout(60)
+def test(module_name):
+    euler_module = importlib.import_module('.' + module_name, package='project_euler.euler_problems')
+    exp_solution = euler_module.SOLUTION
+    act_solution = euler_module.solve()
+    assert exp_solution == act_solution

@@ -1,6 +1,8 @@
 from functools import reduce
 import operator
 
+SOLUTION = '648'
+
 MAX_NUM = 100
 
 def solution_01():
@@ -8,3 +10,7 @@ def solution_01():
     product_str = str(product)
     product_digits = list(map(int, product_str))
     return sum(product_digits)
+
+
+def solve():
+    return str(solution_01())

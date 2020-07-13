@@ -1,3 +1,5 @@
+SOLUTION = '983'
+
 MAX_NUM = 1000
 
 def long_division(numerator, denominator):
@@ -46,3 +48,7 @@ def solution_01():
     lengths = {i: len(long_division(1, i)[2]) for i in range(2, MAX_NUM)}
     max_length = max(lengths, key=lambda k: lengths[k])
     return max_length
+
+
+def solve():
+    return str(solution_01())

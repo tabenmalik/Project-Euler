@@ -5,7 +5,7 @@ import operator
 DIGIT_FILE = 'euler_008.txt'
 ADJ_DIGITS = 13
 
-ANSWER = 23514624000
+SOLUTION = '23514624000'
 
 def read_digit_file():
     this_dir, _ = os.path.split(__file__)
@@ -31,3 +31,7 @@ def solution_01():
         largest_product = max(product, largest_product)
 
     return largest_product
+
+
+def solve():
+    return str(solution_01())

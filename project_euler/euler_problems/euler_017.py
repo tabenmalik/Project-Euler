@@ -1,4 +1,4 @@
-SOLUTION = 21124
+SOLUTION = '21124'
 
 MAX_NUM = 1000
 
@@ -46,3 +46,7 @@ def solution_01():
     removed_spaces = (eng_str.replace(' ', '') for eng_str in eng_strs)
     str_counts = map(len, removed_spaces)
     return sum(str_counts)
+
+
+def solve():
+    return str(solution_01())

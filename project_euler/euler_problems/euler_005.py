@@ -2,7 +2,7 @@ import math
 
 from project_euler import misc
 
-ANSWER = 232792560
+SOLUTION = '232792560'
 
 MAX_NUM = 20
 
@@ -32,3 +32,7 @@ def solution_02():
         product *= prime ** exp
 
     return product
+
+
+def solve():
+    return str(solution_02())

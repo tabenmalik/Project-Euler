@@ -1,6 +1,8 @@
 import itertools
 from project_euler.misc import is_prime, sieve_of_eratosthenes_fast
 
+SOLUTION = '-59231'
+
 MAX_NUM = 1000
 
 def consecutive_primes_of_quadratic(a, b):
@@ -20,3 +22,7 @@ def solution_01():
     prime_lengths = {coeff_pair: len(consecutive_primes_of_quadratic(*coeff_pair)) for coeff_pair in coefficients}
     coeff_of_longest = max(prime_lengths, key=lambda x: prime_lengths[x])
     return coeff_of_longest[0] * coeff_of_longest[1] 
+
+
+def solve():
+    return str(solution_01())

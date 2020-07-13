@@ -3,7 +3,7 @@ from itertools import starmap
 from functools import reduce
 import operator
 
-SOLUTION = 100
+SOLUTION = '100'
 
 def is_wrongly_canceled(numerator, denominator):
     num_digits = num_to_digits(numerator)
@@ -49,3 +49,6 @@ def solution_01():
     den_prod = reduce(operator.mul, den_factors)
     return den_prod
     
+
+def solve():
+    return str(solution_01())

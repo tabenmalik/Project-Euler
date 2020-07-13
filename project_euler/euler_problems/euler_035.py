@@ -1,6 +1,6 @@
 from project_euler.misc import sieve_of_eratosthenes_fast, num_to_digits, digits_to_num, is_prime
 
-SOLUTION = 55
+SOLUTION = '55'
 
 def cycle_digits(num):
     yield num
@@ -21,3 +21,7 @@ def solution_01():
     num_cycles = map(lambda x: (x, set(cycle_digits(x))), primes)
     prime_cycles = filter(lambda x: x[1].issubset(primes), num_cycles)
     return len(list(prime_cycles))
+
+
+def solve():
+    str(solution_01())

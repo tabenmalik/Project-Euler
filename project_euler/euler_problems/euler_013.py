@@ -1,7 +1,7 @@
 import os
 import numpy as np
 
-SOLUTION=5537376230
+SOLUTION = '5537376230'
 
 NUM_GRID_FILE = 'euler_012.txt'
 NUM_DIGITS = 10
@@ -29,3 +29,7 @@ def solution_01():
     num_sum = sum(num_ints)
 
     return str(num_sum)[:10]
+
+
+def solve():
+    return str(solution_01())

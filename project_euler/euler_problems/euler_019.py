@@ -1,5 +1,7 @@
 import datetime as dt
 
+SOLUTION = '171'
+
 def solution_01():
     count = 0
     for year in range(1901, 2001):
@@ -9,3 +11,7 @@ def solution_01():
                 count += 1
 
     return count
+
+
+def solve():
+    return str(solution_01())

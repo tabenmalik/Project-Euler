@@ -1,6 +1,6 @@
 from project_euler.misc import prime_seq, num_to_digits, digits_to_num, is_prime, sieve_of_eratosthenes_fast
 
-SOLUTION = 748317
+SOLUTION = '748317'
 
 def is_trucatable_prime(prime):
     single_digit_primes = set([2, 3, 5, 7])
@@ -32,3 +32,7 @@ def solution_01():
                 break
 
     return sum(truncatable_primes)
+
+
+def solve():
+    return str(solution_01())

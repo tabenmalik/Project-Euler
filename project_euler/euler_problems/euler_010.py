@@ -2,7 +2,7 @@ import math
 
 from project_euler.misc import prime_seq
 
-ANSWER = 142913828922
+SOLUTION = '142913828922'
 
 MAX_NUM = 2_000_000
 
@@ -61,3 +61,7 @@ def solution_03():
     primes = sieve_of_eratosthenes_fast(MAX_NUM)
 
     return sum(primes)
+
+
+def solve():
+    return str(solution_03())

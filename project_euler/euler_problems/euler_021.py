@@ -1,6 +1,7 @@
 import math
 
-SOLUTION = 31626
+SOLUTION = '31626'
+
 MAX_NUM = 10_000
 
 def proper_divisors(n):
@@ -26,3 +27,7 @@ def is_amicable(n):
 def solution_01():
     amicable_nums = list(filter(is_amicable, range(2, MAX_NUM)))
     return sum(amicable_nums)
+
+
+def solve():
+    return str(solution_01())

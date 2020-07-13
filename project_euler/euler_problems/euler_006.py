@@ -1,6 +1,6 @@
 from project_euler import misc
 
-ANSWER = 25164150
+SOLUTION = '25164150'
 
 MAX_NUM = 100
 
@@ -19,3 +19,7 @@ def solution_02():
     """
 
     return misc.sum_of_n(MAX_NUM) ** 2 - misc.sum_of_sqrs(MAX_NUM)
+
+
+def solve():
+    return str(solution_02())

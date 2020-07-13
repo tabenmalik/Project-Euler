@@ -3,7 +3,7 @@ from pprint import pprint
 
 from project_euler.misc import divisors, sieve_of_eratosthenes_fast
 
-SOLUTION = 45228
+SOLUTION = '45228'
 
 def expand_digits(num):
     return list(map(int, str(num)))
@@ -82,3 +82,7 @@ def solution_02():
                 products.update(actual_products[0])
 
     return sum(products)
+
+
+def solve():
+    return str(solution_02())

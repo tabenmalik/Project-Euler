@@ -3,7 +3,7 @@ import itertools
 
 from project_euler.misc import sum_of_n
 
-SOLUTION = 4179871
+SOLUTION = '4179871'
 
 MAX_NUM = 28123       
 
@@ -35,3 +35,7 @@ def solution_01():
     non_abundant_sum = sum_of_n(MAX_NUM) - sum(abundant_sums)
 
     return non_abundant_sum
+
+
+def solve():
+    return str(solution_01())

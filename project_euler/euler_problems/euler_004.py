@@ -4,7 +4,7 @@ import operator
 
 LOGGER = logging.getLogger(__name__)
 
-ANSWER = 906609
+SOLUTION = '906609'
 
 NUM_DIGITS = 3
 
@@ -66,3 +66,7 @@ def solution_03():
     largest_palindrome = max(palindromes)
     
     return largest_palindrome
+
+
+def solve():
+    return str(solution_03())

@@ -1,5 +1,5 @@
+SOLUTION = '837799'
 
-SOLUTION = 837799
 MAX_NUM = 1_000_000
 CACHED_LENGTHS = {}
 
@@ -78,3 +78,7 @@ def solution_03():
             n_of_longest_chain = k
 
     return n_of_longest_chain
+
+
+def solve():
+    return str(solution_03())

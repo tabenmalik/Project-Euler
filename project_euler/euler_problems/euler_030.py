@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-SOLUTION = 443839
+SOLUTION = '443839'
 
 def solution_01():
     power = 5
@@ -35,3 +35,7 @@ def solution_01():
     results = list(filter(lambda pair: pair[0] == pair[1], x_y_pairs))
     result = sum(next(iter(zip(*results))))
     return result
+
+
+def solve():
+    return str(solution_01())

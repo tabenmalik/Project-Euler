@@ -1,4 +1,4 @@
-SOLUTION = 2783915460
+SOLUTION = '2783915460'
 
 def permutations(digits):
     yield digits.copy()
@@ -27,3 +27,7 @@ def solution_01():
             break
 
     return ''.join(str(i) for i in p)
+
+
+def solve():
+    return str(solution_01())

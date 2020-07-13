@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 from project_euler.misc import num_to_digits, digits_to_num
 
-SOLUTION = 40730
+SOLUTION = '40730'
 
 def digit_factorial_sum(num):
     digits = num_to_digits(num)
@@ -38,3 +38,6 @@ def solution_01():
 
     return sum(equals)
     
+
+def solve():
+    return str(solution_01())

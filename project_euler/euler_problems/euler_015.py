@@ -2,7 +2,7 @@ from functools import reduce
 import operator
 import math
 
-SOLUTION = 137846528820
+SOLUTION = '137846528820'
 
 GRID_SIZE = 20
 
@@ -33,3 +33,7 @@ def solution_02():
     prod = reduce(operator.mul, terms)
 
     return math.ceil(prod)
+
+
+def solve():
+    return str(solution_02())

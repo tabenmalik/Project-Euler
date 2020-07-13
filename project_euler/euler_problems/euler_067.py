@@ -1,6 +1,6 @@
 import os
 
-SOLUTION = 7273
+SOLUTION = '7273'
 NUM_FILE = 'euler_067.txt'
 
 def read_number_file():
@@ -39,3 +39,7 @@ def solution_01():
     num_triangle = read_number_file()
 
     return max_path(num_triangle, 0, 0)
+
+
+def solve():
+    return str(solution_01())

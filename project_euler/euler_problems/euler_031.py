@@ -1,4 +1,4 @@
-SOLUTION = 73682
+SOLUTION = '73682'
 
 MAX_NUM = 200
 
@@ -64,3 +64,7 @@ def solution_03():
         for j in range(coin, MAX_NUM+1):
             ways[j] = ways[j] + ways[j-coin]
     return ways[MAX_NUM]
+
+
+def solve():
+    return str(solution_03())

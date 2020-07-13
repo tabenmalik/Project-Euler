@@ -2,7 +2,7 @@ import itertools
 from functools import reduce
 import operator
 
-ANSWER = 31875000
+SOLUTION = '31875000'
 
 
 def solution_01():
@@ -18,3 +18,7 @@ def solution_01():
     assert(len(triplets) == 1)
     prod = reduce(operator.mul, triplets[0])
     return prod
+
+
+def solve():
+    return str(solution_01())

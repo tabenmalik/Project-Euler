@@ -2,7 +2,7 @@ import itertools
 
 from project_euler.misc import num_to_digits, digits_to_num
 
-SOLUTION = 932718654
+SOLUTION = '932718654'
 
 def permutations(digits):
     yield digits.copy()
@@ -50,3 +50,6 @@ def solution_01():
             if contains_multiples(digits_to_num(pandigital[:i]), pandigital):
                 return digits_to_num(pandigital)
 
+
+def solve():
+    return str(solution_01())

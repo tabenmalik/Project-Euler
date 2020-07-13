@@ -5,7 +5,7 @@ import numpy as np
 
 from project_euler import misc
 
-ANSWER = 4613732
+SOLUTION = '4613732'
 
 MAX_NUM = 4_000_000
 
@@ -46,7 +46,11 @@ def solution_04():
     """
     Solution given by Project Euler
     """
-    even_fibs = list(misc.fibonacci_seq(MAX_NUM))
+    even_fibs = list(misc.even_fibonacci_seq(MAX_NUM))
     total = sum(even_fibs)
 
     return total
+
+
+def solve():
+    return str(solution_04())

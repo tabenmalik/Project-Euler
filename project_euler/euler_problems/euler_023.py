@@ -25,7 +25,7 @@ def proper_divisors(n):
 def is_abundant(n):
     return sum(proper_divisors(n)) > n
 
-def solution_01():
+def solve():
     abundant_nums = list(filter(is_abundant, range(2, MAX_NUM+1)))
     abundant_num_pairs = ((num, num2) for i, num in enumerate(abundant_nums) for num2 in abundant_nums[i:])
     
@@ -34,8 +34,4 @@ def solution_01():
     abundant_sums = sorted(list(abundant_sums))
     non_abundant_sum = sum_of_n(MAX_NUM) - sum(abundant_sums)
 
-    return non_abundant_sum
-
-
-def solve():
-    return str(solution_01())
+    return str(non_abundant_sum)

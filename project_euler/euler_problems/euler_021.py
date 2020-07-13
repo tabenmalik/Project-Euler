@@ -24,10 +24,6 @@ def is_amicable(n):
     return n == d_b and n != b
 
 
-def solution_01():
-    amicable_nums = list(filter(is_amicable, range(2, MAX_NUM)))
-    return sum(amicable_nums)
-
-
 def solve():
-    return str(solution_01())
+    amicable_nums = list(filter(is_amicable, range(2, MAX_NUM)))
+    return str(sum(amicable_nums))

@@ -24,7 +24,7 @@ def is_wrongly_canceled(numerator, denominator):
 
     return False
 
-def solution_01():
+def solve():
     fractions = [(i, j) for i in range(10, 100) for j in range(i+1, 100)]
     bad_fractions = filter(lambda x: is_wrongly_canceled(*x), fractions)
     bad_fractions = list(bad_fractions)
@@ -47,8 +47,4 @@ def solution_01():
         new_num_factors.append(1)
 
     den_prod = reduce(operator.mul, den_factors)
-    return den_prod
-    
-
-def solve():
-    return str(solution_01())
+    return str(den_prod)

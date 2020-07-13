@@ -5,12 +5,8 @@ SOLUTION = '648'
 
 MAX_NUM = 100
 
-def solution_01():
+def solve():
     product = reduce(operator.mul, range(1, MAX_NUM + 1))
     product_str = str(product)
     product_digits = list(map(int, product_str))
-    return sum(product_digits)
-
-
-def solve():
-    return str(solution_01())
+    return str(sum(product_digits))

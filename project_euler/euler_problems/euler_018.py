@@ -36,11 +36,7 @@ def max_path(num_triangle, x, y):
     return max_path_num
 
 
-def solution_01():
+def solve():
     num_triangle = read_number_file()
 
-    return max_path(num_triangle, 0, 0)
-
-
-def solve():
-    return str(solution_01())
+    return str(max_path(num_triangle, 0, 0))

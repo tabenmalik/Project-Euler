@@ -13,7 +13,7 @@ def digit_factorial_sum(num):
     return sum(digit_factorials)
 
 
-def solution_01():
+def solve():
     i = 2
     while True:
         digit_limit = i*math.factorial(9)
@@ -24,20 +24,9 @@ def solution_01():
 
     limit = digit_limit
 
-    # xs = list(range(10, limit))
-    # ys = list(map(digit_factorial_sum, xs))
-    # fig, axis = plt.subplots(figsize=(12, 8))
-    # _ = axis.plot(xs, ys)
-    # _ = axis.plot(xs, xs)
-    # fig.savefig('./figures/euler_034.png')
-
     nums = list(range(10, limit))
     fact_sums = list(map(digit_factorial_sum, nums))
     equals = list(filter(lambda x: x[0] == x[1], zip(nums, fact_sums)))
     equals = next(iter(zip(*equals)))
 
-    return sum(equals)
-    
-
-def solve():
-    return str(solution_01())
+    return str(sum(equals))

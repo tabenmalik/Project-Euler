@@ -1,4 +1,4 @@
-SOLUTION = None
+SOLUTION = ''
 
 def solve():
-    return str(None)
+    pass

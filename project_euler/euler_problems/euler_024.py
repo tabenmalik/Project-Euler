@@ -20,14 +20,10 @@ def permutations(digits):
             digits[largest_index_k+1:] = reversed(digits[largest_index_k+1:])
             yield digits.copy()
 
-def solution_01():
+def solve():
     digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     for i, p in enumerate(permutations(digits), start=1):
         if i == 1_000_000:
             break
 
     return ''.join(str(i) for i in p)
-
-
-def solve():
-    return str(solution_01())

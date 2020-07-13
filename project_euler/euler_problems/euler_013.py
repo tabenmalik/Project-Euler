@@ -3,7 +3,7 @@ import numpy as np
 
 SOLUTION = '5537376230'
 
-NUM_GRID_FILE = 'euler_012.txt'
+NUM_GRID_FILE = 'euler_013.txt'
 NUM_DIGITS = 10
 
 def read_number_file():
@@ -19,7 +19,7 @@ def read_number_file():
     return num_matrix
 
 
-def solution_01():
+def solve():
     num_matrix = read_number_file()
     
     num_strs = map(lambda arr: ''.join(str(d) for d in arr), num_matrix)
@@ -28,8 +28,4 @@ def solution_01():
 
     num_sum = sum(num_ints)
 
-    return str(num_sum)[:10]
-
-
-def solve():
-    return str(solution_01())
+    return str(str(num_sum)[:10])

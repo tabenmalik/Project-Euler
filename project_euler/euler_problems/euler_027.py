@@ -17,12 +17,14 @@ def consecutive_primes_of_quadratic(a, b):
     return consec_primes
 
 
-def solution_01():
-    coefficients = ((a, b) for a in range(-MAX_NUM+1, MAX_NUM) for b in range(-MAX_NUM, MAX_NUM+1))
-    prime_lengths = {coeff_pair: len(consecutive_primes_of_quadratic(*coeff_pair)) for coeff_pair in coefficients}
-    coeff_of_longest = max(prime_lengths, key=lambda x: prime_lengths[x])
-    return coeff_of_longest[0] * coeff_of_longest[1] 
-
-
 def solve():
-    return str(solution_01())
+    a = range(-MAX_NUM+1, MAX_NUM)
+    b = range(-MAX_NUM, MAX_NUM+1)
+    coeff_pairs = list(itertools.product(a, b))
+
+    quadratic_primes = list(itertools.starmap(consecutive_primes_of_quadratic, coeff_pairs))
+    lengths = map(len, quadratic_primes)
+    coeff_lengths = {coeff_pair:length for coeff_pair, length in zip(coeff_pairs, lengths)}
+
+    coeff_of_longest = max(coeff_lengths, key=lambda x: coeff_lengths[x])
+    return str(coeff_of_longest[0] * coeff_of_longest[1])

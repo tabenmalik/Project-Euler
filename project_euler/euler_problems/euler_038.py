@@ -42,14 +42,10 @@ def contains_multiples(num, digits):
     
     return True
 
-def solution_01():
+def solve():
     pandigitals = reversed(list(permutations([1, 2, 3, 4, 5, 6, 7, 8, 9])))
     
     for pandigital in pandigitals:
         for i in range(1, 5):
             if contains_multiples(digits_to_num(pandigital[:i]), pandigital):
-                return digits_to_num(pandigital)
-
-
-def solve():
-    return str(solution_01())
+                return str(digits_to_num(pandigital))

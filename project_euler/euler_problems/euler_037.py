@@ -21,7 +21,7 @@ def is_trucatable_prime(prime):
     return True
 
 
-def solution_01():
+def solve():
     limit = 11
 
     truncatable_primes = []
@@ -31,8 +31,4 @@ def solution_01():
             if len(truncatable_primes) == limit:
                 break
 
-    return sum(truncatable_primes)
-
-
-def solve():
-    return str(solution_01())
+    return str(sum(truncatable_primes))

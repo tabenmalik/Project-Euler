@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 
 SOLUTION = '443839'
 
-def solution_01():
+def solve():
     power = 5
 
     i = 2
@@ -25,17 +25,8 @@ def solution_01():
     digit_sums = map(sum, digit_powers)
     y_s = list(digit_sums)
 
-    # Plot to show the trend of the sequence
-    fig, axis = plt.subplots(figsize=(12, 8))
-    _ = axis.plot(x_s, y_s)
-    _ = axis.plot(x_s, x_s)
-    fig.savefig('./figures/euler_030.png')
-
+    
     x_y_pairs = zip(x_s, y_s)
     results = list(filter(lambda pair: pair[0] == pair[1], x_y_pairs))
     result = sum(next(iter(zip(*results))))
-    return result
-
-
-def solve():
-    return str(solution_01())
+    return str(result)

@@ -20,7 +20,7 @@ def read_digit_file():
     return digits
 
 
-def solution_01():
+def solve():
     digits = read_digit_file()
     num_digits = len(digits)
     
@@ -30,8 +30,4 @@ def solution_01():
         product = reduce(operator.mul, adj_digits)
         largest_product = max(product, largest_product)
 
-    return largest_product
-
-
-def solve():
-    return str(solution_01())
+    return str(largest_product)

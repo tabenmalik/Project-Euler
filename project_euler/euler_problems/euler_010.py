@@ -7,38 +7,6 @@ SOLUTION = '142913828922'
 MAX_NUM = 2_000_000
 
 
-def solution_01():
-    ps = prime_seq(under=MAX_NUM)
-
-    return sum(ps)
-
-
-def sieve_of_eratosthenes_naive(under):
-    bools = [False for i in range(0, under)]
-    bools[0] = True
-    bools[1] = True
-
-    for i in range(4, under, 2):
-        bools[i] = True
-
-    for i in range(3, math.floor(math.sqrt(under))):
-        if not bools[i]:
-            for j in range(i*i, under, 2*i):
-                bools[j] = True
-
-    primes = [i for i, status in enumerate(bools) if not status]
-
-    return primes
-
-def solution_02():
-    """
-    Solution provided by Project Euler
-    """
-    primes = sieve_of_eratosthenes_naive(MAX_NUM)
-    
-    return sum(primes)
-
-
 def sieve_of_eratosthenes_fast(under):
     sieve_len = int((under - 1) // 2) + 1 
     sieve = [False for i in range(0, sieve_len)]
@@ -57,11 +25,7 @@ def sieve_of_eratosthenes_fast(under):
     return primes 
 
 
-def solution_03():
+def solve():
     primes = sieve_of_eratosthenes_fast(MAX_NUM)
 
-    return sum(primes)
-
-
-def solve():
-    return str(solution_03())
+    return str(sum(primes))

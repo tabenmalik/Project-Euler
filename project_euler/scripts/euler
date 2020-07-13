@@ -54,16 +54,8 @@ def main():
     module = 'project_euler.euler_problems.euler_{:03d}'.format(number)
     module = importlib.import_module(module)
     
-    solver = None
-    if solution_num is None:
-        solver = get_latest_solution(module)
-    else:
-        solver = 'solution_{:02d}'.format(solution_num)
-    
-    solver = getattr(module, solver)
-    
     tstart = time.time()
-    solution = solver()
+    solution = module.solve()
     tend = time.time()
 
     LOGGER.info('Solution took {} seconds'.format(tend - tstart))

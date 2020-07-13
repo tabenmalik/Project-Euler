@@ -14,14 +14,10 @@ def cycle_digits(num):
         new_num = digits_to_num(digits)
 
 
-def solution_01():
+def solve():
     limit = 1_000_000
     primes = set(sieve_of_eratosthenes_fast(limit))
 
     num_cycles = map(lambda x: (x, set(cycle_digits(x))), primes)
     prime_cycles = filter(lambda x: x[1].issubset(primes), num_cycles)
-    return len(list(prime_cycles))
-
-
-def solve():
-    str(solution_01())
+    return str(len(list(prime_cycles)))

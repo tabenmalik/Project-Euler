@@ -7,7 +7,7 @@ GRID_SIZE = 1001
 #  10,  11,  12, *13, 14, 15, 16,  *17, 18, 19, 20, 21, 22, 23, 24, 25
 # 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40...
 
-def solution_01():
+def solve():
     up_right = (i**2 for i in range(1, GRID_SIZE+1, 2))
     up_left = ((i**2) - (i-1) for i in range(1, GRID_SIZE+1, 2))
     down_left = ((i**2) - (2*i-2) for i in range(1, GRID_SIZE+1, 2))
@@ -15,8 +15,4 @@ def solution_01():
 
     total = sum(map(sum, [up_left, up_right, down_left, down_right]))
     total -= 3 # 1 is counted multiple times
-    return total
-
-
-def solve():
-    return str(solution_01())
+    return str(total)

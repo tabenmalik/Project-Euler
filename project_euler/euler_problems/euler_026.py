@@ -44,11 +44,7 @@ def long_division(numerator, denominator):
 
     return whole, decimals, repeating_decimals
     
-def solution_01():
+def solve():
     lengths = {i: len(long_division(1, i)[2]) for i in range(2, MAX_NUM)}
     max_length = max(lengths, key=lambda k: lengths[k])
-    return max_length
-
-
-def solve():
-    return str(solution_01())
+    return str(max_length)

@@ -27,6 +27,21 @@ def prime_factors_trial_division(num):
         yield num
 
 
+def prime_factorization(n):
+    primes = sieve_of_eratosthenes_fast(n)
+    prime_divisors = list(filter(lambda x: n % x == 0, primes))
+
+    exps = []
+    for prime in prime_divisors:
+        exp = 0
+        while n % prime == 0:
+            exp += 1
+            n /= prime
+        exps.append(exp)
+
+    return prime_divisors, exps
+
+
 def prime_factors(num):
     return prime_factors_trial_division(num)
 
@@ -44,23 +59,24 @@ def divisors(n, sort=False):
 
 
 PRIME_CACHE = set()
+MAX_PRIME = 2
 
 def is_prime(num):
     """
     Returns True if the given number 
     """
     global PRIME_CACHE
-
-    if num <= 1:
-        return False
+    global MAX_PRIME
 
     if num in PRIME_CACHE:
         return True
-
-    if len(PRIME_CACHE) > 0 and num < max(PRIME_CACHE):
+    elif len(PRIME_CACHE) > 0 and num < MAX_PRIME:
         return False
-
+    elif num <= 1:
+        return False
+    
     PRIME_CACHE = set(sieve_of_eratosthenes_fast(3*num))
+    MAX_PRIME = max(PRIME_CACHE)
     return num in PRIME_CACHE
 
 

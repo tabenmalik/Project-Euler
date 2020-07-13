@@ -41,12 +41,8 @@ def num_to_english(n):
     
     return num_eng
 
-def solution_01():
+def solve():
     eng_strs = map(num_to_english, range(1, MAX_NUM+1))
     removed_spaces = (eng_str.replace(' ', '') for eng_str in eng_strs)
     str_counts = map(len, removed_spaces)
-    return sum(str_counts)
-
-
-def solve():
-    return str(solution_01())
+    return str(sum(str_counts))

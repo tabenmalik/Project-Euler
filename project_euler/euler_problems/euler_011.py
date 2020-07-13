@@ -22,7 +22,7 @@ def read_grid_file():
     return num_matrix
 
 
-def solution_01():
+def solve():
     num_matrix = read_grid_file()
     nrows = len(num_matrix)
     ncols = len(num_matrix[0])
@@ -54,8 +54,4 @@ def solution_01():
             greatest_product = max(greatest_product, product)
 
     
-    return greatest_product
-
-
-def solve():
-    return str(solution_01())
+    return str(greatest_product)

@@ -9,7 +9,7 @@ def is_palindrome(string):
 def to_bin_str(num):
     return bin(num)[2:]
 
-def solution_01():
+def solve():
     limit = 1_000_000
 
     num_to_bin_strs = [(str(i), to_bin_str(i)) for i in range(limit)]
@@ -17,8 +17,4 @@ def solution_01():
     ints = next(iter(zip(*double_palindromes)))
     ints = map(int, ints)
 
-    return sum(ints)
-
-
-def solve():
-    return str(solution_01())
+    return str(sum(ints))

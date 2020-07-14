@@ -196,3 +196,24 @@ def num_to_digits(num):
 
 def digits_to_num(digits):
     return int(''.join(str(i) for i in digits))
+
+
+def permutations_seq(digits):
+    yield digits.copy()
+
+    largest_index_k = 0
+    while largest_index_k != -1:
+        largest_index_k = -1
+        for i in range(len(digits) - 1):
+            if digits[i] < digits[i+1]:
+                largest_index_k = i
+
+        if largest_index_k != -1:
+            largest_index_l = 0
+            for l in range(largest_index_k+1, len(digits)):
+                if digits[largest_index_k] < digits[l]:
+                    largest_index_l = l
+            
+            digits[largest_index_k], digits[largest_index_l] = digits[largest_index_l], digits[largest_index_k]
+            digits[largest_index_k+1:] = reversed(digits[largest_index_k+1:])
+            yield digits.copy()

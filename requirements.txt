@@ -6,3 +6,4 @@ matplotlib
 bokeh
 pytest
 pytest-timeout
+pytest-xdist

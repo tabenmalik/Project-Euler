@@ -1,6 +1,6 @@
 import math
 
-from project_euler.misc import prime_seq
+from project_euler.sequences import prime_seq
 
 SOLUTION = '142913828922'
 

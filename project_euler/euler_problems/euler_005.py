@@ -1,13 +1,13 @@
 import math
 
-from project_euler import misc
+from project_euler.sequences import prime_seq
 
 SOLUTION = '232792560'
 
 MAX_NUM = 20
 
 def solve():
-    primes = list(misc.prime_seq(under=MAX_NUM+1))
+    primes = list(prime_seq(under=MAX_NUM+1))
     product = 1
     for prime in primes:
         exp = 1

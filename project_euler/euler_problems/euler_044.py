@@ -1,24 +1,7 @@
-import math
-import itertools
+from project_euler.integer import pentagonal, is_pentagonal
 
 SOLUTION = '5482660'
 
-
-def pentagonal(n):
-    return (n * ((3 * n) - 1)) // 2
-
-
-def is_pentagonal(p):
-    if p <= 0:
-        return False
-
-    n1 = (0.5 + math.sqrt(0.25 + (6*p))) / 3
-    n2 = (0.5 - math.sqrt(0.25 + (6*p))) / 3
-    
-    result = n1 > 0 and pentagonal(int(n1)) == p
-    result |= n2 > 0 and pentagonal(int(n2)) == p
-
-    return result
 
 def pentagonal_seq(under=None):
     n = 1

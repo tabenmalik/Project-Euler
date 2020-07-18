@@ -1,4 +1,6 @@
-from project_euler.misc import prime_seq, num_to_digits, digits_to_num, is_prime, sieve_of_eratosthenes_fast
+from project_euler.misc import num_to_digits, digits_to_num, sieve_of_eratosthenes_fast
+from project_euler.misc import is_prime
+from project_euler.sequences import prime_seq
 
 SOLUTION = '748317'
 

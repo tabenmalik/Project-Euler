@@ -1,6 +1,6 @@
 import itertools
 
-from project_euler.misc import prime_seq
+from project_euler.sequences import prime_seq
 
 SOLUTION = '104743'
 

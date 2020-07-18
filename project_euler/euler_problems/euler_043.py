@@ -1,4 +1,4 @@
-from project_euler.misc import permutations_seq
+from project_euler.sequences import permutations_seq
 from project_euler.misc import digits_to_num, num_to_digits
 
 SOLUTION = '16695334890'

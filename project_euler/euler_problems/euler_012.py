@@ -1,4 +1,5 @@
-from project_euler.misc import sum_of_n, divisors
+from project_euler.misc import divisors
+from project_euler.integer import sum_of_n
 
 SOLUTION = '76576500'
 

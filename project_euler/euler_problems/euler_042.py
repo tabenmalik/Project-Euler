@@ -1,6 +1,6 @@
 import os
 
-from project_euler.misc import sum_of_n
+from project_euler.integer import sum_of_n
 
 SOLUTION = '162'
 

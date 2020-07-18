@@ -1,4 +1,4 @@
-from project_euler.misc import fibonacci_seq
+from project_euler.sequences import fibonacci_seq
 
 SOLUTION = '4782'
 

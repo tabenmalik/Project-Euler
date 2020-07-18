@@ -1,7 +1,7 @@
 import math
 import itertools
 
-from project_euler.misc import sum_of_n
+from project_euler.integer import sum_of_n
 
 SOLUTION = '4179871'
 

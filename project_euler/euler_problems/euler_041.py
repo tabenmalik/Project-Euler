@@ -1,4 +1,4 @@
-from project_euler.misc import permutations_seq
+from project_euler.sequences import permutations_seq
 from project_euler.misc import digits_to_num
 from project_euler.misc import prime_factors
 

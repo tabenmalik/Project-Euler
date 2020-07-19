@@ -1,5 +1,5 @@
 from project_euler.misc import num_to_digits, digits_to_num
-SOLUTION = None
+SOLUTION = '9110846700'
 
 
 def solve():

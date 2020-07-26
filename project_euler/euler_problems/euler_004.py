@@ -1,15 +1,11 @@
 import itertools
 import operator
 
+from project_euler.integer import is_palindrome
+
 SOLUTION = '906609'
 
 NUM_DIGITS = 3
-
-
-def is_palindrome(num):
-    num_str = str(num)
-    reverse_str = num_str[::-1]
-    return num_str == reverse_str
 
 
 def solve():

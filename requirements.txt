@@ -7,3 +7,4 @@ bokeh
 pytest
 pytest-timeout
 pytest-xdist
+line_profiler

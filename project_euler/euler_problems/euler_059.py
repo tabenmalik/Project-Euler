@@ -34,4 +34,4 @@ def solve():
     for password in passwords:
         message = decrypt(nums, password)
         if ' the ' in message:
-            return sum(map(ord, message))
+            return str(sum(map(ord, message)))

@@ -1,4 +1,4 @@
-from project_euler.misc import is_prime
+from project_euler.misc import is_prime, divisors
 
 def permutations_seq(digits):
     yield digits.copy()
@@ -33,7 +33,7 @@ def prime_seq(under=None):
         if under is not None and i >= under:
             break
         
-        if is_prime(i):
+        if len(divisors(i)) == 2:
             yield i
         i += 2
 

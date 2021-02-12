@@ -1,6 +1,11 @@
+"""
+"""
+
 import math
 
 def is_palindrome(num):
+    """
+    """
     num_str = str(num)
     reverse_str = num_str[::-1]
     return num_str == reverse_str

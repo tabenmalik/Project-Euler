@@ -21,18 +21,15 @@ def permutations_seq(digits):
             yield digits.copy()
 
 
-def prime_seq(under=None):
+def prime_seq():
     """
-    A generator of prime numbers
+    Prime numbers sequence.
+    OEIS A000040
     """
-    if under is None or 2 < under:
-        yield 2
+    yield 2
 
     i = 3
     while True:
-        if under is not None and i >= under:
-            break
-
         if len(divisors(i)) == 2:
             yield i
         i += 2

@@ -2,82 +2,116 @@
 import math
 
 
-def is_palindrome(num):
-    """Returns True if the number is a palindrome.
-    A palidrome is a sequence that is reversible.
-    e.g. 11211
-    e.g. 329923
-    TODO: reference
+def is_palindrome(n):
     """
-    num_str = str(num)
+    Returns True if the number is a palindrome.
+    A palidrome integer is an integer where the sequence of digits in reverse
+    is equal the same integers.
+
+    Examples:
+        11211
+        329923
+    """
+    num_str = str(n)
     reverse_str = num_str[::-1]
     return num_str == reverse_str
 
 
-def trigonal(num):
-    """The trigonal function
-    TODO: reference"""
-    return sum_of_n(num)
+def trigonal(n):
+    """
+    Computes the nth trigonal number.
+    A trigonal number is number of objects that can be arranged into an
+    equilateral triangle.
+
+    Examples:
+        0, 1, 3, 6, 10, 15, ...
+    """
+    return math.comb(n + 1, 2)
 
 
-def is_trigonal(num):
-    """Returns True if the number is trigonal
-    TODO: reference"""
-    n_1 = -0.5 + math.sqrt(0.25 + (2 * num))
-    n_2 = -0.5 - math.sqrt(0.25 + (2 * num))
+def is_trigonal(n):
+    """
+    True if the number is trigonal
+    See trigonal() for a definition of a trigonal number.
+    """
+    n_1 = -0.5 + math.sqrt(0.25 + (2 * n))
+    n_2 = -0.5 - math.sqrt(0.25 + (2 * n))
 
-    result = n_1 > 0 and trigonal(int(n_1)) == num
-    result |= n_2 > 0 and trigonal(int(n_2)) == num
+    result = n_1 > 0 and trigonal(int(n_1)) == n
+    result |= n_2 > 0 and trigonal(int(n_2)) == n
 
     return result
 
 
-def pentagonal(num):
-    """The pentagonal function.
-    TODO: reference"""
-    return (num * ((3 * num) - 1)) // 2
+def pentagonal(n):
+    """
+    Computes the nth pentagonal number.
+    Similar to a trigonal number, but instead is about the number for the outline
+    of a pentagon, not the area.
+
+    Examples:
+        1, 5, 12, 22, 35, 51, ...
+    """
+    return (n * ((3 * n) - 1)) // 2
 
 
-def is_pentagonal(num):
-    """Returns True if the number is pentagonal.
-    TODO: reference"""
-    if num <= 0:
+def is_pentagonal(n):
+    """
+    True if the number is pentagonal.
+    See pentagonal() for a definition of a pentagonal number.
+    """
+    if n <= 0:
         return False
 
-    n_1 = (0.5 + math.sqrt(0.25 + (6 * num))) / 3
-    n_2 = (0.5 - math.sqrt(0.25 + (6 * num))) / 3
+    n_1 = (0.5 + math.sqrt(0.25 + (6 * n))) / 3
+    n_2 = (0.5 - math.sqrt(0.25 + (6 * n))) / 3
 
-    result = n_1 > 0 and pentagonal(int(n_1)) == num
-    result |= n_2 > 0 and pentagonal(int(n_2)) == num
+    result = n_1 > 0 and pentagonal(int(n_1)) == n
+    result |= n_2 > 0 and pentagonal(int(n_2)) == n
 
     return result
 
 
-def hexagonal(num):
-    """The hexagonal function
-    TODO: reference"""
-    return num * ((2 * num) - 1)
+def hexagonal(n):
+    """
+    Computes the n_th hexagonal number.
+    Similar to a pentagonal number but for the shape of a hexagon.
+
+    Examples:
+        1, 6, 15, 28, 45, 66, ...
+    """
+    return n * ((2 * n) - 1)
 
 
-def is_hexagonal(num):
-    """Returns True if the number is hexagonal
-    TODO: reference"""
-    if num <= 0:
+def is_hexagonal(n):
+    """
+    True if the number is hexagonal.
+    See hexagonal() for the definition of a hexagonal number.
+    """
+    if n <= 0:
         return False
 
-    n_2 = 0.25 * (1 + math.sqrt(1 + (8 * num)))
-    n_2 = 0.25 * (1 - math.sqrt(1 + (8 * num)))
+    n_2 = 0.25 * (1 + math.sqrt(1 + (8 * n)))
+    n_2 = 0.25 * (1 - math.sqrt(1 + (8 * n)))
 
-    result = n_2 > 0 and hexagonal(int(n_2)) == num
-    result |= n_2 > 0 and hexagonal(int(n_2)) == num
+    result = n_2 > 0 and hexagonal(int(n_2)) == n
+    result |= n_2 > 0 and hexagonal(int(n_2)) == n
 
     return result
 
 
-def sum_of_n(num):
-    """Returns the sum of all positive integers up to num
-    TODO: reference"""
-    return int((num * (num + 1)) / 2)
+def sum_of_1_to_n(n):
+    """
+    Computes sum of all positive integers up to and including n
+    """
+    return (n * (n + 1)) // 2
+
+
+def sum_of_a_to_n(a, n):
+    """
+    Computes sum of all positive integers from a to n, including a and n.
+    """
+    return sum_of_1_to_n(n) - sum_of_1_to_n(a-1)
 
 
 def sum_of_sqrs(num):

@@ -15,6 +15,12 @@ test-units:
 	pytest -v -n 4 --ignore tests/test_euler_solutions.py
 
 
+# Run linter
+.PHONY: lint
+lint:
+	pylint --rcfile .pylintrc project_euler tests
+
+
 # Clean up ignored files
 .PHONY: clean
 clean:

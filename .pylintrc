@@ -447,13 +447,21 @@ function-naming-style=snake_case
 #function-rgx=
 
 # Good variable names which should always be accepted, separated by a comma.
+# Given that this project is based on math problems, many single letter variables are allowed
 good-names=i,
            j,
            k,
            ex,
            Run,
            _,
-           n
+           n,
+           a,
+           b,
+           x,
+           g,
+           s,
+           r,
+           c
 
 # Good variable names regexes, separated by a comma. If names match any regex,
 # they will always be accepted

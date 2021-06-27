@@ -15,7 +15,7 @@ def permutations_seq(digits):
             for l in range(largest_index_k+1, len(digits)):
                 if digits[largest_index_k] < digits[l]:
                     largest_index_l = l
-            
+
             digits[largest_index_k], digits[largest_index_l] = digits[largest_index_l], digits[largest_index_k]
             digits[largest_index_k+1:] = reversed(digits[largest_index_k+1:])
             yield digits.copy()
@@ -32,7 +32,7 @@ def prime_seq(under=None):
     while True:
         if under is not None and i >= under:
             break
-        
+
         if len(divisors(i)) == 2:
             yield i
         i += 2
@@ -47,38 +47,35 @@ def fibonacci_seq(under=None):
 
     if under is None or fib_1 < under:
         yield fib_1
-    
+
     if under is None or fib_2 < under:
         yield fib_2
 
     fib_new = fib_2 + fib_1
     while under is None or fib_new < under:
         yield fib_new
-        
+
         fib_1 = fib_2
-        fib_2 = fib_new 
+        fib_2 = fib_new
 
         fib_new = fib_2 + fib_1
 
 
-def even_fibonacci_seq(under=None):
+def even_fibonacci_seq():
     """
     A generator of even fibonacci numbers
     """
     fib_1 = 2
     fib_2 = 8
 
-    if under is None or fib_1 < under:
-        yield fib_1
-    
-    if under is None or fib_2 < under:
-        yield fib_2
+    yield fib_1
+    yield fib_2
 
     fib_new = 4*fib_2 + fib_1
-    while under is None or fib_new < under:
+    while True:
         yield fib_new
-        
+
         fib_1 = fib_2
-        fib_2 = fib_new 
+        fib_2 = fib_new
 
         fib_new = 4*fib_2 + fib_1

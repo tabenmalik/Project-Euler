@@ -1,13 +1,13 @@
 import os
 
-from project_euler.integer import sum_of_n
+from project_euler.integer import sum_of_1_to_n
 
 SOLUTION = '162'
 
 def triangle_num_seq(under=None):
     n = 1
     while True:
-        yield sum_of_n(n)
+        yield sum_of_1_to_n(n)
         n += 1
         if under is not None and n >= under:
             break
@@ -15,7 +15,7 @@ def triangle_num_seq(under=None):
 
 def read_file():
     this_dir, _ = os.path.split(__file__)
-    
+
     words = []
     with open(os.path.join(this_dir, 'euler_042.txt')) as fhdl:
         line = fhdl.read()
@@ -36,10 +36,10 @@ def word_value(word):
 
 def solve():
     words = read_file()
-    
+
     word_values = list(map(word_value, words))
     max_word_value = max(word_values)
-    
+
     triangle_number_set = set(triangle_num_seq(under=max_word_value+1))
 
     triangle_word_values = list(filter(lambda x: x in triangle_number_set, word_values))

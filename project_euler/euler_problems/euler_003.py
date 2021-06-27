@@ -13,7 +13,7 @@ NUM = 600_851_475_143
 
 
 def solve():
-    """Solves Project Euler problem 002"""
+    """Solves Project Euler problem 003"""
     prime_factors = prime_factors_of_n(NUM)
     max_prime_factor = max(prime_factors)
     return str(max_prime_factor)

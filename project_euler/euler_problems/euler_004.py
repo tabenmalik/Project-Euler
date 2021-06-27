@@ -1,5 +1,13 @@
+"""
+Project Euler problem 004: https://projecteuler.net/problem=4
+
+A palindromic number reads the same both ways.
+The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+Find the largest palindrome made from the product of two 3-digit numbers.
+"""
 import itertools
-import operator
+from operator import mul
 
 from project_euler.integer import is_palindrome
 
@@ -9,15 +17,12 @@ NUM_DIGITS = 3
 
 
 def solve():
-    num_low = 10 ** (NUM_DIGITS - 1)
-    num_high = 10 ** NUM_DIGITS
-    a = list(range(num_low, num_high))
-    b = a.copy()
-
-    pairs = itertools.product(a, b)
-    products = map(lambda x: operator.mul(*x), pairs)
-    products = set(products)
+    """Solves Project Euler problem 004"""
+    start = 10 ** (NUM_DIGITS - 1)
+    stop = 10 ** NUM_DIGITS
+    pairs = itertools.combinations(range(start, stop), 2)
+    products = itertools.starmap(mul, pairs)
     palindromes = filter(is_palindrome, products)
     largest_palindrome = max(palindromes)
-    
+
     return str(largest_palindrome)

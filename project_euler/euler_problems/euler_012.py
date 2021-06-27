@@ -1,5 +1,5 @@
 from project_euler.misc import divisors
-from project_euler.integer import sum_of_n
+from project_euler.integer import sum_of_1_to_n
 
 SOLUTION = '76576500'
 
@@ -9,7 +9,7 @@ NUM_DIVISORS = 500
 def triangle_num_seq():
     n = 1
     while True:
-        yield sum_of_n(n)
+        yield sum_of_1_to_n(n)
         n += 1
 
 
@@ -20,5 +20,5 @@ def solve():
         num_divisors = len(divisors(triangle_num))
         if num_divisors > NUM_DIVISORS:
             break
-    
+
     return str(triangle_num)

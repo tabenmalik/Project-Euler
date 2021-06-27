@@ -1,31 +1,5 @@
 import math
 
-def prime_factors_trial_division_naive(num):
-    factor = 2
-
-    while num > 1:
-        if num % factor == 0:
-            yield factor
-            num //= factor
-        else:
-            factor += 1
-
-def prime_factors_trial_division(num):
-    while num % 2 == 0:
-        yield 2
-        num //= 2
-    
-    factor = 3
-    while factor * factor <= num:
-        if num % factor == 0:
-            yield factor
-            num //= factor
-        else:
-            factor += 2
-
-    if num != 1:
-        yield num
-
 
 def prime_factorization(n):
     primes = sieve_of_eratosthenes_fast(n)
@@ -42,8 +16,8 @@ def prime_factorization(n):
     return prime_divisors, exps
 
 
-def prime_factors(num):
-    return prime_factors_trial_division(num)
+# def prime_factors(num):
+#     return prime_factors_trial_division(num)
 
 
 def divisors(n, sort=False):
@@ -51,10 +25,10 @@ def divisors(n, sort=False):
     for i in range(2, int(math.sqrt(n))+1):
         if n % i == 0:
             divisors.extend([i, int(n / i)])
-    
+
     if sort:
         divisors = sorted(divisors)
-        
+
     return tuple(divisors)
 
 
@@ -63,7 +37,7 @@ MAX_PRIME = 2
 
 def is_prime(num):
     """
-    Returns True if the given number 
+    Returns True if the given number
     """
     global PRIME_CACHE
     global MAX_PRIME
@@ -74,14 +48,14 @@ def is_prime(num):
         return False
     elif num <= 1:
         return False
-    
+
     PRIME_CACHE = set(sieve_of_eratosthenes_fast(3*num))
     MAX_PRIME = max(PRIME_CACHE)
     return num in PRIME_CACHE
 
 
 def sieve_of_eratosthenes_fast(under):
-    sieve_len = int((under - 1) // 2) + 1 
+    sieve_len = int((under - 1) // 2) + 1
     sieve = [False for i in range(0, sieve_len)]
 
     check_limit = (math.floor(math.sqrt(under)) - 1) // 2
@@ -95,7 +69,7 @@ def sieve_of_eratosthenes_fast(under):
     primes = [2]
     primes.extend([(2*i) + 1 for i in range(1, sieve_len) if not sieve[i]])
 
-    return primes 
+    return primes
 
 def sieve_of_eratosthenes_naive(under):
     bools = [False for i in range(0, under)]

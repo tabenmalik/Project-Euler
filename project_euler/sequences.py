@@ -63,7 +63,8 @@ def fibonacci_seq(under=None):
 
 def even_fibonacci_seq():
     """
-    A generator of even fibonacci numbers
+    Even fibonacci number sequence.
+    OEIS A022342
     """
     fib_1 = 2
     fib_2 = 8
@@ -71,11 +72,11 @@ def even_fibonacci_seq():
     yield fib_1
     yield fib_2
 
-    fib_new = 4*fib_2 + fib_1
+    fib_new = (4 * fib_2) + fib_1
     while True:
         yield fib_new
 
         fib_1 = fib_2
         fib_2 = fib_new
 
-        fib_new = 4*fib_2 + fib_1
+        fib_new = (4 * fib_2) + fib_1

@@ -124,3 +124,43 @@ def sum_of_cubes(num):
     """TODO: what does this do?
     TODO: reference"""
     return int(((num * num) * (num + 1) * (num + 1)) / 4)
+
+
+def prime_factors_of_n(n, method='trial_division'):
+    """Prime factors of n."""
+    methods = {
+        'trial_division': prime_factors_trial_division,
+        'trial_division_naive': prime_factors_trial_division_naive,
+    }
+
+    return methods[method](n)
+
+
+def prime_factors_trial_division_naive(num):
+    """Prime factors of n using naive trial divison."""
+    factor = 2
+
+    while num > 1:
+        if num % factor == 0:
+            yield factor
+            num //= factor
+        else:
+            factor += 1
+
+
+def prime_factors_trial_division(num):
+    """Prime factors of n using efficient trial division."""
+    while num % 2 == 0:
+        yield 2
+        num //= 2
+
+    factor = 3
+    while factor * factor <= num:
+        if num % factor == 0:
+            yield factor
+            num //= factor
+        else:
+            factor += 2
+
+    if num != 1:
+        yield num

@@ -291,3 +291,12 @@ def nth_combination(iterable, r, index):
             c, n = c*(n-r)//n, n-1
         result.append(pool[-1-n])
     return tuple(result)
+
+
+def rolling(iterable, func, window_size=1):
+    """Applies a function over a rolling window of the iterable elements"""
+    window = collections.deque(take(window_size-1, iterable), maxlen=window_size)
+
+    for x in iterable:
+        window.append(x)
+        yield func(*window)

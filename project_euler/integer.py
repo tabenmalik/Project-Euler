@@ -1,5 +1,7 @@
 """Functions for testing or manipulating properties of integers"""
+from functools import reduce
 import math
+import operator
 
 
 def is_palindrome(n):
@@ -164,3 +166,17 @@ def prime_factors_trial_division(num):
 
     if num != 1:
         yield num
+
+
+def digits_of_n(n):
+    """Splits the number into a sequence of digits."""
+    return map(int, str(n))
+
+
+def product(*args):
+    """Returns the product of all arguments."""
+    return reduce(operator.mul, args, 1)
+
+def product_of_iter(iterable):
+    """Returns the product of all elements in the iterable."""
+    return product(*iterable)

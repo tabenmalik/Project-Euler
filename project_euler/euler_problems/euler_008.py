@@ -1,5 +1,5 @@
 """
-Project Euler problem 006: https://projecteuler.net/problem=8
+Project Euler problem 008: https://projecteuler.net/problem=8
 
 The four adjacent digits in the 1000-digit number that have the g
 reatest product are 9 × 9 × 8 × 9 = 5832.

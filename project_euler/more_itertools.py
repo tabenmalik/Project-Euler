@@ -300,3 +300,8 @@ def rolling(iterable, func, window_size=1):
     for x in iterable:
         window.append(x)
         yield func(*window)
+
+def arg_expander(func):
+    def _funkier(iterable):
+        return func(*iterable)
+    return _funkier

@@ -5,9 +5,9 @@ name = "pypi"
 
 [packages]
 more-itertools = "*"
-pylint = "*"
 
 [dev-packages]
+pylint = "*"
 
 [requires]
 python_version = "3.9"

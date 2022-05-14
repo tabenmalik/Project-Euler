@@ -19,4 +19,4 @@ RUN apt-get update \
 ENV SHELL=/bin/bash
 WORKDIR /project-euler
 
-CMD ["pipenv", "shell"]
+CMD ["bash"]

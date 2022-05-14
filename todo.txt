@@ -1,0 +1,7 @@
+* Make `more_itertools` a dependency
+* Use sphinx to generate some documentation of functions
+* Better comments on all functions
+* Go back through solved problems and clean them up
+* Unit tests?
+* acceptance tests?
+* Move to pipfile instead of requirements.txt

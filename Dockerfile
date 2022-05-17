@@ -16,7 +16,13 @@ RUN apt-get update \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
+
 ENV SHELL=/bin/bash
 WORKDIR /project-euler
 
-CMD ["bash"]
+COPY ./Pipfile /project-euler/Pipfile
+
+RUN cd /project-euler \
+    && pipenv update
+
+CMD ["pyenv" "shell"]

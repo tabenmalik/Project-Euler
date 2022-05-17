@@ -4,3 +4,5 @@
 * Unit tests?
 * acceptance tests?
 * Change setup.py to setup.cfg
+* Add line profiling output to script
+* Add memory profiling output to script

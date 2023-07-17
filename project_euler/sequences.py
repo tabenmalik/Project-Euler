@@ -1,8 +1,10 @@
-from project_euler.misc import is_prime, divisors
 from collections import abc
+import math
+
+from project_euler.misc import divisors
 
 
-class Triagonals(abc.Iterable, abc.Container):
+class Triangulars(abc.Iterable, abc.Container):
     """
     Computes the nth trigonal number.
     A trigonal number is number of objects that can be arranged into an
@@ -30,6 +32,9 @@ class Triagonals(abc.Iterable, abc.Container):
             if n.stop is None:
                 raise ValueError("")
             return tuple(self[i] for i in range(n.start or 0, n.stop, n.step or 1))
+        
+        if n < 0:
+            raise IndexError
 
         return math.comb(n + 1, 2)
 
@@ -75,12 +80,15 @@ class Pentagonals:
         if isinstance(n, slice):
             if n.stop is None:
                 raise ValueError("")
-            return tuple(self[i] for i in range(n.start or 0, n.stop, n.step or 1)
+            return tuple(self[i] for i in range(n.start or 0, n.stop, n.step or 1))
+
+        if n < 0:
+            raise IndexError
 
         return (n * ((3 * n) - 1)) // 2
 
     def index(self, value):
-        if value <= 0:
+        if value < 0:
             raise ValueError
 
         n_1 = (0.5 + math.sqrt(0.25 + (6 * value))) / 3

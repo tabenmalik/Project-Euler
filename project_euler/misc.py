@@ -89,5 +89,3 @@ def sieve_of_eratosthenes_naive(under):
     return primes
 
 
-def digits_to_num(digits):
-    return int(''.join(str(i) for i in digits))

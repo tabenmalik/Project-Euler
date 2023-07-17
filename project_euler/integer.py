@@ -4,7 +4,23 @@ import math
 import operator
 
 
-def is_palindrome(n):
+def concat(ints):
+    """
+    Combine several single digit numbers into a single number.
+
+    Example:
+    intjoin([1, 2, 3, 4, 5]) -> 12345
+    """
+    return int(''.join(str(i) for i in ints))
+
+
+def split(x):
+    """
+    """
+    return map(int, str(x))
+
+
+def is_palindrome(x):
     """
     Returns True if the number is a palindrome.
     A palidrome integer is an integer where the sequence of digits in reverse
@@ -14,92 +30,8 @@ def is_palindrome(n):
         11211
         329923
     """
-    num_str = str(n)
-    reverse_str = num_str[::-1]
-    return num_str == reverse_str
-
-
-def trigonal(n):
-    """
-    Computes the nth trigonal number.
-    A trigonal number is number of objects that can be arranged into an
-    equilateral triangle.
-
-    Examples:
-        0, 1, 3, 6, 10, 15, ...
-    """
-    return math.comb(n + 1, 2)
-
-
-def is_trigonal(n):
-    """
-    True if the number is trigonal
-    See trigonal() for a definition of a trigonal number.
-    """
-    n_1 = -0.5 + math.sqrt(0.25 + (2 * n))
-    n_2 = -0.5 - math.sqrt(0.25 + (2 * n))
-
-    result = n_1 > 0 and trigonal(int(n_1)) == n
-    result |= n_2 > 0 and trigonal(int(n_2)) == n
-
-    return result
-
-
-def pentagonal(n):
-    """
-    Computes the nth pentagonal number.
-    Similar to a trigonal number, but instead is about the number for the outline
-    of a pentagon, not the area.
-
-    Examples:
-        1, 5, 12, 22, 35, 51, ...
-    """
-    return (n * ((3 * n) - 1)) // 2
-
-
-def is_pentagonal(n):
-    """
-    True if the number is pentagonal.
-    See pentagonal() for a definition of a pentagonal number.
-    """
-    if n <= 0:
-        return False
-
-    n_1 = (0.5 + math.sqrt(0.25 + (6 * n))) / 3
-    n_2 = (0.5 - math.sqrt(0.25 + (6 * n))) / 3
-
-    result = n_1 > 0 and pentagonal(int(n_1)) == n
-    result |= n_2 > 0 and pentagonal(int(n_2)) == n
-
-    return result
-
-
-def hexagonal(n):
-    """
-    Computes the n_th hexagonal number.
-    Similar to a pentagonal number but for the shape of a hexagon.
-
-    Examples:
-        1, 6, 15, 28, 45, 66, ...
-    """
-    return n * ((2 * n) - 1)
-
-
-def is_hexagonal(n):
-    """
-    True if the number is hexagonal.
-    See hexagonal() for the definition of a hexagonal number.
-    """
-    if n <= 0:
-        return False
-
-    n_2 = 0.25 * (1 + math.sqrt(1 + (8 * n)))
-    n_2 = 0.25 * (1 - math.sqrt(1 + (8 * n)))
-
-    result = n_2 > 0 and hexagonal(int(n_2)) == n
-    result |= n_2 > 0 and hexagonal(int(n_2)) == n
-
-    return result
+    s = str(x)
+    return s == reversed(s)
 
 
 def sum_of_1_to_n(n):
@@ -168,14 +100,10 @@ def prime_factors_trial_division(num):
         yield num
 
 
-def digits_of_n(n):
-    """Splits the number into a sequence of digits."""
-    return map(int, str(n))
-
-
 def product(*args):
     """Returns the product of all arguments."""
     return reduce(operator.mul, args, 1)
+
 
 def product_of_iter(iterable):
     """Returns the product of all elements in the iterable."""

@@ -1,7 +1,7 @@
-from project_euler.misc import num_to_digits
+from project_euler.integer import split
 from itertools import takewhile, product
 
-SOLUTION = ''
+SOLUTION = '28684'
 
 def triangonal(n):
     return (n * (n + 1)) // 2
@@ -30,10 +30,10 @@ def infrange(start=0, step=1):
 
 def get_4_digit_ns_from_seq(func):
     def _under_5_digits(n):
-        return len(num_to_digits(n)) < 5
+        return len(split(n)) < 5
 
     def _only_4_digits(n):
-        return len(num_to_digits(n)) == 4
+        return len(split(n)) == 4
 
     fns = map(func, infrange(1))
     fns = takewhile(_under_5_digits, fns)
@@ -48,9 +48,9 @@ def is_cycle(nums, full):
     nums.remove(nums[0])
 
     while len(nums) != 0:
-        last_digits = num_to_digits(sorted_cycle[-1])[-2:]
+        last_digits = split(sorted_cycle[-1])[-2:]
         for num in nums:
-            beginning_digits = num_to_digits(num)[:2]
+            beginning_digits = split(num)[:2]
             if last_digits == beginning_digits:
                 sorted_cycle.append(num)
                 nums.remove(num)
@@ -59,8 +59,8 @@ def is_cycle(nums, full):
             return False
     
     if full:
-        beginning_digits = num_to_digits(sorted_cycle[0])[:2]
-        last_digits = num_to_digits(sorted_cycle[-1])[-2:]
+        beginning_digits = split(sorted_cycle[0])[:2]
+        last_digits = split(sorted_cycle[-1])[-2:]
         return beginning_digits == last_digits
     else:
         return True

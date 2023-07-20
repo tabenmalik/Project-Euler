@@ -1,13 +1,15 @@
-from project_euler.integer import hexagonal
-from project_euler.integer import is_pentagonal
-from project_euler.integer import is_trigonal
+from project_euler.sequences import Hexagonals, Pentagonals, Triangulars
 
 SOLUTION = '1533776805'
 
 def solve():
     n = 144
+    hexagonals = Hexagonals()
+    pentagonals = Pentagonals()
+    triangulars = Triangulars()
+
     while True:
-        h = hexagonal(n)
-        if is_pentagonal(h) and is_trigonal(h):
+        h = hexagonals[n]
+        if hexagonals[n] in pentagonals and h in triangulars:
             return str(h)
         n += 1

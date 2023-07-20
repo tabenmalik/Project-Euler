@@ -1,7 +1,7 @@
 import itertools
 
+from project_euler.integer import concat, split
 from project_euler.misc import sieve_of_eratosthenes_fast
-from project_euler.misc import num_to_digits, digits_to_num
 
 SOLUTION = '296962999629'
 
@@ -19,7 +19,7 @@ def solve():
     primes = list(filter(lambda x: x >= 1000, primes))
 
     prime_pairs = [[p1, p2] for i, p1 in enumerate(primes) for p2 in primes[i+1:]]
-    prime_pairs = filter(lambda x: sorted(num_to_digits(x[0])) == sorted(num_to_digits(x[1])), prime_pairs)
+    prime_pairs = filter(lambda x: sorted(split(x[0])) == sorted(split(x[1])), prime_pairs)
     prime_pairs = list(prime_pairs)
     
     chains = prime_pairs.copy()
@@ -32,6 +32,6 @@ def solve():
     chains = list(chains)
 
     result_nums = chains[1]
-    result_nums = list(map(num_to_digits, result_nums))
+    result_nums = list(map(split, result_nums))
     result = [i for a in result_nums for i in a]
-    return str(digits_to_num(result))
+    return str(concat(result))

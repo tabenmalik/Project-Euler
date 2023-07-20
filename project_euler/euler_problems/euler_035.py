@@ -1,17 +1,18 @@
-from project_euler.misc import sieve_of_eratosthenes_fast, num_to_digits, digits_to_num, is_prime
+from project_euler.integer import split, concat
+from project_euler.misc import sieve_of_eratosthenes_fast, is_prime
 
 SOLUTION = '55'
 
 def cycle_digits(num):
     yield num
 
-    digits = num_to_digits(num)
+    digits = list(split(num))
     digits = digits[1:] + digits[:1]
-    new_num = digits_to_num(digits)
+    new_num = concat(digits)
     while new_num != num:
         yield new_num
         digits = digits[1:] + digits[:1]
-        new_num = digits_to_num(digits)
+        new_num = concat(digits)
 
 
 def solve():

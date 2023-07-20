@@ -1,5 +1,5 @@
 from itertools import takewhile, combinations, groupby
-from project_euler.misc import num_to_digits
+from project_euler.integer import split
 
 SOLUTION = '127035954683'
 
@@ -27,10 +27,10 @@ def solve():
 
         nums = positive_integers_seq(start=start)
         nums = map(cube, nums)
-        nums = takewhile(lambda x: len(num_to_digits(x)) == num_digits, nums)
+        nums = takewhile(lambda x: len(split(x)) == num_digits, nums)
         nums = list(nums)
 
-        digit_sets = map(num_to_digits, nums)
+        digit_sets = map(split, nums)
         digit_sets = map(sorted, digit_sets)
         digit_sets = map(tuple, digit_sets)
 

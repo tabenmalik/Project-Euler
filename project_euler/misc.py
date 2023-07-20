@@ -1,5 +1,7 @@
 import math
 
+from project_euler.integer import prime_factors_trial_division
+
 
 def prime_factorization(n):
     primes = sieve_of_eratosthenes_fast(n)
@@ -16,8 +18,8 @@ def prime_factorization(n):
     return prime_divisors, exps
 
 
-# def prime_factors(num):
-#     return prime_factors_trial_division(num)
+def prime_factors(num):
+    return prime_factors_trial_division(num)
 
 
 def divisors(n, sort=False):

@@ -1,4 +1,4 @@
-from project_euler.misc import num_to_digits
+from project_euler.integer import split
 
 SOLUTION = '142857'
 
@@ -6,9 +6,9 @@ SOLUTION = '142857'
 def solve():
     n = 2
     while True:
-        n_digits = sorted(num_to_digits(n))
+        n_digits = sorted(split(n))
         for mult in range(2, 7):
-            n_mult_digits = sorted(num_to_digits(n*mult))
+            n_mult_digits = sorted(split(n*mult))
             if n_mult_digits != n_digits:
                 break
         else:

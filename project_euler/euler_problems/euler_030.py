@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-
 SOLUTION = '443839'
 
 def solve():

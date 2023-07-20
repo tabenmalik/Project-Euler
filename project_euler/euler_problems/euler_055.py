@@ -1,5 +1,4 @@
-from project_euler.misc import num_to_digits, digits_to_num
-from project_euler.integer import is_palindrome
+from project_euler.integer import concat, split, ireversed, palindromic
 
 SOLUTION = '249'
 
@@ -7,9 +6,8 @@ SOLUTION = '249'
 def is_lychrel(n, iterations=50):
     num = n
     for _ in range(0, iterations):
-        reversed_num = digits_to_num(reversed(num_to_digits(num)))
-        num += reversed_num
-        if is_palindrome(num):
+        num += ireversed(num)
+        if palindromic(num):
             return False
     
     return True

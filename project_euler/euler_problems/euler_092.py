@@ -2,16 +2,15 @@ import math
 import functools
 import itertools
 
-SOLUTION = ''
+from project_euler.integer import split
 
-def num_to_digits(num):
-    return map(int, str(num))
+SOLUTION = '8581146'
 
 def square(num):
     return num * num
 
 def sum_of_square_digits(num):
-    return sum(map(square, num_to_digits(num)))
+    return sum(map(square, split(num)))
 
 def sum_of_square_digits_seq(num):
     yield num

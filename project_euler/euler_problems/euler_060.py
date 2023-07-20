@@ -1,5 +1,5 @@
 import itertools
-from project_euler.misc import num_to_digits, digits_to_num
+from project_euler.integer import split, concat
 from project_euler.misc import divisors
 from project_euler.misc import sieve_of_eratosthenes_fast
 
@@ -19,9 +19,9 @@ def prime_seq():
 
 
 def num_splits(num):
-    digits = num_to_digits(num)
+    digits = split(num)
     for i in range(1, len(digits)):
-        yield digits_to_num(digits[:i]), digits_to_num(digits[i:])
+        yield concat(digits[:i]), concat(digits[i:])
 
 
 def concat_nums(nums):

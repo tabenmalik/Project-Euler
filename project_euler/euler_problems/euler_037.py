@@ -1,4 +1,5 @@
-from project_euler.misc import num_to_digits, digits_to_num, sieve_of_eratosthenes_fast
+from project_euler.integer import concat, split
+from project_euler.misc import sieve_of_eratosthenes_fast
 from project_euler.misc import is_prime
 from project_euler.sequences import prime_seq
 
@@ -9,13 +10,13 @@ def is_trucatable_prime(prime):
     if prime in single_digit_primes:
         return False
 
-    digits = num_to_digits(prime)
+    digits = split(prime)
     if digits[0] not in single_digit_primes or digits[-1] not in single_digit_primes:
         return False
 
     for i in range(1, len(digits)):
-        num1 = digits_to_num(digits[i:])
-        num2 = digits_to_num(digits[:i])
+        num1 = concat(digits[i:])
+        num2 = concat(digits[:i])
         
         if not is_prime(num1) or not is_prime(num2):
             return False

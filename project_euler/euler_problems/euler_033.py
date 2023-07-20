@@ -1,23 +1,25 @@
-from project_euler.misc import num_to_digits, digits_to_num, prime_factors
 from itertools import starmap
 from functools import reduce
 import operator
 
+from project_euler.integer import split, concat
+from project_euler.misc import prime_factors
+
 SOLUTION = '100'
 
 def is_wrongly_canceled(numerator, denominator):
-    num_digits = num_to_digits(numerator)
-    den_digits = num_to_digits(denominator)
+    num_digits = split(numerator)
+    den_digits = split(denominator)
 
     for digit in num_digits:
         if digit in den_digits and digit != 0:
-            new_num = num_digits.copy()
+            new_num = list(num_digits)
             new_num.remove(digit)
-            new_num = digits_to_num(new_num)
+            new_num = concat(new_num)
 
-            new_den = den_digits.copy()
+            new_den = list(den_digits)
             new_den.remove(digit)
-            new_den = digits_to_num(new_den)
+            new_den = concat(new_den)
 
             if new_den != 0 and (numerator / denominator) == (new_num / new_den):
                 return True

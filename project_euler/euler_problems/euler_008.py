@@ -29,7 +29,7 @@ Find the thirteen adjacent digits in the 1000-digit number that have the greates
 What is the value of this product?
 """
 
-from project_euler.integer import digits_of_n, product
+from project_euler.integer import split, product
 from project_euler.more_itertools import rolling
 
 SOLUTION = '23514624000'
@@ -60,7 +60,7 @@ ADJ_DIGITS = 13
 
 def solve():
     """Solves Project Euler problem 008"""
-    digits = digits_of_n(NUM)
+    digits = split(NUM)
     products = rolling(digits, product, window_size=ADJ_DIGITS)
     largest_product = max(products)
     return str(largest_product)

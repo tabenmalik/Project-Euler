@@ -1,5 +1,4 @@
 import os
-import numpy as np
 
 SOLUTION = '5537376230'
 

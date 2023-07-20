@@ -1,6 +1,6 @@
 from functools import reduce
 import operator
-from project_euler.misc import num_to_digits
+from project_euler.integer import split
 
 SOLUTION = '153'
 
@@ -69,7 +69,7 @@ def expand_root_2(iterations):
 
 def solve():
     expanded_fracs = map(expand_root_2, range(1, 1_001))
-    frac_digits = map(lambda frac: (num_to_digits(frac[0]), num_to_digits(frac[1])), expanded_fracs)
+    frac_digits = map(lambda frac: (split(frac[0]), split(frac[1])), expanded_fracs)
     frac_digits = map(lambda frac: (len(frac[0]), len(frac[1])), frac_digits)
     frac_digits = filter(lambda frac: frac[0] > frac[1], frac_digits)
 

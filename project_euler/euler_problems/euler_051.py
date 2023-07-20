@@ -1,9 +1,9 @@
 import itertools
 
+from project_euler.integer import split
 from project_euler.sequences import prime_seq
 from project_euler.sequences import permutations_seq
 from project_euler.misc import is_prime
-from project_euler.misc import num_to_digits
 
 SOLUTION = '121313'
 
@@ -21,7 +21,7 @@ def digit_replacements(num, digit):
 
 def solve():
     for prime in prime_seq():
-        for digit in set(num_to_digits(prime)):
+        for digit in set(split(prime)):
             replacement_nums = digit_replacements(prime, digit)
             replacement_nums = list(filter(is_prime, replacement_nums))
             if len(replacement_nums) == 8:

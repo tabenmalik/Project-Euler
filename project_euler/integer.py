@@ -17,10 +17,12 @@ def concat(ints):
 def split(x):
     """
     """
-    return map(int, str(x))
+    return tuple(map(int, str(x)))
 
+def ireversed(x):
+    return int(''.join(reversed(str(x))))
 
-def is_palindrome(x):
+def palindromic(x):
     """
     Returns True if the number is a palindrome.
     A palidrome integer is an integer where the sequence of digits in reverse
@@ -30,8 +32,7 @@ def is_palindrome(x):
         11211
         329923
     """
-    s = str(x)
-    return s == reversed(s)
+    return x == ireversed(x)
 
 
 def sum_of_1_to_n(n):

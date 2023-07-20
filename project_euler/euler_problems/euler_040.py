@@ -1,7 +1,7 @@
 from functools import reduce
 import operator
 
-from project_euler.misc import num_to_digits
+from project_euler.integer import split
 
 SOLUTION = '210'
 
@@ -20,7 +20,7 @@ def champernowne_digit(n):
     sub_level = (digits_into_level - 1) // level
     
     sub_level_num = (10 ** (level - 1)) + sub_level
-    return num_to_digits(sub_level_num)[(digits_into_level - 1) % level]
+    return split(sub_level_num)[(digits_into_level - 1) % level]
 
 
 def solve():

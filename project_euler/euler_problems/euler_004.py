@@ -9,20 +9,20 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 import itertools
 from operator import mul
 
-from project_euler.integer import is_palindrome
+from project_euler.integer import palindromic
 
 SOLUTION = '906609'
 
-NUM_DIGITS = 3
 
 
 def solve():
     """Solves Project Euler problem 004"""
+    NUM_DIGITS = 3
     start = 10 ** (NUM_DIGITS - 1)
     stop = 10 ** NUM_DIGITS
     pairs = itertools.combinations(range(start, stop), 2)
     products = itertools.starmap(mul, pairs)
-    palindromes = filter(is_palindrome, products)
+    palindromes = filter(palindromic, products)
     largest_palindrome = max(palindromes)
 
     return str(largest_palindrome)

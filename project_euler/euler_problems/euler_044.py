@@ -1,28 +1,21 @@
-from project_euler.integer import pentagonal, is_pentagonal
+from project_euler.sequences import Pentagonals
 
 SOLUTION = '5482660'
 
 
-def pentagonal_seq(under=None):
-    n = 1
-    while True:
-        yield pentagonal(n)
-        n += 1
-        if under is not None and n >= under:
-            break
-
-
 def solve():
     max_num = 10000
+    pentagonals = Pentagonals()
+
     for i in range(1, max_num):
-        for j in range(i, max_num):
-            pi = pentagonal(i)
-            pj = pentagonal(j)
+        for j in range(i + 1, max_num):
+            pi = pentagonals[i]
+            pj = pentagonals[j]
             
             p_sum = pi + pj
             p_diff = pj - pi
 
-            if is_pentagonal(p_sum) and is_pentagonal(p_diff):
+            if p_sum in pentagonals and p_diff in pentagonals:
                 return str(p_diff)
 
     

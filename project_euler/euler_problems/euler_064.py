@@ -3,6 +3,9 @@
 
 from math import floor, isqrt, sqrt, gcd
 
+SOLUTION = "1322"
+
+
 def root_continued_fraction(n):
     b = 1
     c = 0
@@ -51,4 +54,4 @@ def solve():
         period = len(root_continued_fraction(n)[1])
         odd_periods += period % 2
 
-    print(odd_periods)
+    return str(odd_periods)

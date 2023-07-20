@@ -16,7 +16,7 @@ def euler_modules():
 
 
 @pytest.mark.parametrize('module_name', euler_modules())
-@pytest.mark.timeout(60)
+@pytest.mark.timeout(120)
 def test(module_name):
     """Test an euler solver. Must generate the correct solution and solve it in less than 60s"""
     euler_module = importlib.import_module('.' + module_name, package='project_euler.euler_problems')

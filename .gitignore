@@ -1,2 +1,4 @@
+build/
+cenv/
 *.egg-info
 *__pycache__

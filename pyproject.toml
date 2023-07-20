@@ -18,3 +18,10 @@ classifiers = [
 
 [tool.setuptools]
 packages=["project_euler"]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-xdist",
+    "pytest-timeout"
+]

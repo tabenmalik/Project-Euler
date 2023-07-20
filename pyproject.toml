@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "project_euler"
+version = "6.28318"
+authors = [
+    { name="Taben Malik", email="tabenjmalik@gmail.com" },
+]
+description = "Solutions to ProjectEuler problems."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools]
+packages=["project_euler"]

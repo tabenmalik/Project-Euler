@@ -1,40 +1,29 @@
 """
 """
+from fractions import Fraction
+from functools import reduce
+from itertools import count, islice
 
-SOLUTION = ''
+from project_euler.integer import split
 
-from math import floor, isqrt, sqrt, gcd
+SOLUTION = '272'
 
-def e_continued_fraction_coeffs(n):
-    if n == 0:
-        return
-
+def continued_frac_coeffs_for_e():
     yield 2
-    
-    if n == 1:
-        return
 
-    n -= 1 
-    
-    for k in range(n // 3):
+    for i in count(1):
         yield 1
-        yield 2 * (k + 1)
+        yield 2 * i
         yield 1
 
-    print(n)
 
-    if (n - 1) % 3 == 0:
-        yield 1
-    elif (n - 1) % 3 == 1:
-        yield 1
-        yield 2 * ((n // 3) + 1)
-    else:
-        yield 1
-        yield 2 * ((n // 3) + 1)
-        yield 1
-
+def continued_fraction_op(a, b):
+    return (1 / Fraction(a)) + Fraction(b)
 
 def solve():
     """
     """
-    pass
+    coeffs = list(islice(continued_frac_coeffs_for_e(), 100))
+    nth_convergent = reduce(continued_fraction_op, list(reversed(coeffs)))
+    return str(sum(split(nth_convergent.numerator)))
+    

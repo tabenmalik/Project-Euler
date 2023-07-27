@@ -7,3 +7,8 @@ def lt(n):
     def _unary_lt(x):
         return operator.lt(x, n)
     return _unary_lt
+
+def le(n):
+    def _unary_le(x):
+        return operator.le(x, n)
+    return _unary_le

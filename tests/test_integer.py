@@ -1,6 +1,6 @@
 import unittest
 
-from project_euler import integer
+from pe import integer
 
 class TestPalindromic(unittest.TestCase):
 

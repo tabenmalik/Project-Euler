@@ -1,7 +1,7 @@
 from itertools import islice
 import unittest
 
-from project_euler import sequences
+from pe import sequences
 
 
 class TestTriangulars(unittest.TestCase):

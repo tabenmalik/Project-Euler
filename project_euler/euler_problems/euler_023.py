@@ -3,7 +3,7 @@ import itertools
 
 from project_euler.integer import sum_of_1_to_n
 
-SOLUTION = '4179871'
+
 
 MAX_NUM = 28123
 

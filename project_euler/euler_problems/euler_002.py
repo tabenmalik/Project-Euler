@@ -13,7 +13,7 @@ from itertools import takewhile
 
 from project_euler.sequences import even_fibonacci_seq
 
-SOLUTION = '4613732'
+
 
 MAX_NUM = 4_000_000
 

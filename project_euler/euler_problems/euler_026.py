@@ -1,4 +1,4 @@
-SOLUTION = '983'
+
 
 MAX_NUM = 1000
 

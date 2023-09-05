@@ -1,7 +1,7 @@
 from itertools import count
 from math import isqrt
 
-SOLUTION = ''
+
 
 def is_sqr(x):
     return isqrt(x)**2 == x

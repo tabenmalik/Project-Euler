@@ -8,8 +8,6 @@ The sum of these multiples is 23.
 Find the sum of all the multiples of 3 or 5 below 1000.
 """
 
-SOLUTION = '233168'
-
 MAX_NUM = 1000
 
 

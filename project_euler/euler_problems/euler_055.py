@@ -1,6 +1,6 @@
 from project_euler.integer import concat, split, ireversed, palindromic
 
-SOLUTION = '249'
+
 
 
 def is_lychrel(n, iterations=50):

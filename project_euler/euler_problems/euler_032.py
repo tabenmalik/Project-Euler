@@ -3,7 +3,7 @@ from pprint import pprint
 
 from project_euler.misc import divisors, sieve_of_eratosthenes_fast
 
-SOLUTION = '45228'
+
 
 
 def solve():

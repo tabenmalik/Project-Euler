@@ -1,6 +1,6 @@
 import os
 
-SOLUTION = '5537376230'
+
 
 NUM_GRID_FILE = 'euler_013.txt'
 NUM_DIGITS = 10

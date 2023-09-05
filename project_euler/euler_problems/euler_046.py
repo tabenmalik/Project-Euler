@@ -3,7 +3,7 @@ import math
 from project_euler.misc import is_prime
 from project_euler.misc import sieve_of_eratosthenes_fast
 
-SOLUTION = '5777'
+
 
 
 def is_goldbach_composite(n):

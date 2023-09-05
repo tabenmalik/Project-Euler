@@ -1,6 +1,6 @@
 from project_euler.sequences import Pentagonals
 
-SOLUTION = '5482660'
+
 
 
 def solve():

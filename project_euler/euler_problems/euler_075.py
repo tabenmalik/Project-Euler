@@ -3,7 +3,7 @@ from pprint import pprint
 from itertools import count
 from math import gcd
 
-SOLUTION = '161667'
+
 
 def solve():
 
@@ -31,4 +31,4 @@ def solve():
         if nope:
             break
 
-    return Counter(p_counts.values())[1]
+    return str(Counter(p_counts.values())[1])

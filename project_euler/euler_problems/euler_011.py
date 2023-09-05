@@ -2,7 +2,7 @@ import os
 from functools import reduce
 import operator
 
-SOLUTION = '70600674'
+
 
 NUM_GRID_FILE = 'euler_011.txt'
 ADJ_NUMS = 4

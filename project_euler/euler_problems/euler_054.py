@@ -1,6 +1,6 @@
 import os
 
-SOLUTION = '376'
+
 
 
 class Card:

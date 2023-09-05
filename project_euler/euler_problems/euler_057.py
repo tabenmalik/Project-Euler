@@ -2,7 +2,7 @@ from functools import reduce
 import operator
 from project_euler.integer import split
 
-SOLUTION = '153'
+
 
 
 def memoize(func):

@@ -3,7 +3,7 @@ import math
 
 from project_euler.integer import split, concat
 
-SOLUTION = '40730'
+
 
 def digit_factorial_sum(num):
     digits = split(num)

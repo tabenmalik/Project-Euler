@@ -3,7 +3,7 @@ from project_euler.misc import sieve_of_eratosthenes_fast
 from project_euler.misc import is_prime
 from project_euler.sequences import prime_seq
 
-SOLUTION = '748317'
+
 
 def is_trucatable_prime(prime):
     single_digit_primes = set([2, 3, 5, 7])

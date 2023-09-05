@@ -5,7 +5,7 @@ import operator
 from project_euler.integer import split, concat
 from project_euler.misc import prime_factors
 
-SOLUTION = '100'
+
 
 def is_wrongly_canceled(numerator, denominator):
     num_digits = split(numerator)

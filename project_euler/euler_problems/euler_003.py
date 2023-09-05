@@ -7,7 +7,7 @@ What is the largest prime factor of the number 600851475143 ?
 """
 from project_euler.integer import prime_factors_of_n
 
-SOLUTION = '6857'
+
 
 NUM = 600_851_475_143
 

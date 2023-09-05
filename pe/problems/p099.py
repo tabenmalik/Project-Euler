@@ -21,7 +21,7 @@ def argmax(iterable):
 def solve():
     this_dir, _ = os.path.split(__file__)
 
-    with open(os.path.join(this_dir, "euler_099.txt")) as fobj:
+    with open(os.path.join(this_dir, "p099.txt")) as fobj:
         exps = list(fobj)
 
     exps = map(partial(str.split, sep=','), exps)

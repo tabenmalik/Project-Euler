@@ -3,7 +3,7 @@ import operator
 
 
 
-NUM_FILE = 'euler_022.txt'
+NUM_FILE = 'p022.txt'
 
 def read_name_file():
     this_dir, _ = os.path.split(__file__)

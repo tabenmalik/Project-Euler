@@ -8,7 +8,7 @@ def read_number_file():
     this_dir, _ = os.path.split(__file__)
     
     nums = []
-    with open(os.path.join(this_dir, 'euler_059.txt')) as fhdl:
+    with open(os.path.join(this_dir, 'p059.txt')) as fhdl:
         nums = list(map(int, fhdl.read().split(',')))
 
     return nums

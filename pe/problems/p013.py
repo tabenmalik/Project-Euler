@@ -2,7 +2,7 @@ import os
 
 
 
-NUM_GRID_FILE = 'euler_013.txt'
+NUM_GRID_FILE = 'p013.txt'
 NUM_DIGITS = 10
 
 def read_number_file():

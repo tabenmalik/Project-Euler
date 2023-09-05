@@ -3,7 +3,7 @@ from importlib import import_module, resources
 from pkgutil import iter_modules
 
 import pe
-from pe import euler_problems
+from pe import problems
 
 class Problem:
     solutions = None
@@ -17,13 +17,13 @@ class Problem:
         return self.solutions[self.n]
 
     def run(self):
-        euler_module = import_module(f'.euler_{self.n:03}', package='pe.euler_problems')
+        euler_module = import_module(f'.p{self.n:03}', package='pe.problems')
         return euler_module.solve()
 
     @staticmethod
     def all():
         # TODO: find importlib replacement to pkgutil.iter_modules
-        for module_info in iter_modules(path=euler_problems.__path__):
+        for module_info in iter_modules(path=problems.__path__):
             yield Problem(int(module_info.name[-3:]))
 
     @classmethod

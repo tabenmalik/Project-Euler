@@ -1,7 +1,7 @@
 import os
 
 
-NUM_FILE = 'euler_067.txt'
+NUM_FILE = 'p067.txt'
 
 def read_number_file():
     this_dir, _ = os.path.split(__file__)

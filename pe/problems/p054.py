@@ -247,7 +247,7 @@ def read_file():
     this_dir, _ = os.path.split(__file__)
     
     players_hands = []
-    with open(os.path.join(this_dir, 'euler_054.txt')) as fhdl:
+    with open(os.path.join(this_dir, 'p054.txt')) as fhdl:
         for line in fhdl:
             cards = list(map(Card, line.strip().split(' ')))
             players_hands.append((Hand(cards[:5]), Hand(cards[5:])))

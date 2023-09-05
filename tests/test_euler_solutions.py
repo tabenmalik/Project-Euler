@@ -9,7 +9,6 @@ import pytest
 import operator
 
 import pe
-from pe import euler_problems
 from pe.euler import Problem
 
 @pytest.mark.parametrize('problem', Problem.all(), ids=operator.attrgetter("n"))

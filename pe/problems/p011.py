@@ -4,7 +4,7 @@ import operator
 
 
 
-NUM_GRID_FILE = 'euler_011.txt'
+NUM_GRID_FILE = 'p011.txt'
 ADJ_NUMS = 4
 
 

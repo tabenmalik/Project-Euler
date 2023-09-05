@@ -17,7 +17,7 @@ def read_file():
     this_dir, _ = os.path.split(__file__)
 
     words = []
-    with open(os.path.join(this_dir, 'euler_042.txt')) as fhdl:
+    with open(os.path.join(this_dir, 'p042.txt')) as fhdl:
         line = fhdl.read()
         line = line.rstrip()
         line = line.replace('"', '')

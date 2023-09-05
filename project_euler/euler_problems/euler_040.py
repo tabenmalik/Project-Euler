@@ -3,7 +3,7 @@ import operator
 
 from project_euler.integer import split
 
-SOLUTION = '210'
+
 
 
 def champernowne_digit(n):

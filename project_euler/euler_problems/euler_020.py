@@ -1,7 +1,7 @@
 from functools import reduce
 import operator
 
-SOLUTION = '648'
+
 
 MAX_NUM = 100
 

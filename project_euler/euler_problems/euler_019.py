@@ -1,6 +1,6 @@
 import datetime as dt
 
-SOLUTION = '171'
+
 
 def solve():
     count = 0

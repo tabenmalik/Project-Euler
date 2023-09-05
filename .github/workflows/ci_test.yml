@@ -3,13 +3,14 @@ name: Project Euler CI
 on:
     push:
         branches:
-            - master
+            - main
     pull_request:
         branches:
-            - master
+            - main
+    workflow_dispatch:
 
 jobs:
-    build:
+    test:
         runs-on: ubuntu-latest
 
         steps:

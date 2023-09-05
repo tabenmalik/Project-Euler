@@ -1,4 +1,4 @@
-SOLUTION = '73682'
+
 
 MAX_NUM = 200
 

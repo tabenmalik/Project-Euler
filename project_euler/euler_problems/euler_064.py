@@ -3,7 +3,7 @@
 
 from math import floor, isqrt, sqrt, gcd
 
-SOLUTION = "1322"
+
 
 
 def root_continued_fraction(n):

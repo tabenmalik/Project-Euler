@@ -1,25 +1,21 @@
-"""Acceptance test of all Euler Problem solutions
+"""
+Acceptance test of all Euler Problem solutions
 
 All euler solvers must have a correct solution and must generate the solution in under 60sec.
 """
 import pkgutil
 import importlib
 import pytest
+import operator
 
+import project_euler
 from project_euler import euler_problems
+from project_euler.euler import Problem
 
-
-def euler_modules():
-    """Yields all euler problem modules."""
-    for module_info in pkgutil.iter_modules(path=euler_problems.__path__):
-        yield module_info.name
-
-
-@pytest.mark.parametrize('module_name', euler_modules())
+@pytest.mark.parametrize('problem', Problem.all(), ids=operator.attrgetter("n"))
 @pytest.mark.timeout(120)
-def test(module_name):
+def test(problem):
     """Test an euler solver. Must generate the correct solution and solve it in less than 60s"""
-    euler_module = importlib.import_module('.' + module_name, package='project_euler.euler_problems')
-    exp_solution = euler_module.SOLUTION
-    act_solution = euler_module.solve()
-    assert exp_solution == act_solution
+    if problem.solution is None:
+        pytest.xfail("No known solution.")
+    assert problem.solution == problem.run()

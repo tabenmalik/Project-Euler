@@ -11,7 +11,7 @@ from operator import mul
 
 from project_euler.integer import palindromic
 
-SOLUTION = '906609'
+
 
 
 

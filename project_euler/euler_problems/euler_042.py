@@ -2,7 +2,7 @@ import os
 
 from project_euler.integer import sum_of_1_to_n
 
-SOLUTION = '162'
+
 
 def triangle_num_seq(under=None):
     n = 1

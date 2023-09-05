@@ -1,7 +1,7 @@
 from project_euler.misc import divisors
 from project_euler.integer import sum_of_1_to_n
 
-SOLUTION = '76576500'
+
 
 NUM_DIVISORS = 500
 

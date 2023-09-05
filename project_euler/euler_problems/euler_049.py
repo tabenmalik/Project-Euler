@@ -3,7 +3,7 @@ import itertools
 from project_euler.integer import concat, split
 from project_euler.misc import sieve_of_eratosthenes_fast
 
-SOLUTION = '296962999629'
+
 
 
 def difference(l):

@@ -2,7 +2,7 @@ from project_euler.integer import concat
 from project_euler.sequences import permutations_seq
 from project_euler.misc import prime_factors
 
-SOLUTION = '7652413'
+
 
 def is_prime(n):
     if len(list(prime_factors(n))) == 1:

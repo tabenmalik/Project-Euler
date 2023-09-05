@@ -3,7 +3,7 @@ from project_euler.integer import split, concat
 from project_euler.misc import divisors
 from project_euler.misc import sieve_of_eratosthenes_fast
 
-SOLUTION = '26033'
+
 
 def prime_seq():
     """

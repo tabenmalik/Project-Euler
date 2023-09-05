@@ -1,7 +1,7 @@
 import itertools
 import os
 
-SOLUTION = '129448'
+
 
 
 def read_number_file():

@@ -5,7 +5,7 @@ from project_euler.sequences import prime_seq
 from project_euler.sequences import permutations_seq
 from project_euler.misc import is_prime
 
-SOLUTION = '121313'
+
 
 
 def digit_replacements(num, digit):

@@ -1,6 +1,6 @@
 from project_euler.integer import concat, split
 
-SOLUTION = '9110846700'
+
 
 
 def solve():

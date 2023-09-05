@@ -12,7 +12,7 @@ import math
 from project_euler.sequences import prime_seq
 from project_euler.predicates import lt
 
-SOLUTION = '232792560'
+
 
 MAX_NUM = 20
 

@@ -4,7 +4,7 @@ import itertools
 
 from project_euler.integer import split
 
-SOLUTION = '8581146'
+
 
 def square(num):
     return num * num

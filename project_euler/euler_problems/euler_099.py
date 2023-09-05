@@ -3,7 +3,7 @@ from functools import partial
 import os
 from math import log
 
-SOLUTION = '709'
+
 
 def argmax(iterable):
     it = iter(iterable)

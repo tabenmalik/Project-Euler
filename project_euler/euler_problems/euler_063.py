@@ -2,7 +2,7 @@ from itertools import count, takewhile
 
 from project_euler.integer import split
 
-SOLUTION = '49'
+
 
 def positive_integers_seq(start=1, step=1):
     return count(start, step)

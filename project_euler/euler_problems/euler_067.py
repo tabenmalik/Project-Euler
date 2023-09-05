@@ -1,6 +1,6 @@
 import os
 
-SOLUTION = '7273'
+
 NUM_FILE = 'euler_067.txt'
 
 def read_number_file():

@@ -1,6 +1,6 @@
 import math
 
-SOLUTION = '4075'
+
 
 
 def choose(n, k):

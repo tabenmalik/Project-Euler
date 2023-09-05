@@ -1,6 +1,6 @@
 import pprint
 
-SOLUTION = '840'
+
 
 def solve():
 

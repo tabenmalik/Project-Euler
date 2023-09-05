@@ -1,6 +1,6 @@
 import os
 
-SOLUTION = '1074'
+
 
 NUM_FILE = 'euler_018.txt'
 

@@ -1,6 +1,6 @@
 from project_euler.misc import sieve_of_eratosthenes_fast
 
-SOLUTION = '997651'
+
 
 
 def solve():

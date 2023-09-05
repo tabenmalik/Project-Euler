@@ -9,7 +9,7 @@ What is the 10 001st prime number?
 from project_euler.more_itertools import nth
 from project_euler.sequences import prime_seq
 
-SOLUTION = '104743'
+
 
 MAX_NUM = 10_001
 

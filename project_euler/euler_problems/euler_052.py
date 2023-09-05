@@ -1,6 +1,6 @@
 from project_euler.integer import split
 
-SOLUTION = '142857'
+
 
 
 def solve():

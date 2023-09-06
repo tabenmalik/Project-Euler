@@ -9,6 +9,7 @@ import collections
 import operator
 import random
 
+
 def take(n, iterable):
     """
     Return first n items of the iterable as a list.
@@ -17,6 +18,7 @@ def take(n, iterable):
         take(3, [4, 6, 2, 7, 8]) -> 4, 6, 2
     """
     return list(islice(iterable, n))
+
 
 def prepend(value, iterator):
     """
@@ -27,9 +29,11 @@ def prepend(value, iterator):
     """
     return chain([value], iterator)
 
+
 def tabulate(function, start=0):
     """Return function(0), function(1), ..."""
     return map(function, count(start))
+
 
 def tail(n, iterable):
     """
@@ -39,6 +43,7 @@ def tail(n, iterable):
         tail(3, 'ABCDEFG') -> E F G
     """
     return iter(collections.deque(iterable, maxlen=n))
+
 
 def consume(iterator, n=None):
     """Advance the iterator n-steps ahead. If n is None, consume entirely."""
@@ -50,18 +55,22 @@ def consume(iterator, n=None):
         # advance to the empty slice starting at position n
         next(islice(iterator, n, n), None)
 
+
 def nth(iterable, n, default=None):
     """Returns the nth item or a default value"""
     return next(islice(iterable, n, None), default)
+
 
 def all_equal(iterable):
     """Returns True if all the elements are equal to each other"""
     g = groupby(iterable)
     return next(g, True) and not next(g, False)
 
+
 def quantify(iterable, pred=bool):
     """Count how many times the predicate is true"""
     return sum(map(pred, iterable))
+
 
 def pad_none(iterable):
     """
@@ -70,9 +79,11 @@ def pad_none(iterable):
     """
     return chain(iterable, repeat(None))
 
+
 def ncycles(iterable, n):
     """Returns the sequence elements n times"""
     return chain.from_iterable(repeat(tuple(iterable), n))
+
 
 def dotproduct(vec1, vec2):
     """
@@ -81,6 +92,7 @@ def dotproduct(vec1, vec2):
         vec1 . vec2 = vec1[0]*vec2[0] + vec1[1]*vec2[1] + ...
     """
     return sum(map(operator.mul, vec1, vec2))
+
 
 def convolve(signal, kernel):
     """
@@ -95,13 +107,15 @@ def convolve(signal, kernel):
     kernel = tuple(kernel)[::-1]
     n = len(kernel)
     window = collections.deque([0], maxlen=n) * n
-    for x in chain(signal, repeat(0, n-1)):
+    for x in chain(signal, repeat(0, n - 1)):
         window.append(x)
         yield sum(map(operator.mul, kernel, window))
+
 
 def flatten(list_of_lists):
     """Flatten one level of nesting"""
     return chain.from_iterable(list_of_lists)
+
 
 # def repeatfunc(func, times=None, *args):
 #     """
@@ -114,6 +128,7 @@ def flatten(list_of_lists):
 #         return starmap(func, repeat(args))
 #     return starmap(func, repeat(args, times))
 
+
 def pairwise(iterable):
     """
     Create pairs of two consecutive elements from the iterable.
@@ -125,6 +140,7 @@ def pairwise(iterable):
     next(b, default=None)
     return zip(a, b)
 
+
 def grouper(iterable, n, fillvalue=None):
     """
     Collect data into fixed-length chunks or blocks
@@ -134,6 +150,7 @@ def grouper(iterable, n, fillvalue=None):
     """
     args = [iter(iterable)] * n
     return zip_longest(*args, fillvalue=fillvalue)
+
 
 def roundrobin(*iterables):
     """
@@ -154,6 +171,7 @@ def roundrobin(*iterables):
             num_active -= 1
             nexts = cycle(islice(nexts, num_active))
 
+
 def partition(pred, iterable):
     """
     Use a predicate to partition entries into false entries and true entries
@@ -164,6 +182,7 @@ def partition(pred, iterable):
     t_1, t_2 = tee(iterable)
     return filterfalse(pred, t_1), filter(pred, t_2)
 
+
 def powerset(iterable):
     """
     Return all possible sets created from the iterable elements
@@ -172,7 +191,8 @@ def powerset(iterable):
         powerset([1,2,3]) --> () (1,) (2,) (3,) (1,2) (1,3) (2,3) (1,2,3)
     """
     s = list(iterable)
-    return chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
+    return chain.from_iterable(combinations(s, r) for r in range(len(s) + 1))
+
 
 def unique_everseen(iterable, key=None):
     """
@@ -195,6 +215,7 @@ def unique_everseen(iterable, key=None):
                 seen_add(k)
                 yield element
 
+
 def unique_justseen(iterable, key=None):
     """
     List unique elements, preserving order. Remember only the element just seen.
@@ -204,6 +225,7 @@ def unique_justseen(iterable, key=None):
         unique_justseen('ABBCcAD', str.lower) --> A B C A D
     """
     return map(next, map(operator.itemgetter(1), groupby(iterable, key)))
+
 
 def iter_except(func, exception, first=None):
     """
@@ -223,11 +245,12 @@ def iter_except(func, exception, first=None):
     """
     try:
         if first is not None:
-            yield first()            # For database APIs needing an initial cast to db.first()
+            yield first()  # For database APIs needing an initial cast to db.first()
         while True:
             yield func()
     except exception:
         pass
+
 
 def first_true(iterable, default=False, pred=None):
     """
@@ -244,16 +267,19 @@ def first_true(iterable, default=False, pred=None):
     """
     return next(filter(pred, iterable), default)
 
+
 # def random_product(*args, repeat=1):
 #     """Random selection from itertools.product(*args, **kwds)"""
 #     pools = [tuple(pool) for pool in args] * repeat
 #     return tuple(map(random.choice, pools))
+
 
 def random_permutation(iterable, r=None):
     """Random selection from itertools.permutations(iterable, r)"""
     pool = tuple(iterable)
     r = len(pool) if r is None else r
     return tuple(random.sample(pool, r))
+
 
 def random_combination(iterable, r):
     """Random selection from itertools.combinations(iterable, r)"""
@@ -262,12 +288,14 @@ def random_combination(iterable, r):
     indices = sorted(random.sample(range(n), r))
     return tuple(pool[i] for i in indices)
 
+
 def random_combination_with_replacement(iterable, r):
     """Random selection from itertools.combinations_with_replacement(iterable, r)"""
     pool = tuple(iterable)
     n = len(pool)
     indices = sorted(random.choices(range(n), k=r))
     return tuple(pool[i] for i in indices)
+
 
 def nth_combination(iterable, r, index):
     """Equivalent to list(combinations(iterable, r))[index]"""
@@ -276,8 +304,8 @@ def nth_combination(iterable, r, index):
     if r < 0 or r > n:
         raise ValueError
     c = 1
-    k = min(r, n-r)
-    for i in range(1, k+1):
+    k = min(r, n - r)
+    for i in range(1, k + 1):
         c = c * (n - k + i) // i
     if index < 0:
         index += c
@@ -285,23 +313,25 @@ def nth_combination(iterable, r, index):
         raise IndexError
     result = []
     while r:
-        c, n, r = c*r//n, n-1, r-1
+        c, n, r = c * r // n, n - 1, r - 1
         while index >= c:
             index -= c
-            c, n = c*(n-r)//n, n-1
-        result.append(pool[-1-n])
+            c, n = c * (n - r) // n, n - 1
+        result.append(pool[-1 - n])
     return tuple(result)
 
 
 def rolling(iterable, func, window_size=1):
     """Applies a function over a rolling window of the iterable elements"""
-    window = collections.deque(take(window_size-1, iterable), maxlen=window_size)
+    window = collections.deque(take(window_size - 1, iterable), maxlen=window_size)
 
     for x in iterable:
         window.append(x)
         yield func(*window)
 
+
 def arg_expander(func):
     def _funkier(iterable):
         return func(*iterable)
+
     return _funkier

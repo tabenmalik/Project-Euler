@@ -2,8 +2,8 @@ import itertools
 from pe.misc import is_prime, sieve_of_eratosthenes_fast
 
 
-
 MAX_NUM = 1000
+
 
 def consecutive_primes_of_quadratic(a, b):
     consec_primes = list()
@@ -18,13 +18,17 @@ def consecutive_primes_of_quadratic(a, b):
 
 
 def solve():
-    a = range(-MAX_NUM+1, MAX_NUM)
-    b = range(-MAX_NUM, MAX_NUM+1)
+    a = range(-MAX_NUM + 1, MAX_NUM)
+    b = range(-MAX_NUM, MAX_NUM + 1)
     coeff_pairs = list(itertools.product(a, b))
 
-    quadratic_primes = list(itertools.starmap(consecutive_primes_of_quadratic, coeff_pairs))
+    quadratic_primes = list(
+        itertools.starmap(consecutive_primes_of_quadratic, coeff_pairs)
+    )
     lengths = map(len, quadratic_primes)
-    coeff_lengths = {coeff_pair:length for coeff_pair, length in zip(coeff_pairs, lengths)}
+    coeff_lengths = {
+        coeff_pair: length for coeff_pair, length in zip(coeff_pairs, lengths)
+    }
 
     coeff_of_longest = max(coeff_lengths, key=lambda x: coeff_lengths[x])
     return str(coeff_of_longest[0] * coeff_of_longest[1])

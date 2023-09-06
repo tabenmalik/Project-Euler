@@ -1,12 +1,9 @@
 from pe.misc import prime_factors
 
 
-
-
 def solve():
-    
     distinct_prime_factors = 4
-    
+
     consecutive_nums = []
     i = 4
     while True:

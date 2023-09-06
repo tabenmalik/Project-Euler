@@ -4,15 +4,13 @@ from itertools import count
 from math import gcd
 
 
-
 def solve():
-
     p_counts = Counter()
 
     limit = 1_500_000
     for m in count(2):
         nope = True
-        for n in range(m%2 + 1, m, 2):
+        for n in range(m % 2 + 1, m, 2):
             if gcd(n, m) != 1:
                 continue
             m2 = m**2
@@ -24,9 +22,9 @@ def solve():
             p = a + b + c
 
             k = 1
-            while k*p < limit:
+            while k * p < limit:
                 nope = False
-                p_counts[k*p] += 1
+                p_counts[k * p] += 1
                 k += 1
         if nope:
             break

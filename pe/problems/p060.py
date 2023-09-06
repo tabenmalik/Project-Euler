@@ -4,7 +4,6 @@ from pe.misc import divisors
 from pe.misc import sieve_of_eratosthenes_fast
 
 
-
 def prime_seq():
     """
     A generator of prime numbers
@@ -25,15 +24,16 @@ def num_splits(num):
 
 
 def concat_nums(nums):
-    return int(''.join(map(str, nums)))
+    return int("".join(map(str, nums)))
 
 
 def memoize(func):
     results = {}
+
     def _memoized_func(*args):
         if args in results:
             return results[args]
-        
+
         result = func(*args)
         results[args] = result
         return result
@@ -43,6 +43,8 @@ def memoize(func):
 
 PRIME_CACHE = set(sieve_of_eratosthenes_fast(100_000_000))
 MAX_CACHED_PRIME = max(PRIME_CACHE)
+
+
 @memoize
 def is_prime(num):
     if num <= MAX_CACHED_PRIME:
@@ -56,7 +58,8 @@ def is_prime_pair(primes_set):
     concat_num = concat_nums(primes_list)
     reverse_concat_num = concat_nums(reversed(primes_list))
     return is_prime(concat_num) and is_prime(reverse_concat_num)
-        
+
+
 def expands_prime_pair_set(prime_set, new_prime):
     for num in prime_set:
         if not is_prime_pair(frozenset([num, new_prime])):
@@ -76,4 +79,4 @@ def solve():
                 if len(expanded_pair_set) == 5:
                     return str(sum(expanded_pair_set))
                 new_sets.append(expanded_pair_set)
-        prime_pair_sets.update(new_sets) 
+        prime_pair_sets.update(new_sets)

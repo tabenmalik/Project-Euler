@@ -2,7 +2,6 @@ from pe.misc import divisors
 from pe.integer import sum_of_1_to_n
 
 
-
 NUM_DIVISORS = 500
 
 

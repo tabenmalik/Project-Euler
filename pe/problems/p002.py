@@ -14,8 +14,8 @@ from itertools import takewhile
 from pe.sequences import even_fibonacci_seq
 
 
-
 MAX_NUM = 4_000_000
+
 
 def solve():
     """Solves Project Euler problem 002"""

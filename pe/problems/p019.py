@@ -1,7 +1,6 @@
 import datetime as dt
 
 
-
 def solve():
     count = 0
     for year in range(1901, 2001):

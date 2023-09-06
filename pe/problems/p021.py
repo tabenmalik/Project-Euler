@@ -1,8 +1,8 @@
 import math
 
 
-
 MAX_NUM = 10_000
+
 
 def proper_divisors(n):
     if n == 1:
@@ -20,7 +20,7 @@ def proper_divisors(n):
 def is_amicable(n):
     b = sum(proper_divisors(n))
     d_b = sum(proper_divisors(b))
-    
+
     return n == d_b and n != b
 
 

@@ -2,24 +2,29 @@ from pe.integer import split
 from itertools import takewhile, product
 
 
-
 def triangonal(n):
     return (n * (n + 1)) // 2
+
 
 def square(n):
     return n**2
 
+
 def pentagonal(n):
     return (n * ((3 * n) - 1)) // 2
+
 
 def hexagonal(n):
     return n * ((2 * n) - 1)
 
+
 def heptagonal(n):
     return (n * ((5 * n) - 3)) // 2
 
+
 def octogonal(n):
     return n * ((3 * n) - 2)
+
 
 def infrange(start=0, step=1):
     n = start
@@ -27,6 +32,7 @@ def infrange(start=0, step=1):
     while True:
         yield n
         n += step
+
 
 def get_4_digit_ns_from_seq(func):
     def _under_5_digits(n):
@@ -41,6 +47,7 @@ def get_4_digit_ns_from_seq(func):
     fns = list(fns)
 
     return fns
+
 
 def is_cycle(nums, full):
     sorted_cycle = [nums[0]]
@@ -57,13 +64,14 @@ def is_cycle(nums, full):
                 break
         else:
             return False
-    
+
     if full:
         beginning_digits = split(sorted_cycle[0])[:2]
         last_digits = split(sorted_cycle[-1])[-2:]
         return beginning_digits == last_digits
     else:
         return True
+
 
 def solve():
     tris = get_4_digit_ns_from_seq(triangonal)
@@ -73,14 +81,16 @@ def solve():
     heps = get_4_digit_ns_from_seq(heptagonal)
     octs = get_4_digit_ns_from_seq(octogonal)
 
-    seqs = {'tris': list(tris),
-            'sqrs': list(sqrs),
-            'pens': list(pens),
-            'hexs': list(hexs),
-            'heps': list(heps),
-            'octs': list(octs)}
-    
-    cycles = [(set(['octs']), [o]) for o in octs]
+    seqs = {
+        "tris": list(tris),
+        "sqrs": list(sqrs),
+        "pens": list(pens),
+        "hexs": list(hexs),
+        "heps": list(heps),
+        "octs": list(octs),
+    }
+
+    cycles = [(set(["octs"]), [o]) for o in octs]
     new_cycles = []
 
     while True:
@@ -89,7 +99,9 @@ def solve():
                 if seq_name not in cycle_seqs:
                     for num in seq:
                         if is_cycle(cycle + [num], False):
-                            new_cycles.append((cycle_seqs | set([seq_name]), cycle + [num]))
+                            new_cycles.append(
+                                (cycle_seqs | set([seq_name]), cycle + [num])
+                            )
         cycles = new_cycles
         new_cycles = []
 

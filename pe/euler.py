@@ -5,19 +5,20 @@ from pkgutil import iter_modules
 import pe
 from pe import problems
 
+
 class Problem:
     solutions = None
 
     def __init__(self, n):
         self.n = n
-    
+
     @property
     def solution(self):
         self.load_solutions()
         return self.solutions[self.n]
 
     def run(self):
-        euler_module = import_module(f'.p{self.n:03}', package='pe.problems')
+        euler_module = import_module(f".p{self.n:03}", package="pe.problems")
         return euler_module.solve()
 
     @staticmethod
@@ -29,14 +30,14 @@ class Problem:
     @classmethod
     def load_solutions(cls, force=False):
         if cls.solutions is None or force:
-            solution_text = resources.files(pe).joinpath('solutions.txt').read_text()
+            solution_text = resources.files(pe).joinpath("solutions.txt").read_text()
             cls.solutions = defaultdict(lambda: None)
             for line in solution_text.splitlines():
-                num, solution = line.split(':')
+                num, solution = line.split(":")
                 cls.solutions[int(num)] = solution.strip()
 
     def __repr__(self):
-        return f'Problem(n={self.n:03})'
+        return f"Problem(n={self.n:03})"
 
     def __str__(self):
         return self.__repr__()

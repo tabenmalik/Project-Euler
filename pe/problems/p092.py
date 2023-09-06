@@ -5,12 +5,13 @@ import itertools
 from pe.integer import split
 
 
-
 def square(num):
     return num * num
 
+
 def sum_of_square_digits(num):
     return sum(map(square, split(num)))
+
 
 def sum_of_square_digits_seq(num):
     yield num
@@ -33,15 +34,17 @@ def sum_of_square_digits_seq(num):
         num = sum_of_square_digits(num)
         yield num
 
+
 @functools.lru_cache
 def sum_of_square_digits_ending(num):
     if num == 1 or num == 89:
         return num
-    
+
     seq = sum_of_square_digits_seq(num)
     seq = iter(seq)
     _ = next(seq)
     return sum_of_square_digits_ending(next(seq))
+
 
 def solve():
     count = 0

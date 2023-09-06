@@ -3,7 +3,6 @@ import os
 from pe.integer import sum_of_1_to_n
 
 
-
 def triangle_num_seq(under=None):
     n = 1
     while True:
@@ -17,17 +16,17 @@ def read_file():
     this_dir, _ = os.path.split(__file__)
 
     words = []
-    with open(os.path.join(this_dir, 'p042.txt')) as fhdl:
+    with open(os.path.join(this_dir, "p042.txt")) as fhdl:
         line = fhdl.read()
         line = line.rstrip()
-        line = line.replace('"', '')
-        words = line.split(',')
+        line = line.replace('"', "")
+        words = line.split(",")
 
     return words
 
 
 def letter_value(letter):
-    return ord(letter.lower()) - ord('a') + 1
+    return ord(letter.lower()) - ord("a") + 1
 
 
 def word_value(word):
@@ -40,7 +39,7 @@ def solve():
     word_values = list(map(word_value, words))
     max_word_value = max(word_values)
 
-    triangle_number_set = set(triangle_num_seq(under=max_word_value+1))
+    triangle_number_set = set(triangle_num_seq(under=max_word_value + 1))
 
     triangle_word_values = list(filter(lambda x: x in triangle_number_set, word_values))
 

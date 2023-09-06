@@ -1,7 +1,6 @@
 from pe.sequences import Hexagonals, Pentagonals, Triangulars
 
 
-
 def solve():
     n = 144
     hexagonals = Hexagonals()

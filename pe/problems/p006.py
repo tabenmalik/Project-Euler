@@ -18,7 +18,6 @@ hundred natural numbers and the square of the sum.
 from pe.integer import sum_of_1_to_n, sum_of_sqrs
 
 
-
 MAX_NUM = 100
 
 

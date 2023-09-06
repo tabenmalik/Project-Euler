@@ -7,7 +7,6 @@ Find the sum of all the primes below two million.
 import math
 
 
-
 MAX_NUM = 2_000_000
 
 
@@ -31,11 +30,11 @@ def sieve_of_eratosthenes_fast(under):
 
     for i in range(1, check_limit):
         if not sieve[i]:
-            for j in range(2*i*(i+1), sieve_len, (2*i)+1):
+            for j in range(2 * i * (i + 1), sieve_len, (2 * i) + 1):
                 sieve[j] = True
 
     primes = [2]
-    primes.extend([(2*i) + 1 for i in range(1, sieve_len) if not sieve[i]])
+    primes.extend([(2 * i) + 1 for i in range(1, sieve_len) if not sieve[i]])
 
     return primes
 

@@ -2,7 +2,6 @@ from itertools import takewhile, combinations, groupby
 from pe.integer import split
 
 
-
 def positive_integers_seq(start=1, step=1):
     n = start
 
@@ -10,19 +9,21 @@ def positive_integers_seq(start=1, step=1):
         yield n
         n += step
 
+
 def cube(n):
-    return n ** 3
+    return n**3
 
 
 def all_equal(iterable):
     g = groupby(iterable)
     return next(g, True) and not next(g, False)
 
+
 def solve():
     num_digits = 1
 
     while True:
-        start = 10 ** (num_digits-1)
+        start = 10 ** (num_digits - 1)
         start = int(start ** (1 / 3)) + 1
 
         nums = positive_integers_seq(start=start)

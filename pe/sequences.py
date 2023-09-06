@@ -32,7 +32,7 @@ class Triangulars(abc.Iterable, abc.Container):
             if n.stop is None:
                 raise ValueError("")
             return tuple(self[i] for i in range(n.start or 0, n.stop, n.step or 1))
-        
+
         if n < 0:
             raise IndexError
 
@@ -47,9 +47,9 @@ class Triangulars(abc.Iterable, abc.Container):
 
         if n_1 >= 0 and self[int(n_1)] == value:
             return int(n_1)
-        elif  n_2 >= 0 and self[int(n_2)] == value:
+        elif n_2 >= 0 and self[int(n_2)] == value:
             return int(n_2)
-        
+
         raise ValueError
 
 
@@ -62,7 +62,7 @@ class Pentagonals:
     Examples:
         1, 5, 12, 22, 35, 51, ...
     """
-    
+
     def __iter__(self):
         i = 0
         while True:
@@ -119,8 +119,8 @@ class Hexagonals:
 
     def __contains__(self, value):
         try:
-           self.index(value)
-           return True
+            self.index(value)
+            return True
         except ValueError:
             return False
 
@@ -153,17 +153,20 @@ def permutations_seq(digits):
     while largest_index_k != -1:
         largest_index_k = -1
         for i in range(len(digits) - 1):
-            if digits[i] < digits[i+1]:
+            if digits[i] < digits[i + 1]:
                 largest_index_k = i
 
         if largest_index_k != -1:
             largest_index_l = 0
-            for l in range(largest_index_k+1, len(digits)):
+            for l in range(largest_index_k + 1, len(digits)):
                 if digits[largest_index_k] < digits[l]:
                     largest_index_l = l
 
-            digits[largest_index_k], digits[largest_index_l] = digits[largest_index_l], digits[largest_index_k]
-            digits[largest_index_k+1:] = reversed(digits[largest_index_k+1:])
+            digits[largest_index_k], digits[largest_index_l] = (
+                digits[largest_index_l],
+                digits[largest_index_k],
+            )
+            digits[largest_index_k + 1 :] = reversed(digits[largest_index_k + 1 :])
             yield digits.copy()
 
 

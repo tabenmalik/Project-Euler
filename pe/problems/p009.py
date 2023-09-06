@@ -15,12 +15,12 @@ from pe.more_itertools import first_true
 from pe.more_itertools import arg_expander
 
 
-
 SUM_NUM = 1000
+
 
 def is_pythagorean_triplet(a, b, c):
     """A predicate that returns True if a, b, c is a Pythagorean Triplet"""
-    return ((a ** 2) + (b ** 2)) == (c ** 2)
+    return ((a**2) + (b**2)) == (c**2)
 
 
 def solve():
@@ -28,8 +28,8 @@ def solve():
 
     sum_triplets = (
         (a, b, SUM_NUM - a - b)
-            for a in range(1, SUM_NUM)
-                for b in range(a + 1, SUM_NUM - a)
+        for a in range(1, SUM_NUM)
+        for b in range(a + 1, SUM_NUM - a)
     )
 
     pred_pythagorean_triplet = arg_expander(is_pythagorean_triplet)

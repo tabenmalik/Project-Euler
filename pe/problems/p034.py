@@ -4,7 +4,6 @@ import math
 from pe.integer import split, concat
 
 
-
 def digit_factorial_sum(num):
     digits = split(num)
     digit_factorials = map(math.factorial, digits)
@@ -14,7 +13,7 @@ def digit_factorial_sum(num):
 def solve():
     i = 2
     while True:
-        digit_limit = i*math.factorial(9)
+        digit_limit = i * math.factorial(9)
         num = concat(9 for _ in range(i))
         if digit_limit < num:
             break

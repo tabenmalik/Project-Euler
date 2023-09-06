@@ -6,7 +6,6 @@ from pe.integer import split, concat
 from pe.misc import prime_factors
 
 
-
 def is_wrongly_canceled(numerator, denominator):
     num_digits = split(numerator)
     den_digits = split(denominator)
@@ -26,15 +25,15 @@ def is_wrongly_canceled(numerator, denominator):
 
     return False
 
+
 def solve():
-    fractions = [(i, j) for i in range(10, 100) for j in range(i+1, 100)]
+    fractions = [(i, j) for i in range(10, 100) for j in range(i + 1, 100)]
     bad_fractions = filter(lambda x: is_wrongly_canceled(*x), fractions)
     bad_fractions = list(bad_fractions)
 
     num_prod, den_prod = tuple(zip(*bad_fractions))
     num_prod = reduce(operator.mul, num_prod)
     den_prod = reduce(operator.mul, den_prod)
-    
 
     num_factors = list(prime_factors(num_prod))
     den_factors = list(prime_factors(den_prod))

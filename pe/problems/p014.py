@@ -1,7 +1,6 @@
-
-
 MAX_NUM = 1_000_000
 CACHED_LENGTHS = {}
+
 
 def collatz_len_optimized(n):
     if n == 1:
@@ -24,7 +23,7 @@ def collatz_len_optimized(n):
 
 def solve():
     _ = list(collatz_len_optimized(i) for i in range(500_000, MAX_NUM))
-    
+
     longest_chain = 0
     n_of_longest_chain = 0
     for k, v in CACHED_LENGTHS.items():

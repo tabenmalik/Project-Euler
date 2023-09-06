@@ -2,8 +2,8 @@ from functools import reduce
 import operator
 
 
-
 MAX_NUM = 100
+
 
 def solve():
     product = reduce(operator.mul, range(1, MAX_NUM + 1))

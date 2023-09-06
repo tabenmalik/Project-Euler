@@ -11,16 +11,17 @@ def concat(ints):
     Example:
     intjoin([1, 2, 3, 4, 5]) -> 12345
     """
-    return int(''.join(str(i) for i in ints))
+    return int("".join(str(i) for i in ints))
 
 
 def split(x):
-    """
-    """
+    """ """
     return tuple(map(int, str(x)))
 
+
 def ireversed(x):
-    return int(''.join(reversed(str(x))))
+    return int("".join(reversed(str(x))))
+
 
 def palindromic(x):
     """
@@ -46,7 +47,7 @@ def sum_of_a_to_n(a, n):
     """
     Computes sum of all positive integers from a to n, including a and n.
     """
-    return sum_of_1_to_n(n) - sum_of_1_to_n(a-1)
+    return sum_of_1_to_n(n) - sum_of_1_to_n(a - 1)
 
 
 def sum_of_sqrs(num):
@@ -61,11 +62,11 @@ def sum_of_cubes(num):
     return int(((num * num) * (num + 1) * (num + 1)) / 4)
 
 
-def prime_factors_of_n(n, method='trial_division'):
+def prime_factors_of_n(n, method="trial_division"):
     """Prime factors of n."""
     methods = {
-        'trial_division': prime_factors_trial_division,
-        'trial_division_naive': prime_factors_trial_division_naive,
+        "trial_division": prime_factors_trial_division,
+        "trial_division_naive": prime_factors_trial_division_naive,
     }
 
     return methods[method](n)

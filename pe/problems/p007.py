@@ -10,7 +10,6 @@ from pe.more_itertools import nth
 from pe.sequences import prime_seq
 
 
-
 MAX_NUM = 10_001
 
 

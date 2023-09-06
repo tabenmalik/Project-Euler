@@ -7,7 +7,6 @@ from itertools import count, islice
 from pe.integer import split
 
 
-
 def continued_frac_coeffs_for_e():
     yield 2
 
@@ -20,10 +19,9 @@ def continued_frac_coeffs_for_e():
 def continued_fraction_op(a, b):
     return (1 / Fraction(a)) + Fraction(b)
 
+
 def solve():
-    """
-    """
+    """ """
     coeffs = list(islice(continued_frac_coeffs_for_e(), 100))
     nth_convergent = reduce(continued_fraction_op, list(reversed(coeffs)))
     return str(sum(split(nth_convergent.numerator)))
-    

@@ -3,9 +3,9 @@ from itertools import count, takewhile
 from pe.integer import split
 
 
-
 def positive_integers_seq(start=1, step=1):
     return count(start, step)
+
 
 def solve():
     n = 1

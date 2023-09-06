@@ -4,7 +4,6 @@ from pe.misc import is_prime
 from pe.sequences import prime_seq
 
 
-
 def is_trucatable_prime(prime):
     single_digit_primes = set([2, 3, 5, 7])
     if prime in single_digit_primes:
@@ -17,10 +16,10 @@ def is_trucatable_prime(prime):
     for i in range(1, len(digits)):
         num1 = concat(digits[i:])
         num2 = concat(digits[:i])
-        
+
         if not is_prime(num1) or not is_prime(num2):
             return False
-    
+
     return True
 
 

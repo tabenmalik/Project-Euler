@@ -12,14 +12,11 @@ from operator import mul
 from pe.integer import palindromic
 
 
-
-
-
 def solve():
     """Solves Project Euler problem 004"""
     NUM_DIGITS = 3
     start = 10 ** (NUM_DIGITS - 1)
-    stop = 10 ** NUM_DIGITS
+    stop = 10**NUM_DIGITS
     pairs = itertools.combinations(range(start, stop), 2)
     products = itertools.starmap(mul, pairs)
     palindromes = filter(palindromic, products)

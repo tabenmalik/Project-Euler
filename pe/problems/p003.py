@@ -8,7 +8,6 @@ What is the largest prime factor of the number 600851475143 ?
 from pe.integer import prime_factors_of_n
 
 
-
 NUM = 600_851_475_143
 
 

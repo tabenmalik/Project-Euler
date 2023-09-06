@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [$default-branch]
   workflow_dispatch:
-  schedule:
+  schedule: '13 13 13 * * *'
 
 jobs:
   test:

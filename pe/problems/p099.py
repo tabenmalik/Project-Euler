@@ -6,6 +6,7 @@ from math import log
 import pe.data
 from importlib.resources import files
 
+
 def argmax(iterable):
     it = iter(iterable)
 

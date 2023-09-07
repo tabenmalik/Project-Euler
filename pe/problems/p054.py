@@ -252,8 +252,11 @@ class Hand:
 
         return (max_card,), max_card.value
 
+
 import pe.data
 from importlib.resources import files
+
+
 def read_file():
     this_dir, _ = os.path.split(__file__)
 

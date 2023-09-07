@@ -4,6 +4,7 @@ from pe.integer import sum_of_1_to_n
 from importlib.resources import files
 import pe.data
 
+
 def triangle_num_seq(under=None):
     n = 1
     while True:

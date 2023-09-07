@@ -5,6 +5,7 @@ NUM_FILE = "p067.txt"
 import pe.data
 from importlib.resources import files
 
+
 def read_number_file():
     this_dir, _ = os.path.split(__file__)
 

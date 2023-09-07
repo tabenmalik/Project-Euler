@@ -1,4 +1,5 @@
 # https://black.readthedocs.io/en/stable/integrations/github_actions.html
+name: Lint
 
 on:
   push:

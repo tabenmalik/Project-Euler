@@ -1,10 +1,10 @@
-name: Black-Lint
+# https://black.readthedocs.io/en/stable/integrations/github_actions.html
 
 on:
   push:
-    branches: [$default-branch]
+    branches: [main]
   pull_request:
-    branches: [$default-branch]
+    branches: [main]
   workflow_dispatch:
   schedule:
     - cron: '13 13 13 * *'

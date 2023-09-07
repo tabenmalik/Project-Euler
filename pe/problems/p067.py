@@ -2,17 +2,18 @@ import os
 
 
 NUM_FILE = "p067.txt"
-
+import pe.data
+from importlib.resources import files
 
 def read_number_file():
     this_dir, _ = os.path.split(__file__)
 
     num_matrix = []
-    with open(os.path.join(this_dir, NUM_FILE)) as fhdl:
-        for line in fhdl:
-            line = line.rstrip()
-            line_nums = list(map(int, line.split(" ")))
-            num_matrix.append(line_nums)
+    lines = files(pe.data).joinpath("p067.txt").read_text().splitlines()
+    for line in lines:
+        line = line.rstrip()
+        line_nums = list(map(int, line.split(" ")))
+        num_matrix.append(line_nums)
 
     return num_matrix
 

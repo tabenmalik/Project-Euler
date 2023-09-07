@@ -1,19 +1,17 @@
 import os
 import operator
-
-
-NUM_FILE = "p022.txt"
+import pe.data
+from importlib.resources import files
 
 
 def read_name_file():
     this_dir, _ = os.path.split(__file__)
 
     names = ""
-    with open(os.path.join(this_dir, NUM_FILE)) as fhdl:
-        line = fhdl.read()
-        line = line.rstrip()
-        line = line.replace('"', "")
-        names = line.split(",")
+    line = files(pe.data).joinpath("p022.txt").read_text()
+    line = line.rstrip()
+    line = line.replace('"', "")
+    names = line.split(",")
 
     return names
 

@@ -1,13 +1,15 @@
 import itertools
 import os
 
+import pe.data
+from importlib.resources import files
 
 def read_number_file():
     this_dir, _ = os.path.split(__file__)
 
     nums = []
-    with open(os.path.join(this_dir, "p059.txt")) as fhdl:
-        nums = list(map(int, fhdl.read().split(",")))
+    line = files(pe.data).joinpath("p059.txt").read_text()
+    nums = list(map(int, line.split(",")))
 
     return nums
 

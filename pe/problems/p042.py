@@ -1,7 +1,8 @@
 import os
 
 from pe.integer import sum_of_1_to_n
-
+from importlib.resources import files
+import pe.data
 
 def triangle_num_seq(under=None):
     n = 1
@@ -16,11 +17,10 @@ def read_file():
     this_dir, _ = os.path.split(__file__)
 
     words = []
-    with open(os.path.join(this_dir, "p042.txt")) as fhdl:
-        line = fhdl.read()
-        line = line.rstrip()
-        line = line.replace('"', "")
-        words = line.split(",")
+    line = files(pe.data).joinpath("p042.txt").read_text()
+    line = line.rstrip()
+    line = line.replace('"', "")
+    words = line.split(",")
 
     return words
 

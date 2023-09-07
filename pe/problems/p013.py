@@ -1,7 +1,7 @@
 import os
+import pe.data
+from importlib.resources import files
 
-
-NUM_GRID_FILE = "p013.txt"
 NUM_DIGITS = 10
 
 
@@ -9,11 +9,11 @@ def read_number_file():
     this_dir, _ = os.path.split(__file__)
 
     num_matrix = []
-    with open(os.path.join(this_dir, NUM_GRID_FILE)) as fhdl:
-        for line in fhdl:
-            line = line.rstrip()
-            line_digits = list(map(int, line))
-            num_matrix.append(line_digits)
+    lines = files(pe.data).joinpath("p013.txt").read_text().splitlines()
+    for line in lines:
+        line = line.rstrip()
+        line_digits = list(map(int, line))
+        num_matrix.append(line_digits)
 
     return num_matrix
 

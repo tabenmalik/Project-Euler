@@ -1,9 +1,9 @@
 import os
 from functools import reduce
 import operator
+from importlib.resources import files
+import pe.data
 
-
-NUM_GRID_FILE = "p011.txt"
 ADJ_NUMS = 4
 
 
@@ -11,12 +11,11 @@ def read_grid_file():
     this_dir, _ = os.path.split(__file__)
 
     num_matrix = []
-    with open(os.path.join(this_dir, NUM_GRID_FILE)) as fhdl:
-        for line in fhdl:
-            line = line.rstrip()
-            nums = line.split(" ")
-            line_nums = list(map(int, nums))
-            num_matrix.append(line_nums)
+    for line in files(pe.data).joinpath("p011.txt").read_text().splitlines():
+        line = line.rstrip()
+        nums = line.split(" ")
+        line_nums = list(map(int, nums))
+        num_matrix.append(line_nums)
 
     return num_matrix
 

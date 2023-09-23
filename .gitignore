@@ -2,3 +2,4 @@ build/
 cenv/
 *.egg-info
 *__pycache__
+.vscode

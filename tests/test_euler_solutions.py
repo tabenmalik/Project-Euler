@@ -8,9 +8,8 @@ import importlib
 import pytest
 import operator
 
-import project_euler
-from project_euler import euler_problems
-from project_euler.euler import Problem
+import pe
+from pe.euler import Problem
 
 @pytest.mark.parametrize('problem', Problem.all(), ids=operator.attrgetter("n"))
 @pytest.mark.timeout(120)

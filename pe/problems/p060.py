@@ -1,3 +1,7 @@
+"""
+Prime Pair Sets
+"""
+
 import itertools
 from pe.integer import split, concat
 from pe.misc import divisors

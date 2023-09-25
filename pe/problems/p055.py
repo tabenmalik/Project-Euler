@@ -1,3 +1,7 @@
+"""
+Lychrel Numbers
+"""
+
 from pe.integer import concat, split, ireversed, palindromic
 
 

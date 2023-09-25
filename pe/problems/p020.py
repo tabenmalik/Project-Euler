@@ -1,3 +1,7 @@
+"""
+Factorial Digit Sum
+"""
+
 from functools import reduce
 import operator
 

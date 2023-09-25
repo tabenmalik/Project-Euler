@@ -1,3 +1,7 @@
+"""
+Counting Sundays
+"""
+
 import datetime as dt
 
 

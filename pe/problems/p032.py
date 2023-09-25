@@ -1,3 +1,7 @@
+"""
+Pandigital Products
+"""
+
 import itertools
 from pprint import pprint
 

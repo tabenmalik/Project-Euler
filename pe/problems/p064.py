@@ -1,4 +1,5 @@
 """
+Odd Period Square Roots
 """
 
 from math import floor, isqrt, sqrt, gcd

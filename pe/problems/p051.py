@@ -1,3 +1,7 @@
+"""
+Prime Digit Replacements
+"""
+
 import itertools
 
 from pe.integer import split

@@ -1,3 +1,7 @@
+"""
+Cyclical Figurate Numbers
+"""
+
 from pe.integer import split
 from itertools import takewhile, product
 

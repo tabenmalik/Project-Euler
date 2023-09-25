@@ -1,3 +1,7 @@
+"""
+Digit Factorials
+"""
+
 import operator
 import math
 

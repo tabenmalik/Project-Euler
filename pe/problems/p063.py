@@ -1,3 +1,7 @@
+"""
+Powerful Digit Counts
+"""
+
 from itertools import count, takewhile
 
 from pe.integer import split

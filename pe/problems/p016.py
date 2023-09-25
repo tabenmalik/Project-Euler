@@ -1,3 +1,7 @@
+"""
+Power Digit Sum
+"""
+
 def solve():
     num = 2**1000
     num_str = str(num)

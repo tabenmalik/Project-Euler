@@ -1,3 +1,6 @@
+"""
+Square Digit Chains
+"""
 import math
 import functools
 import itertools

@@ -1,3 +1,7 @@
+"""
+Powerful Digit Sum
+"""
+
 from pe.integer import split
 
 

@@ -1,3 +1,7 @@
+"""
+Reciprocal Cycles
+"""
+
 MAX_NUM = 1000
 
 

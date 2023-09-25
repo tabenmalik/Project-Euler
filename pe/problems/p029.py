@@ -1,3 +1,13 @@
+"""
+Distinct Powers
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=29
+
+.. math::
+
+"""
+
 MAX_NUM = 100
 
 

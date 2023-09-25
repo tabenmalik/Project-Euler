@@ -1,3 +1,7 @@
+"""
+Truncatable Primes
+"""
+
 from pe.integer import concat, split
 from pe.misc import sieve_of_eratosthenes_fast
 from pe.misc import is_prime

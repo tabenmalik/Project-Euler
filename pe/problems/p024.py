@@ -1,3 +1,7 @@
+"""
+Lexicographic Permutations
+"""
+
 def permutations(digits):
     yield digits.copy()
 

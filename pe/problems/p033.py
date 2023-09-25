@@ -1,3 +1,7 @@
+"""
+Digit Cancelling Fractions
+"""
+
 from itertools import starmap
 from functools import reduce
 import operator

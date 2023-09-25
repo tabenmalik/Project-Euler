@@ -1,4 +1,5 @@
 """
+Convergents of e
 """
 from fractions import Fraction
 from functools import reduce

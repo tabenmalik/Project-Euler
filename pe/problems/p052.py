@@ -1,3 +1,7 @@
+"""
+Permuted Multiples
+"""
+
 from pe.integer import split
 
 

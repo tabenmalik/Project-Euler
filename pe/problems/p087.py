@@ -1,3 +1,7 @@
+"""
+Prime Power Triples
+"""
+
 import math
 import itertools
 import operator

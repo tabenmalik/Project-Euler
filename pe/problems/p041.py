@@ -1,3 +1,7 @@
+"""
+Pandigital Prime
+"""
+
 from pe.integer import concat
 from pe.sequences import permutations_seq
 from pe.misc import prime_factors

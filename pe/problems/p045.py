@@ -1,3 +1,7 @@
+"""
+Triangular, Pentagonal, and Hexagonal
+"""
+
 from pe.sequences import Hexagonals, Pentagonals, Triangulars
 
 

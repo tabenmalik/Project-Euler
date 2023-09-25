@@ -1,3 +1,7 @@
+"""
+Number Spiral Diagonals
+"""
+
 GRID_SIZE = 1001
 
 #  *1

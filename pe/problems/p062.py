@@ -1,3 +1,7 @@
+"""
+Cubic Permutations
+"""
+
 from itertools import takewhile, combinations, groupby
 from pe.integer import split
 

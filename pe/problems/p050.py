@@ -1,3 +1,7 @@
+"""
+Consecutive Prime Sum
+"""
+
 from pe.misc import sieve_of_eratosthenes_fast
 
 

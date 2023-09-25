@@ -1,3 +1,7 @@
+"""
+Pandigital Multiples
+"""
+
 from itertools import permutations
 
 from pe.integer import concat, split

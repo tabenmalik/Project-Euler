@@ -1,3 +1,7 @@
+"""
+Prime Permutations
+"""
+
 import itertools
 
 from pe.integer import concat, split

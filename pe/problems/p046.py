@@ -1,3 +1,7 @@
+"""
+Coldbach's Other Conjecture
+"""
+
 import math
 
 from pe.misc import is_prime

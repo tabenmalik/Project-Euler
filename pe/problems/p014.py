@@ -1,3 +1,7 @@
+"""
+Longest Collatz Sequence
+"""
+
 MAX_NUM = 1_000_000
 CACHED_LENGTHS = {}
 

@@ -1,3 +1,7 @@
+"""
+Number Letter Counts
+"""
+
 MAX_NUM = 1000
 
 ones = {

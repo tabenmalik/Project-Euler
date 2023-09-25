@@ -1,3 +1,7 @@
+"""
+Spiral Primes
+"""
+
 from pe.misc import divisors
 
 

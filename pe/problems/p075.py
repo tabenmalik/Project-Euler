@@ -1,3 +1,7 @@
+"""
+Singular Integer Right Triangles
+"""
+
 from collections import Counter
 from pprint import pprint
 from itertools import count

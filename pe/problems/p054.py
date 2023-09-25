@@ -1,3 +1,7 @@
+"""
+Poker Hands
+"""
+
 import os
 
 

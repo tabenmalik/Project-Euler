@@ -1,3 +1,7 @@
+"""
+Quadratic Primes
+"""
+
 import itertools
 from pe.misc import is_prime, sieve_of_eratosthenes_fast
 

@@ -1,3 +1,7 @@
+"""
+Sub-string Divisibility
+"""
+
 from pe.integer import concat
 from pe.sequences import permutations_seq
 

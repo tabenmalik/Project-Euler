@@ -1,3 +1,7 @@
+"""
+Square Root Convertgents
+"""
+
 from functools import reduce
 import operator
 from pe.integer import split

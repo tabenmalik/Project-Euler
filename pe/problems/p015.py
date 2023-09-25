@@ -1,3 +1,7 @@
+"""
+Lattice Paths
+"""
+
 from functools import reduce
 import operator
 import math

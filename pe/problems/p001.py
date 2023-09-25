@@ -1,11 +1,11 @@
 """
-Project Euler problem 001: https://projecteuler.net/problem=1
+Multiples of 3 or 5
 
-Description:
-If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
-The sum of these multiples is 23.
+If we list all the natural numbers below :math:`10` that are multiples of 
+:math:`3` or :math:`5`, we get :math:`3, 5, 6` and :math:`9`. 
+The sum of these multiples is :math:`23`.
 
-Find the sum of all the multiples of 3 or 5 below 1000.
+Find the sum of all the multiples of :math:`3` or :math:`5` below math:`1000`.
 """
 
 MAX_NUM = 1000

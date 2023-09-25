@@ -1,3 +1,7 @@
+"""
+Double-base Palindromes
+"""
+
 import math
 
 

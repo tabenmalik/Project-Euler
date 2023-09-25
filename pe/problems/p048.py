@@ -1,3 +1,7 @@
+"""
+Self Powers
+"""
+
 from pe.integer import concat, split
 
 

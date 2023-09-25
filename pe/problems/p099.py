@@ -1,3 +1,7 @@
+"""
+Largest Exponential
+"""
+
 from itertools import starmap
 from functools import partial
 import os

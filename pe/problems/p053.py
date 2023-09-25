@@ -1,3 +1,7 @@
+"""
+Combinatoric Selections
+"""
+
 import math
 
 

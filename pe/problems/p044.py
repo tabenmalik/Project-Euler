@@ -1,3 +1,7 @@
+"""
+Pentagon Numbers
+"""
+
 from pe.sequences import Pentagonals
 
 

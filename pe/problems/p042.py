@@ -1,3 +1,7 @@
+"""
+Coded Triangle Numbers
+"""
+
 import os
 
 from pe.integer import sum_of_1_to_n

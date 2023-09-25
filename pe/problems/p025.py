@@ -1,3 +1,7 @@
+"""
+1000-digit Fibonacci Number
+"""
+
 from pe.sequences import fibonacci_seq
 
 

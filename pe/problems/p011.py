@@ -1,3 +1,7 @@
+"""
+Largest Product in a Grid
+"""
+
 import os
 from functools import reduce
 import operator

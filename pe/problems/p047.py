@@ -1,3 +1,7 @@
+"""
+Distinct Primes Factors
+"""
+
 from pe.misc import prime_factors
 
 

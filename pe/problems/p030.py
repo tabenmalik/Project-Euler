@@ -1,3 +1,7 @@
+"""
+Digit Fifth Powers
+"""
+
 def solve():
     power = 5
 

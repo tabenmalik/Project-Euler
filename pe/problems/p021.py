@@ -1,3 +1,7 @@
+"""
+Amicable Numbers
+"""
+
 import math
 
 

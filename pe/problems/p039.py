@@ -1,3 +1,7 @@
+"""
+Integer Right Triangles
+"""
+
 import pprint
 
 

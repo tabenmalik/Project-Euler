@@ -1,3 +1,7 @@
+"""
+Champernowne's Constant
+"""
+
 from functools import reduce
 import operator
 

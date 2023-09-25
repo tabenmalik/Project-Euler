@@ -2,6 +2,7 @@ import math
 import itertools
 import operator
 
+
 def iter_index(iterable, value, start=0):
     "Return indices where a value occurs in a sequence or iterable."
     # iter_index('AABCADEAF', 'A') --> 0 1 4 7
@@ -21,9 +22,10 @@ def iter_index(iterable, value, start=0):
         i = start - 1
         try:
             while True:
-                yield (i := seq_index(value, i+1))
+                yield (i := seq_index(value, i + 1))
         except ValueError:
             pass
+
 
 def sieve(n):
     "Primes less than n"
@@ -32,9 +34,10 @@ def sieve(n):
     data[:3] = 0, 0, 0
     limit = math.isqrt(n) + 1
     for p in itertools.compress(range(limit), data):
-        data[p*p : n : p+p] = bytes(len(range(p*p, n, p+p)))
+        data[p * p : n : p + p] = bytes(len(range(p * p, n, p + p)))
     data[2] = 1
     return iter_index(data, 1) if n > 2 else iter([])
+
 
 def solve():
     primes = list(sieve(math.isqrt(50_000_000)))

@@ -1,5 +1,8 @@
 """
 Spiral Primes
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=058
 """
 
 from pe.misc import divisors

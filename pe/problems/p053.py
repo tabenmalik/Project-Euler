@@ -1,5 +1,8 @@
 """
 Combinatoric Selections
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=053
 """
 
 import math

@@ -1,5 +1,8 @@
 """
 Coin Sums
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=031
 """
 
 MAX_NUM = 200

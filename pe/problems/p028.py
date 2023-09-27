@@ -1,5 +1,8 @@
 """
 Number Spiral Diagonals
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=028
 """
 
 GRID_SIZE = 1001

@@ -1,5 +1,8 @@
 """
 Pandigital Products
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=032
 """
 
 import itertools

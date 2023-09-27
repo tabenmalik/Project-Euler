@@ -1,5 +1,8 @@
 """
 Digit Fifth Powers
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=030
 """
 
 def solve():

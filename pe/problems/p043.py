@@ -1,5 +1,8 @@
 """
 Sub-string Divisibility
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=043
 """
 
 from pe.integer import concat

@@ -1,5 +1,8 @@
 """
 Cubic Permutations
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=062
 """
 
 from itertools import takewhile, combinations, groupby

@@ -1,5 +1,8 @@
 """
 Prime Permutations
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=049
 """
 
 import itertools

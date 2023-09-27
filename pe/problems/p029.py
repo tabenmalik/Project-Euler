@@ -2,6 +2,9 @@
 Distinct Powers
 
 .. raw:: html
+   :url: https://projecteuler.net/minimal=029
+
+.. raw:: html
    :url: https://projecteuler.net/minimal=29
 
 .. math::

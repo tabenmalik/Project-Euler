@@ -1,5 +1,8 @@
 """
 XOR Decryption
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=059
 """
 
 import itertools

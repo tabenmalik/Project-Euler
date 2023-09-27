@@ -1,5 +1,8 @@
 """
 Cyclical Figurate Numbers
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=061
 """
 
 from pe.integer import split

@@ -1,5 +1,8 @@
 """
 Maximum Path Sum I
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=018
 """
 
 import os

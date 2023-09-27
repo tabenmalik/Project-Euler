@@ -1,5 +1,8 @@
 """
 Square Root Convertgents
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=057
 """
 
 from functools import reduce

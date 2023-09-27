@@ -1,5 +1,8 @@
 """
 Prime Digit Replacements
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=051
 """
 
 import itertools

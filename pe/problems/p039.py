@@ -1,5 +1,8 @@
 """
 Integer Right Triangles
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=039
 """
 
 import pprint

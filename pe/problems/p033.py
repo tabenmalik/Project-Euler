@@ -1,5 +1,8 @@
 """
 Digit Cancelling Fractions
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=033
 """
 
 from itertools import starmap

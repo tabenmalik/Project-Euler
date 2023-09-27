@@ -1,5 +1,8 @@
 """
 Largest Product in a Grid
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=011
 """
 
 import os

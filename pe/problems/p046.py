@@ -1,5 +1,8 @@
 """
 Coldbach's Other Conjecture
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=046
 """
 
 import math

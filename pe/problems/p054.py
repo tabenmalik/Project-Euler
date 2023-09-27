@@ -1,5 +1,8 @@
 """
 Poker Hands
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=054
 """
 
 import os

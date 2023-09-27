@@ -1,5 +1,8 @@
 """
 Longest Collatz Sequence
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=014
 """
 
 MAX_NUM = 1_000_000

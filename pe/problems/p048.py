@@ -1,5 +1,8 @@
 """
 Self Powers
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=048
 """
 
 from pe.integer import concat, split

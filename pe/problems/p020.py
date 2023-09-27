@@ -1,5 +1,8 @@
 """
 Factorial Digit Sum
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=020
 """
 
 from functools import reduce

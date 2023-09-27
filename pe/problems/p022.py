@@ -1,5 +1,8 @@
 """
 Names Scores
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=022
 """
 
 import os

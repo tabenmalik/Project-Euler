@@ -1,5 +1,8 @@
 """
 Number Letter Counts
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=017
 """
 
 MAX_NUM = 1000

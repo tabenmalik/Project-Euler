@@ -1,5 +1,8 @@
 """
 Counting Sundays
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=019
 """
 
 import datetime as dt

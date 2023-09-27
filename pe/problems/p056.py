@@ -1,5 +1,8 @@
 """
 Powerful Digit Sum
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=056
 """
 
 from pe.integer import split

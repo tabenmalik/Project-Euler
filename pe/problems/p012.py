@@ -1,5 +1,8 @@
 """
 Highly Divisible Triangular Number
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=012
 """
 
 from pe.misc import divisors

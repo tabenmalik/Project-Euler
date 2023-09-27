@@ -1,5 +1,8 @@
 """
 Triangular, Pentagonal, and Hexagonal
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=045
 """
 
 from pe.sequences import Hexagonals, Pentagonals, Triangulars

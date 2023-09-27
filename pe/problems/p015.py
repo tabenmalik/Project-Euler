@@ -1,5 +1,8 @@
 """
 Lattice Paths
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=015
 """
 
 from functools import reduce

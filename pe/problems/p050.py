@@ -1,5 +1,8 @@
 """
 Consecutive Prime Sum
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=050
 """
 
 from pe.misc import sieve_of_eratosthenes_fast

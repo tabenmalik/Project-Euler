@@ -1,5 +1,8 @@
 """
 Convergents of e
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=065
 """
 from fractions import Fraction
 from functools import reduce

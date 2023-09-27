@@ -1,6 +1,9 @@
 """
 Largest Palindrome Product
 
+.. raw:: html
+   :url: https://projecteuler.net/minimal=004
+
 Project Euler problem 004: https://projecteuler.net/problem=4
 
 A palindromic number reads the same both ways.

@@ -1,5 +1,8 @@
 """
 Power Digit Sum
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=016
 """
 
 def solve():

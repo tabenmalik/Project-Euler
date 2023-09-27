@@ -61,3 +61,14 @@ html_theme = 'alabaster'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+def setup_assets_policy(app, exception):
+    """Tell Sphinx to always include assets in all HTML pages."""
+    if hasattr(app, 'set_html_assets_policy'):
+        # ``app.set_html_assets_policy`` was introduced in Sphinx 4.1.0
+        # https://github.com/sphinx-doc/sphinx/pull/9174
+        app.set_html_assets_policy('always')
+
+def setup(app):
+    print("HELLO")
+    app.connect('config-inited', setup_assets_policy)

@@ -1,5 +1,8 @@
 """
 Pandigital Prime
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=041
 """
 
 from pe.integer import concat

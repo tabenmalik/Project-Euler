@@ -1,5 +1,8 @@
 """
 Powerful Digit Counts
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=063
 """
 
 from itertools import count, takewhile

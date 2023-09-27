@@ -1,5 +1,8 @@
 """
 Prime Power Triples
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=087
 """
 
 import math

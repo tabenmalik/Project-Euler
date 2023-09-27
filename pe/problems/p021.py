@@ -1,5 +1,8 @@
 """
 Amicable Numbers
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=021
 """
 
 import math

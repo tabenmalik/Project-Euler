@@ -1,6 +1,9 @@
 """
 Largest Prime Factor
 
+.. raw:: html
+   :url: https://projecteuler.net/minimal=003
+
 Project Euler problem 003: https://projecteuler.net/problem=3
 
 The prime factors of 13195 are 5, 7, 13 and 29.

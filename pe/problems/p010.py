@@ -1,6 +1,9 @@
 """
 Summation of Primes
 
+.. raw:: html
+   :url: https://projecteuler.net/minimal=010
+
 Project Euler problem 010: https://projecteuler.net/problem=10
 
 The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.

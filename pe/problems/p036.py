@@ -1,5 +1,8 @@
 """
 Double-base Palindromes
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=036
 """
 
 import math

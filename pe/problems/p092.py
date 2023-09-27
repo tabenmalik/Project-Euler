@@ -1,5 +1,8 @@
 """
 Square Digit Chains
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=092
 """
 import math
 import functools

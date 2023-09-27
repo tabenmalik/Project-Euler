@@ -1,5 +1,8 @@
 from functools import reduce
 from operator import mul
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=070
 from itertools import takewhile
 from math import isqrt
 

@@ -1,5 +1,8 @@
 """
 Truncatable Primes
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=037
 """
 
 from pe.integer import concat, split

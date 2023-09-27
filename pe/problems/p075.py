@@ -1,5 +1,8 @@
 """
 Singular Integer Right Triangles
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=075
 """
 
 from collections import Counter

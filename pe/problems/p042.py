@@ -1,5 +1,8 @@
 """
 Coded Triangle Numbers
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=042
 """
 
 import os

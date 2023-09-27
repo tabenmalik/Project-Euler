@@ -1,5 +1,8 @@
 """
 Reciprocal Cycles
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=026
 """
 
 MAX_NUM = 1000

@@ -1,5 +1,8 @@
 """
 Pentagon Numbers
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=044
 """
 
 from pe.sequences import Pentagonals

@@ -1,5 +1,8 @@
 """
 Largest Exponential
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=099
 """
 
 from itertools import starmap

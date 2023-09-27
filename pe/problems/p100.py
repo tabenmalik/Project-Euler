@@ -1,3 +1,7 @@
+"""
+.. raw:: html
+   :url: https://projecteuler.net/minimal=100
+"""
 from itertools import count
 from math import isqrt
 

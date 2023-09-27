@@ -1,5 +1,8 @@
 """
 Lychrel Numbers
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=055
 """
 
 from pe.integer import concat, split, ireversed, palindromic

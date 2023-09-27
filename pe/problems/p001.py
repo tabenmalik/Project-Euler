@@ -1,6 +1,9 @@
 """
 Multiples of 3 or 5
 
+.. raw:: html
+   :url: https://projecteuler.net/minimal=001
+
 If we list all the natural numbers below :math:`10` that are multiples of 
 :math:`3` or :math:`5`, we get :math:`3, 5, 6` and :math:`9`. 
 The sum of these multiples is :math:`23`.

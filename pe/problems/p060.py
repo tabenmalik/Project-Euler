@@ -1,5 +1,8 @@
 """
 Prime Pair Sets
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=060
 """
 
 import itertools

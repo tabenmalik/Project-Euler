@@ -1,5 +1,8 @@
 """
 Pandigital Multiples
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=038
 """
 
 from itertools import permutations

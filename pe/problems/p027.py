@@ -1,5 +1,8 @@
 """
 Quadratic Primes
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=027
 """
 
 import itertools

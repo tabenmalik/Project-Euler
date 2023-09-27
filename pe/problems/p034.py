@@ -1,5 +1,8 @@
 """
 Digit Factorials
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=034
 """
 
 import operator

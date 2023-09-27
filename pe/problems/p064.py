@@ -1,5 +1,8 @@
 """
 Odd Period Square Roots
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=064
 """
 
 from math import floor, isqrt, sqrt, gcd

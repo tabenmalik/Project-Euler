@@ -1,5 +1,8 @@
 """
 Champernowne's Constant
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=040
 """
 
 from functools import reduce

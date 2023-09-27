@@ -1,5 +1,8 @@
 """
 Distinct Primes Factors
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=047
 """
 
 from pe.misc import prime_factors

@@ -1,5 +1,8 @@
 """
 Permuted Multiples
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=052
 """
 
 from pe.integer import split

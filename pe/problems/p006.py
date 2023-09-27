@@ -1,6 +1,9 @@
 """
 Sum Square Difference
 
+.. raw:: html
+   :url: https://projecteuler.net/minimal=006
+
 Project Euler problem 006: https://projecteuler.net/problem=6
 
 The sum of the squares of the first ten natural numbers is,

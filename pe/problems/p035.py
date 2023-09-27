@@ -1,5 +1,8 @@
 """
 Circular Primes
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=035
 """
 
 from pe.integer import split, concat

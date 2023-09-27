@@ -1,5 +1,8 @@
 """
 1000-digit Fibonacci Number
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=025
 """
 
 from pe.sequences import fibonacci_seq

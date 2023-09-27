@@ -1,6 +1,9 @@
 """
 Smallest Multiple
 
+.. raw:: html
+   :url: https://projecteuler.net/minimal=005
+
 Project Euler problem 005: https://projecteuler.net/problem=5
 
 2520 is the smallest number that can be divided by each of

@@ -1,5 +1,8 @@
 """
 Lexicographic Permutations
+
+.. raw:: html
+   :url: https://projecteuler.net/minimal=024
 """
 
 def permutations(digits):

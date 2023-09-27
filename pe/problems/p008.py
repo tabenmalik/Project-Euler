@@ -1,6 +1,9 @@
 """
 Largest Product in a Series
 
+.. raw:: html
+   :url: https://projecteuler.net/minimal=008
+
 Project Euler problem 008: https://projecteuler.net/problem=8
 
 The four adjacent digits in the 1000-digit number that have the g

@@ -1,8 +1,6 @@
 from itertools import permutations, chain
 
-from project_euler.integer import concat, split
-
-SOLUTION = ''
+from pe.integer import concat, split
 
 def flatten(list_of_lists):
     return chain.from_iterable(list_of_lists)
@@ -35,3 +33,6 @@ def solve():
             maxnum = max(num, maxnum)
 
     return maxnum
+
+if __name__ == "__main__":
+    print(solve())

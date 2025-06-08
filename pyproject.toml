@@ -17,7 +17,8 @@ classifiers = [
 ]
 
 [tool.setuptools]
-packages=["pe"]
+packages = ["pe"]
+package-dir = {"" = "src"}
 
 [project.optional-dependencies]
 test = [

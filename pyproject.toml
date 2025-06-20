@@ -16,13 +16,15 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
-[tool.setuptools]
-packages = ["pe"]
-package-dir = {"" = "src"}
-
 [project.optional-dependencies]
 test = [
     "pytest",
     "pytest-xdist",
     "pytest-timeout"
 ]
+
+[project.scripts]
+euler="pe.scripts.euler:main"
+
+[project.entry-points."pe.problems"]
+public_problems = "pe.problems"

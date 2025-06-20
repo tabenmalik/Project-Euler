@@ -5,6 +5,8 @@ import importlib
 import logging
 import sys
 import time
+import importlib
+from importlib.metadata import entry_points
 
 LOGGER = logging.getLogger(__name__)
 
@@ -47,12 +49,24 @@ def get_args():
 
     return args.number, args.solution
 
+def iter_euler_problems():
+    import pkgutil
+    problem_groups = entry_points(group = "pe.problems")
+    for problem_group in problem_groups:
+        module = problem_group.load()
+        for submodule in pkgutil.iter_modules(module.__path__):
+            yield submodule
 
 def main():
     number, solution_num = get_args()
 
-    module = 'pe.problems.euler_{:03d}'.format(number)
-    module = importlib.import_module(module)
+    for problem in iter_euler_problems():
+        if str(number) in problem.name:
+            break
+    else:
+        print(f"Problem {number} not found")
+        return 0
+    module = problem.module_finder.find_module(problem.name).load_module()
     
     tstart = time.time()
     solution = module.solve()

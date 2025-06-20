@@ -1,0 +1,11 @@
+API
+===
+
+.. currentmodule:: pe
+
+.. autosummary::
+   :toctree: api
+
+   integer
+   sequences
+   misc

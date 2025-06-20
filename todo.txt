@@ -6,3 +6,5 @@
 * Change setup.py to setup.cfg
 * Add line profiling output to script
 * Add memory profiling output to script
+* split into private project euler repo
+

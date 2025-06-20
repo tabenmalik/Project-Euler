@@ -110,3 +110,6 @@ def product(*args):
 def product_of_iter(iterable):
     """Returns the product of all elements in the iterable."""
     return product(*iterable)
+
+def isperm(a, b):
+    return sorted(split(a)) == sorted(split(b))

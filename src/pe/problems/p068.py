@@ -2,6 +2,8 @@ from itertools import permutations, chain
 
 from pe.integer import concat, split
 
+SOLUTION = '6531031914842725'
+
 def flatten(list_of_lists):
     return chain.from_iterable(list_of_lists)
 
@@ -32,7 +34,7 @@ def solve():
             num = concat(digits)
             maxnum = max(num, maxnum)
 
-    return maxnum
+    return str(maxnum)
 
 if __name__ == "__main__":
     print(solve())

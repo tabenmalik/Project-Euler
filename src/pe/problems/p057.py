@@ -2,6 +2,8 @@ from functools import reduce
 import operator
 from pe.integer import split
 
+SOLUTION = "153"
+
 
 def memoize(func):
     results = {}

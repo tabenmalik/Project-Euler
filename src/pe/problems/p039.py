@@ -1,5 +1,7 @@
 import pprint
 
+SOLUTION = "840"
+
 
 def solve():
     p_solutions = {}

@@ -3,6 +3,7 @@ from pprint import pprint
 from itertools import count
 from math import gcd
 
+SOLUTION = "161667"
 
 def solve():
     p_counts = Counter()

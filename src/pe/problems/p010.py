@@ -6,6 +6,7 @@ Find the sum of all the primes below two million.
 """
 import math
 
+SOLUTION = "142913828922"
 
 MAX_NUM = 2_000_000
 

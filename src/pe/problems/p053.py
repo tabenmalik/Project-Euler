@@ -1,5 +1,7 @@
 import math
 
+SOLUTION = "4075"
+
 
 def choose(n, k):
     return math.factorial(n) / (math.factorial(k) * math.factorial(n - k))

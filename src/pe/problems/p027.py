@@ -1,6 +1,8 @@
 import itertools
 from pe.misc import is_prime, sieve_of_eratosthenes_fast
 
+SOLUTION = "-59231"
+
 
 MAX_NUM = 1000
 

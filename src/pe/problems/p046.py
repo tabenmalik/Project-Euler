@@ -3,6 +3,7 @@ import math
 from pe.misc import is_prime
 from pe.misc import sieve_of_eratosthenes_fast
 
+SOLUTION = "5777"
 
 def is_goldbach_composite(n):
     primes = sieve_of_eratosthenes_fast(under=n)

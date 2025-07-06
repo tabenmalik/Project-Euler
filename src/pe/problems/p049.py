@@ -3,6 +3,8 @@ import itertools
 from pe.integer import concat, split
 from pe.misc import sieve_of_eratosthenes_fast
 
+SOLUTION = "296962999629"
+
 
 def difference(l):
     d = []

@@ -2,6 +2,7 @@ from functools import reduce
 import operator
 import math
 
+SOLUTION = "137846528820"
 
 GRID_SIZE = 20
 

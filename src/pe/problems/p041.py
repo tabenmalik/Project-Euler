@@ -2,6 +2,8 @@ from pe.integer import concat
 from pe.sequences import permutations_seq
 from pe.misc import prime_factors
 
+SOLUTION = "7652413"
+
 
 def is_prime(n):
     if len(list(prime_factors(n))) == 1:

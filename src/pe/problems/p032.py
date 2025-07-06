@@ -3,6 +3,7 @@ from pprint import pprint
 
 from pe.misc import divisors, sieve_of_eratosthenes_fast
 
+SOLUTION = "45228"
 
 def solve():
     digits = [1, 2, 3, 4, 5, 6, 7, 8, 9]

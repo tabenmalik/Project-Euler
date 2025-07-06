@@ -1,6 +1,8 @@
 from itertools import takewhile, combinations, groupby
 from pe.integer import split
 
+SOLUTION = "127035954683"
+
 
 def positive_integers_seq(start=1, step=1):
     n = start

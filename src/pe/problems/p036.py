@@ -1,5 +1,7 @@
 import math
 
+SOLUTION = "872187"
+
 
 def is_palindrome(string):
     reverse_str = string[::-1]

@@ -1,3 +1,5 @@
+SOLUTION = "669171001"
+
 GRID_SIZE = 1001
 
 #  *1

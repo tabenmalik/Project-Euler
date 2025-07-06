@@ -2,6 +2,8 @@ import math
 import itertools
 import operator
 
+SOLUTION = "1097343"
+
 
 def iter_index(iterable, value, start=0):
     "Return indices where a value occurs in a sequence or iterable."

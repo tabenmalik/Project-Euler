@@ -5,6 +5,8 @@ import operator
 from pe.integer import split, concat
 from pe.misc import prime_factors
 
+SOLUTION = "100"
+
 
 def is_wrongly_canceled(numerator, denominator):
     num_digits = split(numerator)

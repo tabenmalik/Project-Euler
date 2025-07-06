@@ -14,6 +14,7 @@ from pe.integer import product
 from pe.more_itertools import first_true
 from pe.more_itertools import arg_expander
 
+SOLUTION = "31875000"
 
 SUM_NUM = 1000
 

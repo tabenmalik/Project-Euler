@@ -1,5 +1,6 @@
 import math
 
+SOLUTION = "31626"
 
 MAX_NUM = 10_000
 

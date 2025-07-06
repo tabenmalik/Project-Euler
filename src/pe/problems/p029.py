@@ -1,3 +1,4 @@
+SOLUTION = "9183"
 MAX_NUM = 100
 
 

@@ -1,5 +1,7 @@
 from pe.sequences import Pentagonals
 
+SOLUTION = "5482660"
+
 
 def solve():
     max_num = 10000

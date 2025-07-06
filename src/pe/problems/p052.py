@@ -1,5 +1,7 @@
 from pe.integer import split
 
+SOLUTION = "142857"
+
 
 def solve():
     n = 2

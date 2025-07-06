@@ -4,6 +4,7 @@ import operator
 from importlib.resources import files
 import pe.data
 
+SOLUTION = "70600674"
 ADJ_NUMS = 4
 
 

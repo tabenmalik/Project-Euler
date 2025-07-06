@@ -1,3 +1,5 @@
+SOLUTION = "443839"
+
 def solve():
     power = 5
 

@@ -3,6 +3,8 @@ from pe.integer import split, concat
 from pe.misc import divisors
 from pe.misc import sieve_of_eratosthenes_fast
 
+SOLUTION = "26033"
+
 
 def prime_seq():
     """

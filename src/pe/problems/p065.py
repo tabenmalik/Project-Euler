@@ -6,6 +6,8 @@ from itertools import count, islice
 
 from pe.integer import split
 
+SOLUTION = "272"
+
 
 def continued_frac_coeffs_for_e():
     yield 2

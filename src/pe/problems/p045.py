@@ -1,5 +1,7 @@
 from pe.sequences import Hexagonals, Pentagonals, Triangulars
 
+SOLUTION = "1533776805"
+
 
 def solve():
     n = 144

@@ -12,6 +12,9 @@ from operator import mul
 from pe.integer import palindromic
 
 
+SOLUTION = "906609"
+
+
 def solve():
     """Solves Project Euler problem 004"""
     NUM_DIGITS = 3

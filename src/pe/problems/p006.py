@@ -17,6 +17,7 @@ hundred natural numbers and the square of the sum.
 """
 from pe.integer import sum_of_1_to_n, sum_of_sqrs
 
+SOLUTION = "25164150"
 
 MAX_NUM = 100
 

@@ -1,6 +1,8 @@
 from pe.integer import split
 from itertools import takewhile, product
 
+SOLUTION = "28684"
+
 
 def triangonal(n):
     return (n * (n + 1)) // 2

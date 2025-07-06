@@ -1,5 +1,7 @@
 from pe.misc import prime_factors
 
+SOLUTION = "134043"
+
 
 def solve():
     distinct_prime_factors = 4

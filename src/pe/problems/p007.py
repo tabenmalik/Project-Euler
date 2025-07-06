@@ -9,6 +9,7 @@ What is the 10 001st prime number?
 from pe.more_itertools import nth
 from pe.sequences import prime_seq
 
+SOLUTION = "104743"
 
 MAX_NUM = 10_001
 

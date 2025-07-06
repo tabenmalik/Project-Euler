@@ -1,5 +1,7 @@
 from pe.sequences import fibonacci_seq
 
+SOLUTION = "4782"
+
 
 MAX_DIGITS = 1_000
 

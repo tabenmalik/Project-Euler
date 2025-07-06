@@ -5,6 +5,8 @@ from pe.sequences import prime_seq
 from pe.sequences import permutations_seq
 from pe.misc import is_prime
 
+SOLUTION = "121313"
+
 
 def digit_replacements(num, digit):
     num_str = str(num)

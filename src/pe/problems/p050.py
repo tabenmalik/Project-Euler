@@ -1,5 +1,7 @@
 from pe.misc import sieve_of_eratosthenes_fast
 
+SOLUTION = "997651"
+
 
 def solve():
     primes = sieve_of_eratosthenes_fast(1_000_000)

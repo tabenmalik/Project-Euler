@@ -2,23 +2,19 @@ import os
 import operator
 import pe.data
 from importlib.resources import files
-
+SOLUTION = '871198282'
 
 def read_name_file():
     this_dir, _ = os.path.split(__file__)
-
-    names = ""
-    line = files(pe.data).joinpath("p022.txt").read_text()
+    names = ''
+    line = files(pe.data).joinpath('p022.txt').read_text()
     line = line.rstrip()
-    line = line.replace('"', "")
-    names = line.split(",")
-
+    line = line.replace('"', '')
+    names = line.split(',')
     return names
 
-
 def alphabetical_value(string):
-    return sum(map(lambda x: x - ord("a") + 1, map(ord, string.lower())))
-
+    return sum(map(lambda x: x - ord('a') + 1, map(ord, string.lower())))
 
 def solve():
     names = read_name_file()

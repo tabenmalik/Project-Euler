@@ -1,5 +1,7 @@
 from pe.misc import divisors
 
+SOLUTION = "26241"
+
 
 def solve():
     odd_num = 1

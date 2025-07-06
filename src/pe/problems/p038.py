@@ -2,6 +2,7 @@ from itertools import permutations
 
 from pe.integer import concat, split
 
+SOLUTION = "932718654"
 
 def contains_multiples(num, digits):
     multiplier = 1

@@ -1,6 +1,7 @@
 from pe.integer import concat
 from pe.sequences import permutations_seq
 
+SOLUTION = "16695334890"
 
 PRIMES = (2, 3, 5, 7, 11, 13, 17)
 

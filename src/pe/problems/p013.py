@@ -2,6 +2,8 @@ import os
 import pe.data
 from importlib.resources import files
 
+SOLUTION = "5537376230"
+
 NUM_DIGITS = 10
 
 

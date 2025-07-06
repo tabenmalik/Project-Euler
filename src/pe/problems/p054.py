@@ -1,5 +1,7 @@
 import os
 
+SOLUTION = "376"
+
 
 class Card:
     def __init__(self, card_str):

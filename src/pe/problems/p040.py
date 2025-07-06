@@ -3,6 +3,8 @@ import operator
 
 from pe.integer import split
 
+SOLUTION = "210"
+
 
 def champernowne_digit(n):
     level = 0

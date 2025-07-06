@@ -17,10 +17,12 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-test = [
+dev = [
     "pytest",
     "pytest-xdist",
-    "pytest-timeout"
+    "pytest-timeout",
+    "black",
+    "reorder-python-imports",
 ]
 
 [project.scripts]

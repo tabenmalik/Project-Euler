@@ -27,5 +27,5 @@ def iter_euler_problems():
 def test(problem):
     """Test an euler solver. Must generate the correct solution and solve it in less than 60s"""
     if getattr(problem, "SOLUTION", None) is None:
-        pytest.xfail("No known solution.")
+        pytest.fail("No solution")
     assert problem.SOLUTION == problem.solve()

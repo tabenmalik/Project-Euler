@@ -22,15 +22,15 @@ def iter_euler_problems():
         problem_package = problem_package_info.load()
         for problem_module_info in pkgutil.iter_modules(problem_package.__path__):
             spec = find_spec(f".{problem_module_info.name}", problem_package_info.value)
-            module = module_from_spec(spec)
-            spec.loader.exec_module(module)
-            yield module
+            yield pytest.param(spec, id=problem_module_info.name)
 
 
-@pytest.mark.parametrize("problem", iter_euler_problems())
+@pytest.mark.parametrize("problem_module_spec", iter_euler_problems())
 @pytest.mark.timeout(120)
-def test(problem):
+def test(problem_module_spec):
     """Test an euler solver. Must generate the correct solution and solve it in less than 60s"""
+    problem = module_from_spec(problem_module_spec)
+    problem_module_spec.loader.exec_module(problem)
     if getattr(problem, "SOLUTION", None) is None:
         pytest.fail("No solution")
     assert problem.SOLUTION == problem.solve()

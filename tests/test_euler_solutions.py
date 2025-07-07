@@ -7,6 +7,8 @@ import importlib
 import operator
 import pkgutil
 from importlib.metadata import entry_points
+from importlib.util import find_spec
+from importlib.util import module_from_spec
 
 import pe
 import pytest
@@ -15,11 +17,14 @@ from pe.euler import Problem
 
 def iter_euler_problems():
     """Find and yield all euler problem modules."""
-    problem_groups = entry_points(group="pe.problems")
-    for problem_group in problem_groups:
-        module = problem_group.load()
-        for submodule in pkgutil.iter_modules(module.__path__):
-            yield submodule.module_finder.find_module(submodule.name).load_module()
+    problem_packages = entry_points(group="pe.problems")
+    for problem_package_info in problem_packages:
+        problem_package = problem_package_info.load()
+        for problem_module_info in pkgutil.iter_modules(problem_package.__path__):
+            spec = find_spec(f".{problem_module_info.name}", problem_package_info.value)
+            module = module_from_spec(spec)
+            spec.loader.exec_module(module)
+            yield module
 
 
 @pytest.mark.parametrize("problem", iter_euler_problems())

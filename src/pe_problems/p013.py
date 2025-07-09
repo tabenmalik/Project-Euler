@@ -1,5 +1,5 @@
 import os
-import pe.data
+import pe_problems
 from importlib.resources import files
 
 SOLUTION = "5537376230"
@@ -11,7 +11,7 @@ def read_number_file():
     this_dir, _ = os.path.split(__file__)
 
     num_matrix = []
-    lines = files(pe.data).joinpath("p013.txt").read_text().splitlines()
+    lines = files(pe_problems).joinpath("p013.txt").read_text().splitlines()
     for line in lines:
         line = line.rstrip()
         line_digits = list(map(int, line))

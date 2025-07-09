@@ -1,15 +1,18 @@
 import os
-import pe.data
+
+
+NUM_FILE = "p067.txt"
+import pe_problems
 from importlib.resources import files
 
+SOLUTION = "7273"
 
-SOLUTION = "1074"
 
 def read_number_file():
     this_dir, _ = os.path.split(__file__)
 
     num_matrix = []
-    lines = files(pe.data).joinpath("p018.txt").read_text().splitlines()
+    lines = files(pe_problems).joinpath("p067.txt").read_text().splitlines()
     for line in lines:
         line = line.rstrip()
         line_nums = list(map(int, line.split(" ")))

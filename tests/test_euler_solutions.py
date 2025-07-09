@@ -10,7 +10,6 @@ from importlib.metadata import entry_points
 from importlib.util import find_spec
 from importlib.util import module_from_spec
 
-import pe
 import pytest
 
 

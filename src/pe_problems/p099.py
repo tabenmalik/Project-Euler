@@ -3,7 +3,7 @@ from functools import partial
 import os
 from math import log
 
-import pe.data
+import pe_problems
 from importlib.resources import files
 
 SOLUTION = "709"
@@ -25,7 +25,7 @@ def argmax(iterable):
 def solve():
     this_dir, _ = os.path.split(__file__)
 
-    exps = files(pe.data).joinpath("p099.txt").read_text().splitlines()
+    exps = files(pe_problems).joinpath("p099.txt").read_text().splitlines()
 
     exps = map(partial(str.split, sep=","), exps)
     exps = map(tuple, map(partial(map, int), exps))

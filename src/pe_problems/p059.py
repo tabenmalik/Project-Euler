@@ -1,7 +1,7 @@
 import itertools
 import os
 
-import pe.data
+import pe_problems
 from importlib.resources import files
 
 SOLUTION = "129448"
@@ -11,7 +11,7 @@ def read_number_file():
     this_dir, _ = os.path.split(__file__)
 
     nums = []
-    line = files(pe.data).joinpath("p059.txt").read_text()
+    line = files(pe_problems).joinpath("p059.txt").read_text()
     nums = list(map(int, line.split(",")))
 
     return nums

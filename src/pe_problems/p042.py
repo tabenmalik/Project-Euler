@@ -2,7 +2,7 @@ import os
 
 from pe.integer import sum_of_1_to_n
 from importlib.resources import files
-import pe.data
+import pe_problems
 
 SOLUTION = "162"
 
@@ -20,7 +20,7 @@ def read_file():
     this_dir, _ = os.path.split(__file__)
 
     words = []
-    line = files(pe.data).joinpath("p042.txt").read_text()
+    line = files(pe_problems).joinpath("p042.txt").read_text()
     line = line.rstrip()
     line = line.replace('"', "")
     words = line.split(",")

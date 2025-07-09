@@ -26,4 +26,7 @@ dev = [
 ]
 
 [project.entry-points."pe.problems"]
-public_problems = "pe.problems"
+public_problems = "pe_problems"
+
+[tool.setuptools.package-data]
+pe_problems = ["*.txt"]

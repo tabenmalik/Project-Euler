@@ -2,7 +2,7 @@ import os
 from functools import reduce
 import operator
 from importlib.resources import files
-import pe.data
+import pe_problems
 
 SOLUTION = "70600674"
 ADJ_NUMS = 4
@@ -12,7 +12,7 @@ def read_grid_file():
     this_dir, _ = os.path.split(__file__)
 
     num_matrix = []
-    for line in files(pe.data).joinpath("p011.txt").read_text().splitlines():
+    for line in files(pe_problems).joinpath("p011.txt").read_text().splitlines():
         line = line.rstrip()
         nums = line.split(" ")
         line_nums = list(map(int, nums))

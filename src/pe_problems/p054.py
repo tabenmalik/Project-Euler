@@ -255,7 +255,7 @@ class Hand:
         return (max_card,), max_card.value
 
 
-import pe.data
+import pe_problems
 from importlib.resources import files
 
 
@@ -263,7 +263,7 @@ def read_file():
     this_dir, _ = os.path.split(__file__)
 
     players_hands = []
-    lines = files(pe.data).joinpath("p054.txt").read_text().splitlines()
+    lines = files(pe_problems).joinpath("p054.txt").read_text().splitlines()
     for line in lines:
         cards = list(map(Card, line.strip().split(" ")))
         players_hands.append((Hand(cards[:5]), Hand(cards[5:])))

@@ -1,13 +1,13 @@
 import os
 import operator
-import pe.data
+import pe_problems
 from importlib.resources import files
 SOLUTION = '871198282'
 
 def read_name_file():
     this_dir, _ = os.path.split(__file__)
     names = ''
-    line = files(pe.data).joinpath('p022.txt').read_text()
+    line = files(pe_problems).joinpath('p022.txt').read_text()
     line = line.rstrip()
     line = line.replace('"', '')
     names = line.split(',')

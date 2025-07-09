@@ -24,7 +24,7 @@ def iter_euler_problems():
 
 
 @pytest.mark.parametrize("problem_module_spec", iter_euler_problems())
-@pytest.mark.timeout(120)
+@pytest.mark.timeout(60)
 def test(problem_module_spec):
     """Test an euler solver. Must generate the correct solution and solve it in less than 60s"""
     problem = module_from_spec(problem_module_spec)

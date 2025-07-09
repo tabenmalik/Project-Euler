@@ -12,7 +12,6 @@ from importlib.util import module_from_spec
 
 import pe
 import pytest
-from pe.euler import Problem
 
 
 def iter_euler_problems():

@@ -25,8 +25,5 @@ dev = [
     "reorder-python-imports",
 ]
 
-[project.scripts]
-euler="pe.scripts.euler:main"
-
 [project.entry-points."pe.problems"]
 public_problems = "pe.problems"

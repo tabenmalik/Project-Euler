@@ -1,21 +1,13 @@
 # https://black.readthedocs.io/en/stable/integrations/github_actions.html
-name: Lint
+name: BlackLint
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
-  schedule:
-    - cron: '13 13 13 * *'
+on: ["push", "pull_request"]
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: psf/black@stable
         with:
-          options: "--check --verbose"
-          src: "./pe"
+          options: "--check --verbose --color"

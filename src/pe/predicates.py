@@ -1,4 +1,5 @@
 """A module of functions to create predicates."""
+
 import operator
 
 

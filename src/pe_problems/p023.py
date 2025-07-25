@@ -5,6 +5,7 @@ from pe.integer import sum_of_1_to_n
 SOLUTION = "4179871"
 MAX_NUM = 28123
 
+
 def proper_divisors(n):
     if n == 1:
         return []
@@ -18,8 +19,10 @@ def proper_divisors(n):
                 divisors.append(j)
     return sorted(divisors)
 
+
 def is_abundant(n):
     return sum(proper_divisors(n)) > n
+
 
 def solve():
     abundant_nums = list(filter(is_abundant, range(2, MAX_NUM + 1)))

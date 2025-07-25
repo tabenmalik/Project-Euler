@@ -5,6 +5,7 @@ from importlib.resources import files
 
 SOLUTION = "1074"
 
+
 def read_number_file():
     this_dir, _ = os.path.split(__file__)
 

@@ -2,10 +2,12 @@ from itertools import permutations, chain
 
 from pe.integer import concat, split
 
-SOLUTION = '6531031914842725'
+SOLUTION = "6531031914842725"
+
 
 def flatten(list_of_lists):
     return chain.from_iterable(list_of_lists)
+
 
 def knapsacks(nums, t):
     num_sets = 5
@@ -15,7 +17,7 @@ def knapsacks(nums, t):
         for inners in permutations(lessnums):
             sets = []
             for i in range(num_sets):
-                subset = (outers[i], inners[i], inners[(i+1)%5])
+                subset = (outers[i], inners[i], inners[(i + 1) % 5])
                 if sum(subset) != t:
                     break
                 sets.append(subset)
@@ -23,6 +25,7 @@ def knapsacks(nums, t):
                 if tuple(sorted(sets)) not in solvedsets:
                     yield tuple(sets)
                     solvedsets.add(tuple(sorted(sets)))
+
 
 def solve():
     maxnum = 0
@@ -35,6 +38,7 @@ def solve():
             maxnum = max(num, maxnum)
 
     return str(maxnum)
+
 
 if __name__ == "__main__":
     print(solve())

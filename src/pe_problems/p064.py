@@ -1,5 +1,4 @@
-"""
-"""
+""" """
 
 from math import floor, isqrt, sqrt, gcd
 

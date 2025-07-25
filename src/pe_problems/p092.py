@@ -6,6 +6,7 @@ from pe.integer import split
 
 SOLUTION = "8581146"
 
+
 def square(num):
     return num * num
 

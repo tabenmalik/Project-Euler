@@ -5,6 +5,7 @@ from math import gcd
 
 SOLUTION = "161667"
 
+
 def solve():
     p_counts = Counter()
 

@@ -1,7 +1,7 @@
 # https://black.readthedocs.io/en/stable/integrations/github_actions.html
 name: BlackLint
 
-on: ["push", "pull_request"]
+on: ["push"]
 
 jobs:
   lint:
@@ -10,4 +10,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: psf/black@stable
         with:
-          options: "--check --verbose --color"
+          options: "--check --verbose --color -l 132"

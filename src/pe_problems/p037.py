@@ -5,6 +5,7 @@ from pe.sequences import prime_seq
 
 SOLUTION = "748317"
 
+
 def is_trucatable_prime(prime):
     single_digit_primes = set([2, 3, 5, 7])
     if prime in single_digit_primes:

@@ -3,6 +3,7 @@ from pe.misc import sieve_of_eratosthenes_fast, is_prime
 
 SOLUTION = "55"
 
+
 def cycle_digits(num):
     yield num
 

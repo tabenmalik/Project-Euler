@@ -1,13 +1,23 @@
-# https://black.readthedocs.io/en/stable/integrations/github_actions.html
-name: BlackLint
+name: Lint
 
 on: ["push"]
 
 jobs:
-  lint:
+  # https://black.readthedocs.io/en/stable/integrations/github_actions.html
+  black:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: psf/black@stable
         with:
           options: "--check --verbose --color -l 132"
+
+  mypy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/checkout@v4
+      - run: pip install mypy
+      - run: mypy --strict ./src ./tests

@@ -1,5 +1,5 @@
-"""
-"""
+""" """
+
 from fractions import Fraction
 from functools import reduce
 from itertools import count, islice

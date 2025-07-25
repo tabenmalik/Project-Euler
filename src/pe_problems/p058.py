@@ -19,9 +19,7 @@ def solve():
             reference_corner - (3 * (odd_num - 1)),
         ]
 
-        prime_diagonals = list(
-            filter(lambda x: len(divisors(x)) == 2, possible_prime_diagonals)
-        )
+        prime_diagonals = list(filter(lambda x: len(divisors(x)) == 2, possible_prime_diagonals))
         prime_count += len(prime_diagonals)
 
         prime_ratio = prime_count / diagonal_count

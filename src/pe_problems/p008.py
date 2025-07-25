@@ -32,7 +32,7 @@ What is the value of this product?
 from pe.integer import split, product
 from pe.more_itertools import rolling
 
-SOLUTION = '23514624000'
+SOLUTION = "23514624000"
 
 NUM = int(
     "73167176531330624919225119674426574742355349194934"

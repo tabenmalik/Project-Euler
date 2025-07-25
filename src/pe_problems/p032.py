@@ -5,6 +5,7 @@ from pe.misc import divisors, sieve_of_eratosthenes_fast
 
 SOLUTION = "45228"
 
+
 def solve():
     digits = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     # digits = [1, 2, 3, 4]
@@ -30,9 +31,7 @@ def solve():
             b = map(int, b)
             product = map(int, product)
 
-            actual_products = filter(
-                lambda trip: trip[0] == trip[1] * trip[2], zip(product, a, b)
-            )
+            actual_products = filter(lambda trip: trip[0] == trip[1] * trip[2], zip(product, a, b))
             actual_products = list(zip(*actual_products))
             if len(actual_products) > 0:
                 products.update(actual_products[0])

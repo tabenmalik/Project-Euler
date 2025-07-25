@@ -1,5 +1,6 @@
 SOLUTION = "2783915460"
 
+
 def permutations(digits):
     yield digits.copy()
 

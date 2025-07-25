@@ -1,4 +1,5 @@
 """Functions for testing or manipulating properties of integers"""
+
 from functools import reduce
 import math
 import operator

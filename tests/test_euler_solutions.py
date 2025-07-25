@@ -3,6 +3,7 @@ Acceptance test of all Euler Problem solutions
 
 All euler solvers must have a correct solution and must generate the solution in under 60sec.
 """
+
 import importlib
 import operator
 import pkgutil

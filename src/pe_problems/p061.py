@@ -101,9 +101,7 @@ def solve():
                 if seq_name not in cycle_seqs:
                     for num in seq:
                         if is_cycle(cycle + [num], False):
-                            new_cycles.append(
-                                (cycle_seqs | set([seq_name]), cycle + [num])
-                            )
+                            new_cycles.append((cycle_seqs | set([seq_name]), cycle + [num]))
         cycles = new_cycles
         new_cycles = []
 

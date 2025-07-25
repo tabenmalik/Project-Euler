@@ -8,6 +8,7 @@ from importlib.resources import files
 
 SOLUTION = "709"
 
+
 def argmax(iterable):
     it = iter(iterable)
 
@@ -31,6 +32,7 @@ def solve():
     exps = map(tuple, map(partial(map, int), exps))
     log_exps = starmap(lambda x, e: e * log(x), exps)
     return str(argmax(log_exps) + 1)
+
 
 if __name__ == "__main__":
     print(solve())

@@ -2,6 +2,7 @@ import unittest
 
 from pe import integer
 
+
 class TestPalindromic(unittest.TestCase):
 
     def test_palindromic(self):

@@ -1,10 +1,12 @@
+from typing import Generator
+
 from pe.integer import split, concat
 from pe.misc import sieve_of_eratosthenes_fast, is_prime
 
 SOLUTION = "55"
 
 
-def cycle_digits(num):
+def cycle_digits(num: int) -> Generator[int, None, None]:
     yield num
 
     digits = list(split(num))
@@ -16,7 +18,7 @@ def cycle_digits(num):
         new_num = concat(digits)
 
 
-def solve():
+def solve() -> str:
     limit = 1_000_000
     primes = set(sieve_of_eratosthenes_fast(limit))
 

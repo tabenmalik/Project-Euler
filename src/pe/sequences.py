@@ -1,10 +1,16 @@
 from collections import abc
+from typing import overload
+from typing import Optional
+from typing import Generator
+from typing import Iterator
+from typing import Any
+from typing import cast
 import math
 
 from pe.misc import divisors
 
 
-class Triangulars(abc.Iterable, abc.Container):
+class Triangulars(abc.Iterable[int], abc.Container[int]):
     """
     Computes the nth trigonal number.
     A trigonal number is number of objects that can be arranged into an
@@ -14,20 +20,26 @@ class Triangulars(abc.Iterable, abc.Container):
         0, 1, 3, 6, 10, 15, ...
     """
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator[Any]:
         i = 0
         while True:
             yield self[i]
             i += 1
 
-    def __contains__(self, value):
+    def __contains__(self, value: Any) -> bool:
         try:
             self.index(value)
             return True
         except ValueError:
             return False
 
-    def __getitem__(self, n):
+    @overload
+    def __getitem__(self, n: int) -> int: ...
+
+    @overload
+    def __getitem__(self, n: slice) -> tuple[int, ...]: ...
+
+    def __getitem__(self, n: int | slice) -> int | tuple[int, ...]:
         if isinstance(n, slice):
             if n.stop is None:
                 raise ValueError("")
@@ -38,7 +50,7 @@ class Triangulars(abc.Iterable, abc.Container):
 
         return math.comb(n + 1, 2)
 
-    def index(self, value):
+    def index(self, value: Any) -> int:
         if value < 0:
             raise ValueError
 
@@ -63,20 +75,25 @@ class Pentagonals:
         1, 5, 12, 22, 35, 51, ...
     """
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator[int]:
         i = 0
         while True:
             yield self[i]
             i += 1
 
-    def __contains__(self, value):
+    def __contains__(self, value: int) -> bool:
         try:
             self.index(value)
             return True
         except ValueError:
             return False
 
-    def __getitem__(self, n):
+    @overload
+    def __getitem__(self, n: int) -> int: ...
+    @overload
+    def __getitem__(self, n: slice) -> tuple[int, ...]: ...
+
+    def __getitem__(self, n: int | slice) -> int | tuple[int, ...]:
         if isinstance(n, slice):
             if n.stop is None:
                 raise ValueError("")
@@ -87,7 +104,7 @@ class Pentagonals:
 
         return (n * ((3 * n) - 1)) // 2
 
-    def index(self, value):
+    def index(self, value: int) -> int:
         if value < 0:
             raise ValueError
 
@@ -111,27 +128,29 @@ class Hexagonals:
         1, 6, 15, 28, 45, 66, ...
     """
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator[int]:
         i = 0
         while True:
-            yield self[i]
+            yield cast(int, self[i])
             i += 1
 
-    def __contains__(self, value):
+    def __contains__(self, value: int) -> int:
         try:
             self.index(value)
             return True
         except ValueError:
             return False
 
-    def __getitem__(self, n):
+    def __getitem__(self, n: int | slice) -> int | tuple[int, ...]:
         if isinstance(n, slice):
             if n.stop is None:
                 raise ValueError("")
-            return tuple(self[i] for i in range(n.start or 0, n.stop, n.step or 1))
+            return tuple(
+                cast(int, self[i]) for i in range(n.start or 0, n.stop, n.step or 1)
+            )
         return n * ((2 * n) - 1)
 
-    def index(self, value):
+    def index(self, value: int) -> int:
         if value <= 0:
             raise ValueError()
 
@@ -146,7 +165,7 @@ class Hexagonals:
         raise ValueError()
 
 
-def permutations_seq(digits):
+def permutations_seq(digits: list[int]) -> Generator[list[int], None, None]:
     yield digits.copy()
 
     largest_index_k = 0
@@ -170,7 +189,7 @@ def permutations_seq(digits):
             yield digits.copy()
 
 
-def prime_seq():
+def prime_seq() -> Generator[int, None, None]:
     """
     Prime numbers sequence.
     OEIS A000040
@@ -184,7 +203,7 @@ def prime_seq():
         i += 2
 
 
-def fibonacci_seq(under=None):
+def fibonacci_seq(under: Optional[int] = None) -> Generator[int, None, None]:
     """
     A generator of fibonacci numbers
     """
@@ -207,7 +226,7 @@ def fibonacci_seq(under=None):
         fib_new = fib_2 + fib_1
 
 
-def even_fibonacci_seq():
+def even_fibonacci_seq() -> Generator[int, None, None]:
     """
     Even fibonacci number sequence.
     OEIS A022342

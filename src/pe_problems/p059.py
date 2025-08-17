@@ -4,10 +4,10 @@ import os
 import pe_problems
 from importlib.resources import files
 
-SOLUTION = "129448"
+SOLUTION: str = "129448"
 
 
-def read_number_file():
+def read_number_file() -> list[int]:
     this_dir, _ = os.path.split(__file__)
 
     nums = []
@@ -17,7 +17,7 @@ def read_number_file():
     return nums
 
 
-def decrypt(text, password):
+def decrypt(text: list[int], password: tuple[int, int, int]) -> str:
     chunks = [text[i : i + len(password)] for i in range(0, len(text), len(password))]
     decrypted_chunks = []
     for chunk in chunks:
@@ -28,13 +28,15 @@ def decrypt(text, password):
     return "".join(decrypted_ascii)
 
 
-def solve():
+def solve() -> str:
     nums = read_number_file()
 
     lower_case_ascii = [ord("a") + i for i in range(26)]
     passwords = list(itertools.permutations(lower_case_ascii, r=3))
 
+    message = ""
     for password in passwords:
         message = decrypt(nums, password)
         if " the " in message:
-            return str(sum(map(ord, message)))
+            break
+    return str(sum(map(ord, message)))

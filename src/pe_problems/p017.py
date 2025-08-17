@@ -1,7 +1,7 @@
-SOLUTION = "21124"
-MAX_NUM = 1000
+SOLUTION: str = "21124"
+MAX_NUM: int = 1000
 
-ones = {
+ones: dict[int, str] = {
     1: "one",
     2: "two",
     3: "three",
@@ -12,7 +12,7 @@ ones = {
     8: "eight",
     9: "nine",
 }
-teens = {
+teens: dict[int, str] = {
     11: "eleven",
     12: "twelve",
     13: "thirteen",
@@ -23,7 +23,7 @@ teens = {
     18: "eighteen",
     19: "nineteen",
 }
-tens = {
+tens: dict[int, str] = {
     1: "ten",
     2: "twenty",
     3: "thirty",
@@ -36,7 +36,7 @@ tens = {
 }
 
 
-def num_to_english(n):
+def num_to_english(n: int) -> str:
     num_eng = ""
 
     tens_digits = n % 100
@@ -69,7 +69,7 @@ def num_to_english(n):
     return num_eng
 
 
-def solve():
+def solve() -> str:
     eng_strs = map(num_to_english, range(1, MAX_NUM + 1))
     removed_spaces = (eng_str.replace(" ", "") for eng_str in eng_strs)
     str_counts = map(len, removed_spaces)

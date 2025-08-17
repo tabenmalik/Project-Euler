@@ -3,11 +3,11 @@ from pprint import pprint
 from itertools import count
 from math import gcd
 
-SOLUTION = "161667"
+SOLUTION: str = "161667"
 
 
-def solve():
-    p_counts = Counter()
+def solve() -> str:
+    p_counts: Counter[int] = Counter()
 
     limit = 1_500_000
     for m in count(2):

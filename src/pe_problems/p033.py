@@ -8,7 +8,7 @@ from pe.misc import prime_factors
 SOLUTION = "100"
 
 
-def is_wrongly_canceled(numerator, denominator):
+def is_wrongly_canceled(numerator: int, denominator: int) -> bool:
     num_digits = split(numerator)
     den_digits = split(denominator)
 
@@ -28,7 +28,7 @@ def is_wrongly_canceled(numerator, denominator):
     return False
 
 
-def solve():
+def solve() -> str:
     fractions = [(i, j) for i in range(10, 100) for j in range(i + 1, 100)]
     bad_fractions = filter(lambda x: is_wrongly_canceled(*x), fractions)
     bad_fractions = list(bad_fractions)

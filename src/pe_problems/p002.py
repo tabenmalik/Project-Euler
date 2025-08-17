@@ -18,7 +18,7 @@ SOLUTION = "4613732"
 MAX_NUM = 4_000_000
 
 
-def solve():
+def solve() -> str:
     """Solves Project Euler problem 002"""
     lt_4_mil = lambda x: x < MAX_NUM
     even_fibs_under_4_mil = takewhile(lt_4_mil, even_fibonacci_seq())

@@ -1,15 +1,16 @@
 from itertools import count, takewhile
+from typing import Iterable
 
 from pe.integer import split
 
 SOLUTION = "49"
 
 
-def positive_integers_seq(start=1, step=1):
+def positive_integers_seq(start: int = 1, step: int = 1) -> Iterable[int]:
     return count(start, step)
 
 
-def solve():
+def solve() -> str:
     n = 1
     total = 0
     while True:

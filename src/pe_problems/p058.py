@@ -3,7 +3,7 @@ from pe.misc import divisors
 SOLUTION = "26241"
 
 
-def solve():
+def solve() -> str:
     odd_num = 1
     diagonal_count = 1
     prime_count = 0
@@ -19,7 +19,9 @@ def solve():
             reference_corner - (3 * (odd_num - 1)),
         ]
 
-        prime_diagonals = list(filter(lambda x: len(divisors(x)) == 2, possible_prime_diagonals))
+        prime_diagonals = list(
+            filter(lambda x: len(divisors(x)) == 2, possible_prime_diagonals)
+        )
         prime_count += len(prime_diagonals)
 
         prime_ratio = prime_count / diagonal_count

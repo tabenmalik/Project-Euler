@@ -1,45 +1,43 @@
 import os
+from itertools import chain
+from typing import Sequence
+from typing import Iterable
 
-SOLUTION = "376"
+SOLUTION: str = "376"
 
 
 class Card:
-    def __init__(self, card_str):
+    def __init__(self, card_str: str):
         self.card_str = card_str
-        value = card_str[:-1]
+        rank = card_str[:-1]
         suit = card_str[-1]
 
-        if value == "T":
+        if rank == "T":
             value = 10
-        elif value == "J":
+        elif rank == "J":
             value = 11
-        elif value == "Q":
+        elif rank == "Q":
             value = 12
-        elif value == "K":
+        elif rank == "K":
             value = 13
-        elif value == "A":
+        elif rank == "A":
             value = 14
         else:
-            value = int(value)
+            value = int(rank)
 
         self.value = value
         self.suit = suit
 
-    def __str__(self):
+    def __str__(self) -> str:
         return "Card({})".format(self.card_str)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return str(self)
 
 
 class Hand:
-    def __init__(self, cards):
-        if isinstance(cards, str):
-            cards = tuple(map(Card, cards.strip().split(" ")))
-        elif isinstance(cards[0], str):
-            self.cards = tuple(map(Card, cards))
-        else:
-            self.cards = tuple(cards)
+    def __init__(self, cards: Sequence[Card]):
+        self.cards = tuple(cards)
 
         card_ranks = [
             (Hand.find_royal_flush, 10),
@@ -54,22 +52,26 @@ class Hand:
             (Hand.find_high_card, 1),
         ]
 
+        self.rank: int = 0
+        self.rank_value: int = 0
+        self.rank_cards = self.cards
+
         for rank_finder, rank in card_ranks:
             rank_cards, rank_value = rank_finder(self)
 
-            if rank_cards is not None:
+            if rank_cards is not None and rank_value is not None:
                 self.rank = rank
                 self.rank_value = rank_value
                 self.rank_cards = rank_cards
                 break
 
-    def card_values(self):
-        return (card.value for card in self.cards)
+    def card_values(self) -> tuple[int, ...]:
+        return tuple(card.value for card in self.cards)
 
-    def card_suits(self):
-        return (card.suit for card in self.cards)
+    def card_suits(self) -> tuple[str, ...]:
+        return tuple(card.suit for card in self.cards)
 
-    def beats(self, right_hand):
+    def beats(self, right_hand: "Hand") -> bool:
         if self.rank > right_hand.rank:
             return True
         elif self.rank < right_hand.rank:
@@ -79,13 +81,16 @@ class Hand:
         elif self.rank_value < right_hand.rank_value:
             return False
         else:
-            for value_1, value_2 in reversed(list(zip(sorted(self.card_values()), sorted(right_hand.card_values())))):
+            for value_1, value_2 in reversed(
+                list(zip(sorted(self.card_values()), sorted(right_hand.card_values())))
+            ):
                 if value_1 > value_2:
                     return True
                 elif value_1 < value_2:
                     return False
+        return False
 
-    def rank_str(self):
+    def rank_str(self) -> str:
         if self.rank == 10:
             return "Royal Flush"
         elif self.rank == 9:
@@ -106,21 +111,32 @@ class Hand:
             return "One Pair"
         elif self.rank == 1:
             return "High Card"
+        return ""
 
-    def __iter__(self):
+    def __iter__(self) -> Iterable[Card]:
         return iter(self.cards)
 
-    def __str__(self):
-        return str(self.cards) + ", " + str(self.rank_cards) + ", " + self.rank_str() + ", " + str(self.rank_value)
+    def __str__(self) -> str:
+        return (
+            str(self.cards)
+            + ", "
+            + str(self.rank_cards)
+            + ", "
+            + self.rank_str()
+            + ", "
+            + str(self.rank_value)
+        )
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return str(self)
 
     @staticmethod
-    def find_royal_flush(hand):
+    def find_royal_flush(
+        hand: "Hand",
+    ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         straight_flush, value = Hand.find_straight_flush(hand)
 
-        if straight_flush is None:
+        if straight_flush is None or value is None:
             return None, None
 
         if max(hand.card_values()) == 14:
@@ -129,9 +145,11 @@ class Hand:
         return None, None
 
     @staticmethod
-    def find_straight_flush(hand):
+    def find_straight_flush(
+        hand: "Hand",
+    ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         straight, value = Hand.find_straight(hand)
-        if straight is None:
+        if straight is None or value is None:
             return None, None
 
         if len(set(hand.card_suits())) == 1:
@@ -140,7 +158,9 @@ class Hand:
         return None, None
 
     @staticmethod
-    def find_four_of_a_kind(hand):
+    def find_four_of_a_kind(
+        hand: "Hand",
+    ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         unique_card_values = set(hand.card_values())
         if len(unique_card_values) != 2:
             return None, None
@@ -153,10 +173,12 @@ class Hand:
         return None, None
 
     @staticmethod
-    def find_full_house(hand):
+    def find_full_house(
+        hand: "Hand",
+    ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         three_of_a_kind, value1 = Hand.find_three_of_a_kind(hand)
 
-        if three_of_a_kind is None:
+        if three_of_a_kind is None or value1 is None:
             return None, None
 
         small_hand = list(hand.cards)
@@ -165,22 +187,24 @@ class Hand:
         small_hand.remove(three_of_a_kind[2])
         pair, value2 = Hand.find_one_pair(Hand(small_hand))
 
-        if pair is None:
+        if pair is None or value2 is None:
             return None, None
 
         return hand.cards, value1 * 3 + value2 * 2
 
     @staticmethod
-    def find_flush(hand):
+    def find_flush(hand: "Hand") -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         if len(set(hand.card_suits())) == 1:
             return hand.cards, max(hand.card_values())
         return None, None
 
     @staticmethod
-    def find_straight(hand):
-        cards = sorted(hand.cards, key=lambda x: x.value)
+    def find_straight(hand: "Hand") -> tuple[None, None] | tuple[tuple[Card, ...], int]:
+        cards = tuple(sorted(hand.cards, key=lambda x: x.value))
 
-        diffs = [card1.value - card2.value for card1, card2 in zip(cards[:-1], cards[1:])]
+        diffs = [
+            card1.value - card2.value for card1, card2 in zip(cards[:-1], cards[1:])
+        ]
 
         if set(diffs) == {-1}:
             return cards, cards[-1].value
@@ -188,7 +212,9 @@ class Hand:
         return None, None
 
     @staticmethod
-    def find_three_of_a_kind(hand):
+    def find_three_of_a_kind(
+        hand: "Hand",
+    ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         three_of_kinds = []
         for i, card1 in enumerate(hand.cards):
             for j, card2 in enumerate(hand.cards[i + 1 :], start=i + 1):
@@ -204,7 +230,9 @@ class Hand:
         return three_of_kinds[0], three_of_kinds[0][0].value
 
     @staticmethod
-    def find_two_pairs(hand):
+    def find_two_pairs(
+        hand: "Hand",
+    ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         pairs = []
         for i, card1 in enumerate(hand.cards):
             for card2 in hand.cards[i + 1 :]:
@@ -216,10 +244,10 @@ class Hand:
 
         pairs = sorted(pairs, key=lambda x: x[0].value)
 
-        return pairs[:2], pairs[0][0].value
+        return tuple(chain.from_iterable(pairs[:2])), pairs[0][0].value
 
     @staticmethod
-    def find_one_pair(hand):
+    def find_one_pair(hand: "Hand") -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         pairs = []
         for i, card1 in enumerate(hand.cards):
             for card2 in hand.cards[i + 1 :]:
@@ -237,8 +265,10 @@ class Hand:
         return max_pair, max_pair[0].value
 
     @staticmethod
-    def find_high_card(hand):
-        max_card = max(hand, key=lambda x: x.value)
+    def find_high_card(
+        hand: "Hand",
+    ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
+        max_card = max(hand.cards, key=lambda x: x.value)
 
         return (max_card,), max_card.value
 
@@ -247,7 +277,7 @@ import pe_problems
 from importlib.resources import files
 
 
-def read_file():
+def read_file() -> list[tuple[Hand, Hand]]:
     this_dir, _ = os.path.split(__file__)
 
     players_hands = []
@@ -259,7 +289,7 @@ def read_file():
     return players_hands
 
 
-def solve():
+def solve() -> str:
     hands = read_file()
     hands = list(filter(lambda x: x[0].beats(x[1]), hands))
 

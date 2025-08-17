@@ -18,7 +18,7 @@ SOLUTION = "232792560"
 MAX_NUM = 20
 
 
-def solve():
+def solve() -> str:
     """Solves Project Euler problem 005"""
     primes = prime_seq()
     primes = takewhile(lt(MAX_NUM + 1), primes)

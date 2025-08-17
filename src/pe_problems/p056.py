@@ -3,7 +3,7 @@ from pe.integer import split
 SOLUTION = "972"
 
 
-def solve():
+def solve() -> str:
     nums = [x**y for x in range(0, 100) for y in range(0, 100)]
 
     nums = map(split, nums)

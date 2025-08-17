@@ -3,7 +3,7 @@ from pe.integer import concat, split
 SOLUTION = "9110846700"
 
 
-def solve():
+def solve() -> str:
     powers = map(lambda x: x**x, range(1, 1000))
     power_sum = sum(powers)
 

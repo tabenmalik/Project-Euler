@@ -1,7 +1,7 @@
-SOLUTION = "443839"
+SOLUTION: str = "443839"
 
 
-def solve():
+def solve() -> str:
     power = 5
 
     i = 2

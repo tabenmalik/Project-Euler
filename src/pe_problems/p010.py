@@ -7,12 +7,12 @@ Find the sum of all the primes below two million.
 
 import math
 
-SOLUTION = "142913828922"
+SOLUTION: str = "142913828922"
 
-MAX_NUM = 2_000_000
+MAX_NUM: int = 2_000_000
 
 
-def sieve_of_eratosthenes_fast(under):
+def sieve_of_eratosthenes_fast(under: int) -> list[int]:
     """Returns a list primes.
 
     Uses the Sieve of Eratosthenes methodology for determining all
@@ -41,7 +41,7 @@ def sieve_of_eratosthenes_fast(under):
     return primes
 
 
-def solve():
+def solve() -> str:
     """Solves Project Euler problem 010"""
     primes = sieve_of_eratosthenes_fast(MAX_NUM)
     return str(sum(primes))

@@ -6,13 +6,13 @@ from pe.integer import split, concat
 SOLUTION = "40730"
 
 
-def digit_factorial_sum(num):
+def digit_factorial_sum(num: int) -> int:
     digits = split(num)
     digit_factorials = map(math.factorial, digits)
     return sum(digit_factorials)
 
 
-def solve():
+def solve() -> str:
     i = 2
     while True:
         digit_limit = i * math.factorial(9)

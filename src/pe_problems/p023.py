@@ -6,7 +6,7 @@ SOLUTION = "4179871"
 MAX_NUM = 28123
 
 
-def proper_divisors(n):
+def proper_divisors(n: int) -> list[int]:
     if n == 1:
         return []
     divisors = []
@@ -20,13 +20,15 @@ def proper_divisors(n):
     return sorted(divisors)
 
 
-def is_abundant(n):
+def is_abundant(n: int) -> int:
     return sum(proper_divisors(n)) > n
 
 
-def solve():
+def solve() -> str:
     abundant_nums = list(filter(is_abundant, range(2, MAX_NUM + 1)))
-    abundant_num_pairs = ((num, num2) for i, num in enumerate(abundant_nums) for num2 in abundant_nums[i:])
+    abundant_num_pairs = (
+        (num, num2) for i, num in enumerate(abundant_nums) for num2 in abundant_nums[i:]
+    )
     abundant_sums = set(map(sum, abundant_num_pairs))
     abundant_sums = filter(lambda x: x <= MAX_NUM, abundant_sums)
     abundant_sums = sorted(list(abundant_sums))

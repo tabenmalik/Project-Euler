@@ -1,10 +1,10 @@
-SOLUTION = "73682"
-MAX_NUM = 200
+SOLUTION: str = "73682"
+MAX_NUM: int = 200
 
-COINS = [1, 2, 5, 10, 20, 50, 100, 200]
+COINS: list[int] = [1, 2, 5, 10, 20, 50, 100, 200]
 
 
-def solve():
+def solve() -> str:
     ways = [0 for _ in range(MAX_NUM + 1)]
     ways[0] = 1
     for coin in COINS:

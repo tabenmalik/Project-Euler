@@ -1,13 +1,13 @@
 import math
 
-SOLUTION = "4075"
+SOLUTION: str = "4075"
 
 
-def choose(n, k):
+def choose(n: int, k: int) -> float:
     return math.factorial(n) / (math.factorial(k) * math.factorial(n - k))
 
 
-def solve():
+def solve() -> str:
     count = 0
     for n in range(1, 101):
         for r in range(0, n + 1):

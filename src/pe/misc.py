@@ -1,9 +1,11 @@
 import math
+from typing import Sequence
+from typing import Generator
 
 from pe.integer import prime_factors_trial_division
 
 
-def prime_factorization(n):
+def prime_factorization(n: int) -> tuple[Sequence[int], Sequence[int]]:
     primes = sieve_of_eratosthenes_fast(n)
     prime_divisors = list(filter(lambda x: n % x == 0, primes))
 
@@ -12,17 +14,17 @@ def prime_factorization(n):
         exp = 0
         while n % prime == 0:
             exp += 1
-            n /= prime
+            n //= prime
         exps.append(exp)
 
     return prime_divisors, exps
 
 
-def prime_factors(num):
+def prime_factors(num: int) -> Generator[int, None, None]:
     return prime_factors_trial_division(num)
 
 
-def divisors(n, sort=False):
+def divisors(n: int, sort: bool = False) -> Sequence[int]:
     divisors = [1, n]
     for i in range(2, int(math.sqrt(n)) + 1):
         if n % i == 0:
@@ -34,11 +36,11 @@ def divisors(n, sort=False):
     return tuple(divisors)
 
 
-PRIME_CACHE = set()
+PRIME_CACHE: set[int] = set()
 MAX_PRIME = 2
 
 
-def is_prime(num):
+def is_prime(num: int) -> bool:
     """
     Returns True if the given number
     """
@@ -57,7 +59,7 @@ def is_prime(num):
     return num in PRIME_CACHE
 
 
-def sieve_of_eratosthenes_fast(under):
+def sieve_of_eratosthenes_fast(under: int) -> Sequence[int]:
     sieve_len = int((under - 1) // 2) + 1
     sieve = [False for i in range(0, sieve_len)]
 
@@ -75,7 +77,7 @@ def sieve_of_eratosthenes_fast(under):
     return primes
 
 
-def sieve_of_eratosthenes_naive(under):
+def sieve_of_eratosthenes_naive(under: int) -> Sequence[int]:
     bools = [False for i in range(0, under)]
     bools[0] = True
     bools[1] = True

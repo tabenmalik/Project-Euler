@@ -1,8 +1,8 @@
-SOLUTION = "983"
-MAX_NUM = 1000
+SOLUTION: str = "983"
+MAX_NUM: int = 1000
 
 
-def long_division(numerator, denominator):
+def long_division(numerator: int, denominator: int) -> tuple[int, list[int], list[int]]:
     whole = int(numerator // denominator)
 
     decimals = []
@@ -45,7 +45,7 @@ def long_division(numerator, denominator):
     return whole, decimals, repeating_decimals
 
 
-def solve():
+def solve() -> str:
     lengths = {i: len(long_division(1, i)[2]) for i in range(2, MAX_NUM)}
     max_length = max(lengths, key=lambda k: lengths[k])
     return str(max_length)

@@ -12,7 +12,7 @@ SOLUTION = "6857"
 NUM = 600_851_475_143
 
 
-def solve():
+def solve() -> str:
     """Solves Project Euler problem 003"""
     prime_factors = prime_factors_of_n(NUM)
     max_prime_factor = max(prime_factors)

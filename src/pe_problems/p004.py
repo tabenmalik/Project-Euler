@@ -16,7 +16,7 @@ from pe.integer import palindromic
 SOLUTION = "906609"
 
 
-def solve():
+def solve() -> str:
     """Solves Project Euler problem 004"""
     NUM_DIGITS = 3
     start = 10 ** (NUM_DIGITS - 1)

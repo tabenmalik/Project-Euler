@@ -8,10 +8,10 @@ The sum of these multiples is 23.
 Find the sum of all the multiples of 3 or 5 below 1000.
 """
 
-SOLUTION = "233168"
+SOLUTION: str = "233168"
 
 
-def solve():
+def solve() -> str:
     """Solves Project Euler problem 001"""
     MAX_NUM = 1000
     num_3s = range(0, MAX_NUM, 3)

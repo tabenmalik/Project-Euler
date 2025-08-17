@@ -1,7 +1,9 @@
-SOLUTION = "2783915460"
+from typing import Generator
+
+SOLUTION: str = "2783915460"
 
 
-def permutations(digits):
+def permutations(digits: list[int]) -> Generator[list[int], None, None]:
     yield digits.copy()
 
     largest_index_k = 0
@@ -25,7 +27,7 @@ def permutations(digits):
             yield digits.copy()
 
 
-def solve():
+def solve() -> str:
     digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     for i, p in enumerate(permutations(digits), start=1):
         if i == 1_000_000:

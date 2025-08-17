@@ -1,9 +1,11 @@
+from typing import cast
+
 from pe.sequences import Hexagonals, Pentagonals, Triangulars
 
 SOLUTION = "1533776805"
 
 
-def solve():
+def solve() -> str:
     n = 144
     hexagonals = Hexagonals()
     pentagonals = Pentagonals()
@@ -11,6 +13,6 @@ def solve():
 
     while True:
         h = hexagonals[n]
-        if hexagonals[n] in pentagonals and h in triangulars:
+        if cast(int, hexagonals[n]) in pentagonals and h in triangulars:
             return str(h)
         n += 1

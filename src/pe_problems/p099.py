@@ -1,15 +1,16 @@
 from itertools import starmap
 from functools import partial
+from typing import Iterable
 import os
 from math import log
 
 import pe_problems
 from importlib.resources import files
 
-SOLUTION = "709"
+SOLUTION: str = "709"
 
 
-def argmax(iterable):
+def argmax(iterable: Iterable[int]) -> int:
     it = iter(iterable)
 
     maxi = 0
@@ -23,7 +24,7 @@ def argmax(iterable):
     return maxi
 
 
-def solve():
+def solve() -> str:
     this_dir, _ = os.path.split(__file__)
 
     exps = files(pe_problems).joinpath("p099.txt").read_text().splitlines()

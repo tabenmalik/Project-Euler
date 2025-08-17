@@ -1,11 +1,13 @@
 """ """
 
+from typing import Optional
+from typing import Sequence
 from math import floor, isqrt, sqrt, gcd
 
-SOLUTION = "1322"
+SOLUTION: str = "1322"
 
 
-def root_continued_fraction(n):
+def root_continued_fraction(n: int) -> tuple[int, Sequence[int]]:
     b = 1
     c = 0
     d = 1
@@ -15,8 +17,8 @@ def root_continued_fraction(n):
     if a0 * a0 == n:
         return a0, []
 
-    first_triplet = tuple()
-    coeffs = list()
+    first_triplet: Optional[tuple[int, int, int]] = None
+    coeffs: list[int] = list()
 
     while True:
         b, c, d = (
@@ -41,7 +43,7 @@ def root_continued_fraction(n):
     return a0, tuple(coeffs)
 
 
-def solve():
+def solve() -> str:
     """ """
     N = 10_000
     odd_periods = 0

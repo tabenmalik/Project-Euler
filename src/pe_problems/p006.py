@@ -23,6 +23,6 @@ SOLUTION = "25164150"
 MAX_NUM = 100
 
 
-def solve():
+def solve() -> str:
     """Solves Project Euler problem 006"""
     return str(sum_of_1_to_n(MAX_NUM) ** 2 - sum_of_sqrs(MAX_NUM))

@@ -1,10 +1,12 @@
+from typing import Sequence
+from typing import Never
 import pprint
 
-SOLUTION = "840"
+SOLUTION: str = "840"
 
 
-def solve():
-    p_solutions = {}
+def solve() -> str:
+    p_solutions: dict[int, set[tuple[int, ...]]] = {}
 
     limit = 1000
 

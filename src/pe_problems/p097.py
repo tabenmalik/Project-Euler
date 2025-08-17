@@ -1,5 +1,5 @@
 SOLUTION = "8739992577"
 
 
-def solve():
+def solve() -> str:
     return str((28433 * 2**7830457 + 1) % 10**10)

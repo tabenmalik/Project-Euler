@@ -1,3 +1,4 @@
+from typing import Generator
 from pe.misc import divisors
 from pe.integer import sum_of_1_to_n
 
@@ -6,14 +7,14 @@ SOLUTION = "76576500"
 NUM_DIVISORS = 500
 
 
-def triangle_num_seq():
+def triangle_num_seq() -> Generator[int, None, None]:
     n = 1
     while True:
         yield sum_of_1_to_n(n)
         n += 1
 
 
-def solve():
+def solve() -> str:
     triangle_nums = triangle_num_seq()
 
     for triangle_num in triangle_nums:

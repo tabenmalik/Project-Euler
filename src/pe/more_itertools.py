@@ -56,9 +56,7 @@ def first_true(
 R = TypeVar("R")
 
 
-def rolling(
-    iterable: Iterable[Any], func: Callable[..., R], window_size: int = 1
-) -> Iterable[R]:
+def rolling(iterable: Iterable[Any], func: Callable[..., R], window_size: int = 1) -> Iterable[R]:
     """Applies a function over a rolling window of the iterable elements"""
     window = collections.deque(take(window_size - 1, iterable), maxlen=window_size)
 

@@ -28,11 +28,7 @@ def is_pythagorean_triplet(a: int, b: int, c: int) -> bool:
 def solve() -> str:
     """Solves Project Euler problem 009"""
 
-    sum_triplets = (
-        (a, b, SUM_NUM - a - b)
-        for a in range(1, SUM_NUM)
-        for b in range(a + 1, SUM_NUM - a)
-    )
+    sum_triplets = ((a, b, SUM_NUM - a - b) for a in range(1, SUM_NUM) for b in range(a + 1, SUM_NUM - a))
 
     pred_pythagorean_triplet = arg_expander(is_pythagorean_triplet)
     pythagorean_triplet = first_true(sum_triplets, pred=pred_pythagorean_triplet)

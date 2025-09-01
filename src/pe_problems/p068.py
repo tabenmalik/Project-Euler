@@ -11,9 +11,7 @@ def flatten(list_of_lists: Iterable[Iterable[Any]]) -> chain[Any]:
     return chain.from_iterable(list_of_lists)
 
 
-def knapsacks(
-    nums: list[int], t: int
-) -> Generator[tuple[tuple[int, int, int], ...], None, None]:
+def knapsacks(nums: list[int], t: int) -> Generator[tuple[tuple[int, int, int], ...], None, None]:
     num_sets = 5
     solvedsets = set()
     for outers in permutations(nums, 5):

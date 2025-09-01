@@ -3,6 +3,7 @@ Acceptance test of all Euler Problem solutions
 
 All euler solvers must have a correct solution and must generate the solution in under 60sec.
 """
+
 from typing import Generator
 from typing import Any
 from _frozen_importlib import ModuleSpec
@@ -15,6 +16,7 @@ from importlib.util import module_from_spec
 
 import pytest
 from _pytest.mark.structures import ParameterSet
+
 
 def iter_euler_problems() -> Generator[ParameterSet, None, None]:
     """Find and yield all euler problem modules."""

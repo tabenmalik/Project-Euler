@@ -31,9 +31,7 @@ def solve() -> str:
             b = map(int, b)
             product = map(int, product)
 
-            actual_products = filter(
-                lambda trip: trip[0] == trip[1] * trip[2], zip(product, a, b)
-            )
+            actual_products = filter(lambda trip: trip[0] == trip[1] * trip[2], zip(product, a, b))
             actual_products = list(zip(*actual_products))
             if len(actual_products) > 0:
                 products.update(actual_products[0])

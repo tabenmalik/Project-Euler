@@ -57,9 +57,7 @@ def reduce_fraction(frac: tuple[int, int]) -> tuple[int, int]:
     )
 
 
-def add_fractions(
-    f1: int | tuple[int, int], f2: int | tuple[int, int]
-) -> tuple[int, int]:
+def add_fractions(f1: int | tuple[int, int], f2: int | tuple[int, int]) -> tuple[int, int]:
     if isinstance(f1, int):
         f1 = (f1, 1)
 

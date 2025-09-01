@@ -15,7 +15,7 @@ SOLUTION = "104743"
 MAX_NUM = 10_001
 
 
-def solve():
+def solve() -> str:
     """Solves Project Euler problem 007"""
     primes = prime_seq()
     last_prime = nth(primes, MAX_NUM - 1)

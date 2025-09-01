@@ -8,7 +8,7 @@ from pe.misc import is_prime
 SOLUTION = "121313"
 
 
-def digit_replacements(num, digit):
+def digit_replacements(num: int, digit: int) -> list[int]:
     num_str = str(num)
     digit_str = str(digit)
     results = map(
@@ -21,10 +21,11 @@ def digit_replacements(num, digit):
     return list(results)
 
 
-def solve():
+def solve() -> str:
     for prime in prime_seq():
         for digit in set(split(prime)):
             replacement_nums = digit_replacements(prime, digit)
             replacement_nums = list(filter(is_prime, replacement_nums))
             if len(replacement_nums) == 8:
                 return str(replacement_nums[0])
+    return ""

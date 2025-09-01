@@ -45,7 +45,7 @@ class TestTriangulars(unittest.TestCase):
         666,
     ]
 
-    def test_sequence(self):
+    def test_sequence(self) -> None:
         tris = sequences.Triangulars()
         for i, n in enumerate(self.triangle_numbers):
             # test contains
@@ -60,7 +60,7 @@ class TestTriangulars(unittest.TestCase):
         # test getitem slice
         self.assertSequenceEqual(self.triangle_numbers[2:18:3], tris[2:18:3])
 
-    def test_failures(self):
+    def test_failures(self) -> None:
         tris = sequences.Triangulars()
 
         self.assertFalse(-1 in tris)
@@ -126,7 +126,7 @@ class TestPentagonals(unittest.TestCase):
         3151,
     ]
 
-    def test_sequence(self):
+    def test_sequence(self) -> None:
         pents = sequences.Pentagonals()
         for i, n in enumerate(self.pentagonal_numbers):
             # test contains
@@ -141,7 +141,7 @@ class TestPentagonals(unittest.TestCase):
         # test getitem slice
         self.assertSequenceEqual(self.pentagonal_numbers[2:18:3], pents[2:18:3])
 
-    def test_failures(self):
+    def test_failures(self) -> None:
         pents = sequences.Pentagonals()
 
         self.assertFalse(-1 in pents)

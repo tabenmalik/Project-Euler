@@ -3,7 +3,7 @@ from pe.misc import prime_factors
 SOLUTION = "134043"
 
 
-def solve():
+def solve() -> str:
     distinct_prime_factors = 4
 
     consecutive_nums = []

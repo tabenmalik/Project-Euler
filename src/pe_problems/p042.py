@@ -1,5 +1,6 @@
 import os
-
+from typing import Generator
+from typing import Optional
 from pe.integer import sum_of_1_to_n
 from importlib.resources import files
 import pe_problems
@@ -7,7 +8,7 @@ import pe_problems
 SOLUTION = "162"
 
 
-def triangle_num_seq(under=None):
+def triangle_num_seq(under: Optional[int] = None) -> Generator[int, None, None]:
     n = 1
     while True:
         yield sum_of_1_to_n(n)
@@ -16,7 +17,7 @@ def triangle_num_seq(under=None):
             break
 
 
-def read_file():
+def read_file() -> list[str]:
     this_dir, _ = os.path.split(__file__)
 
     words = []
@@ -28,15 +29,15 @@ def read_file():
     return words
 
 
-def letter_value(letter):
+def letter_value(letter: str) -> int:
     return ord(letter.lower()) - ord("a") + 1
 
 
-def word_value(word):
+def word_value(word: str) -> int:
     return sum(map(letter_value, word))
 
 
-def solve():
+def solve() -> str:
     words = read_file()
 
     word_values = list(map(word_value, words))

@@ -1,10 +1,14 @@
 from itertools import takewhile, combinations, groupby
+from typing import Generator
+from typing import Iterable
+from typing import Any
+
 from pe.integer import split
 
 SOLUTION = "127035954683"
 
 
-def positive_integers_seq(start=1, step=1):
+def positive_integers_seq(start: int = 1, step: int = 1) -> Generator[int, None, None]:
     n = start
 
     while True:
@@ -12,16 +16,11 @@ def positive_integers_seq(start=1, step=1):
         n += step
 
 
-def cube(n):
+def cube(n: int) -> int:
     return n**3
 
 
-def all_equal(iterable):
-    g = groupby(iterable)
-    return next(g, True) and not next(g, False)
-
-
-def solve():
+def solve() -> str:
     num_digits = 1
 
     while True:
@@ -37,7 +36,7 @@ def solve():
         digit_sets = map(sorted, digit_sets)
         digit_sets = map(tuple, digit_sets)
 
-        digit_set_to_nums = {}
+        digit_set_to_nums: dict[tuple[int, ...], list[int]] = {}
 
         for digit_set, num in zip(digit_sets, nums):
             if digit_set in digit_set_to_nums:

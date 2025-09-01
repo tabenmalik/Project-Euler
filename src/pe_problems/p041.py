@@ -5,14 +5,14 @@ from pe.misc import prime_factors
 SOLUTION = "7652413"
 
 
-def is_prime(n):
+def is_prime(n: int) -> bool:
     if len(list(prime_factors(n))) == 1:
         return True
 
     return False
 
 
-def solve():
+def solve() -> str:
     pandigital_numbers = permutations_seq([1, 2, 3, 4, 5, 6, 7])
     pandigital_numbers = reversed(list(pandigital_numbers))
     pandigital_numbers = map(concat, pandigital_numbers)
@@ -25,3 +25,4 @@ def solve():
     for pandigital_number in pandigital_numbers:
         if is_prime(pandigital_number):
             return str(pandigital_number)
+    return ""

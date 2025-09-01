@@ -1,9 +1,9 @@
-SOLUTION = "837799"
-MAX_NUM = 1_000_000
-CACHED_LENGTHS = {}
+SOLUTION: str = "837799"
+MAX_NUM: int = 1_000_000
+CACHED_LENGTHS: dict[int, int] = {}
 
 
-def collatz_len_optimized(n):
+def collatz_len_optimized(n: int) -> int:
     if n == 1:
         return 1
 
@@ -22,7 +22,7 @@ def collatz_len_optimized(n):
     return len
 
 
-def solve():
+def solve() -> str:
     _ = list(collatz_len_optimized(i) for i in range(500_000, MAX_NUM))
 
     longest_chain = 0

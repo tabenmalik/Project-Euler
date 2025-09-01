@@ -1,35 +1,27 @@
 import math
 import itertools
 import operator
+from typing import Iterable
+from typing import Any
+from typing import Generator
 
-SOLUTION = "1097343"
+SOLUTION: str = "1097343"
 
 
-def iter_index(iterable, value, start=0):
+def iter_index(
+    iterable: bytearray, value: Any, start: int = 0
+) -> Generator[int, None, None]:
     "Return indices where a value occurs in a sequence or iterable."
-    # iter_index('AABCADEAF', 'A') --> 0 1 4 7
+    # iter_index(list('AABCADEAF'), 'A') --> 0 1 4 7
+    i = start - 1
     try:
-        seq_index = iterable.index
-    except AttributeError:
-        # Slow path for general iterables
-        it = itertools.islice(iterable, start, None)
-        i = start - 1
-        try:
-            while True:
-                yield (i := i + operator.indexOf(it, value) + 1)
-        except ValueError:
-            pass
-    else:
-        # Fast path for sequences
-        i = start - 1
-        try:
-            while True:
-                yield (i := seq_index(value, i + 1))
-        except ValueError:
-            pass
+        while True:
+            yield (i := iterable.index(value, i + 1))
+    except ValueError:
+        pass
 
 
-def sieve(n):
+def sieve(n: int) -> Iterable[int]:
     "Primes less than n"
     # sieve(30) --> 2 3 5 7 11 13 17 19 23 29
     data = bytearray((0, 1)) * (n // 2)
@@ -41,7 +33,7 @@ def sieve(n):
     return iter_index(data, 1) if n > 2 else iter([])
 
 
-def solve():
+def solve() -> str:
     primes = list(sieve(math.isqrt(50_000_000)))
 
     nums = set()

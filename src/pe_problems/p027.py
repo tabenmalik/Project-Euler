@@ -7,7 +7,7 @@ SOLUTION = "-59231"
 MAX_NUM = 1000
 
 
-def consecutive_primes_of_quadratic(a, b):
+def consecutive_primes_of_quadratic(a: int, b: int) -> list[int]:
     consec_primes = list()
     n = 0
     while True:
@@ -19,14 +19,18 @@ def consecutive_primes_of_quadratic(a, b):
     return consec_primes
 
 
-def solve():
+def solve() -> str:
     a = range(-MAX_NUM + 1, MAX_NUM)
     b = range(-MAX_NUM, MAX_NUM + 1)
     coeff_pairs = list(itertools.product(a, b))
 
-    quadratic_primes = list(itertools.starmap(consecutive_primes_of_quadratic, coeff_pairs))
+    quadratic_primes = list(
+        itertools.starmap(consecutive_primes_of_quadratic, coeff_pairs)
+    )
     lengths = map(len, quadratic_primes)
-    coeff_lengths = {coeff_pair: length for coeff_pair, length in zip(coeff_pairs, lengths)}
+    coeff_lengths = {
+        coeff_pair: length for coeff_pair, length in zip(coeff_pairs, lengths)
+    }
 
     coeff_of_longest = max(coeff_lengths, key=lambda x: coeff_lengths[x])
     return str(coeff_of_longest[0] * coeff_of_longest[1])

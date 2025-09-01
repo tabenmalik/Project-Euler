@@ -1,6 +1,6 @@
-SOLUTION = "669171001"
+SOLUTION: str = "669171001"
 
-GRID_SIZE = 1001
+GRID_SIZE: int = 1001
 
 #  *1
 #   2,  *3,  4,  *5,  6,  *7,  8,  *9
@@ -8,7 +8,7 @@ GRID_SIZE = 1001
 # 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40...
 
 
-def solve():
+def solve() -> str:
     up_right = (i**2 for i in range(1, GRID_SIZE + 1, 2))
     up_left = ((i**2) - (i - 1) for i in range(1, GRID_SIZE + 1, 2))
     down_left = ((i**2) - (2 * i - 2) for i in range(1, GRID_SIZE + 1, 2))

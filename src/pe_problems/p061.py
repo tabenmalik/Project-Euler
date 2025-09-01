@@ -1,34 +1,38 @@
 from pe.integer import split
+from typing import Callable
+from typing import Generator
+from typing import Iterable
+from typing import Sequence
 from itertools import takewhile, product
 
 SOLUTION = "28684"
 
 
-def triangonal(n):
+def triangonal(n: int) -> int:
     return (n * (n + 1)) // 2
 
 
-def square(n):
+def square(n: int) -> int:
     return n**2
 
 
-def pentagonal(n):
+def pentagonal(n: int) -> int:
     return (n * ((3 * n) - 1)) // 2
 
 
-def hexagonal(n):
+def hexagonal(n: int) -> int:
     return n * ((2 * n) - 1)
 
 
-def heptagonal(n):
+def heptagonal(n: int) -> int:
     return (n * ((5 * n) - 3)) // 2
 
 
-def octogonal(n):
+def octogonal(n: int) -> int:
     return n * ((3 * n) - 2)
 
 
-def infrange(start=0, step=1):
+def infrange(start: int = 0, step: int = 1) -> Generator[int, None, None]:
     n = start
 
     while True:
@@ -36,11 +40,11 @@ def infrange(start=0, step=1):
         n += step
 
 
-def get_4_digit_ns_from_seq(func):
-    def _under_5_digits(n):
+def get_4_digit_ns_from_seq(func: Callable[[int], int]) -> list[int]:
+    def _under_5_digits(n: int) -> int:
         return len(split(n)) < 5
 
-    def _only_4_digits(n):
+    def _only_4_digits(n: int) -> int:
         return len(split(n)) == 4
 
     fns = map(func, infrange(1))
@@ -51,7 +55,7 @@ def get_4_digit_ns_from_seq(func):
     return fns
 
 
-def is_cycle(nums, full):
+def is_cycle(nums: Sequence[int], full: bool) -> bool:
     sorted_cycle = [nums[0]]
     nums = list(nums)
     nums.remove(nums[0])
@@ -75,7 +79,7 @@ def is_cycle(nums, full):
         return True
 
 
-def solve():
+def solve() -> str:
     tris = get_4_digit_ns_from_seq(triangonal)
     sqrs = get_4_digit_ns_from_seq(square)
     pens = get_4_digit_ns_from_seq(pentagonal)
@@ -101,7 +105,9 @@ def solve():
                 if seq_name not in cycle_seqs:
                     for num in seq:
                         if is_cycle(cycle + [num], False):
-                            new_cycles.append((cycle_seqs | set([seq_name]), cycle + [num]))
+                            new_cycles.append(
+                                (cycle_seqs | set([seq_name]), cycle + [num])
+                            )
         cycles = new_cycles
         new_cycles = []
 
@@ -110,5 +116,6 @@ def solve():
 
     for _, cycle in cycles:
         if is_cycle(cycle, True):
-            print(cycle)
             return str(sum(cycle))
+
+    return ""

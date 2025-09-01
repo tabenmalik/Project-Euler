@@ -1,11 +1,11 @@
 import math
 
-SOLUTION = "31626"
+SOLUTION: str = "31626"
 
-MAX_NUM = 10_000
+MAX_NUM: int = 10_000
 
 
-def proper_divisors(n):
+def proper_divisors(n: int) -> list[int]:
     if n == 1:
         return []
 
@@ -18,13 +18,13 @@ def proper_divisors(n):
     return sorted(divisors)
 
 
-def is_amicable(n):
+def is_amicable(n: int) -> bool:
     b = sum(proper_divisors(n))
     d_b = sum(proper_divisors(b))
 
     return n == d_b and n != b
 
 
-def solve():
+def solve() -> str:
     amicable_nums = list(filter(is_amicable, range(2, MAX_NUM)))
     return str(sum(amicable_nums))

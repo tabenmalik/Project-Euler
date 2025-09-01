@@ -1,7 +1,7 @@
-SOLUTION = "9183"
-MAX_NUM = 100
+SOLUTION: str = "9183"
+MAX_NUM: int = 100
 
 
-def solve():
+def solve() -> str:
     powers = set(a**b for a in range(2, MAX_NUM + 1) for b in range(2, MAX_NUM + 1))
     return str(len(powers))

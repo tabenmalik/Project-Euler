@@ -1,3 +1,5 @@
+from typing import Sequence
+
 from pe.integer import concat
 from pe.sequences import permutations_seq
 
@@ -6,7 +8,7 @@ SOLUTION = "16695334890"
 PRIMES = (2, 3, 5, 7, 11, 13, 17)
 
 
-def is_substring_divisible(digits):
+def is_substring_divisible(digits: Sequence[int]) -> bool:
     groups = (digits[i : i + 3] for i in range(1, len(digits) - 2))
     group_nums = map(concat, groups)
 
@@ -17,7 +19,7 @@ def is_substring_divisible(digits):
     return True
 
 
-def solve():
+def solve() -> str:
     pandigital_numbers = permutations_seq([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
     pandigital_numbers = filter(lambda x: x[0] != 0, pandigital_numbers)
     special_nums = filter(is_substring_divisible, pandigital_numbers)

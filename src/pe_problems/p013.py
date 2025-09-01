@@ -2,12 +2,12 @@ import os
 import pe_problems
 from importlib.resources import files
 
-SOLUTION = "5537376230"
+SOLUTION: str = "5537376230"
 
-NUM_DIGITS = 10
+NUM_DIGITS: int = 10
 
 
-def read_number_file():
+def read_number_file() -> list[list[int]]:
     this_dir, _ = os.path.split(__file__)
 
     num_matrix = []
@@ -20,7 +20,7 @@ def read_number_file():
     return num_matrix
 
 
-def solve():
+def solve() -> str:
     num_matrix = read_number_file()
 
     num_strs = map(lambda arr: "".join(str(d) for d in arr), num_matrix)

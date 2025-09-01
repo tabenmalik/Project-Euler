@@ -3,7 +3,7 @@ from pe.sequences import Pentagonals
 SOLUTION = "5482660"
 
 
-def solve():
+def solve() -> str:
     max_num = 10000
     pentagonals = Pentagonals()
 
@@ -17,3 +17,5 @@ def solve():
 
             if p_sum in pentagonals and p_diff in pentagonals:
                 return str(p_diff)
+
+    return ""

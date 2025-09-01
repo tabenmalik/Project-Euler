@@ -60,7 +60,7 @@ NUM = int(
 ADJ_DIGITS = 13
 
 
-def solve():
+def solve() -> str:
     """Solves Project Euler problem 008"""
     digits = split(NUM)
     products = rolling(digits, product, window_size=ADJ_DIGITS)

@@ -3,10 +3,10 @@ import pe_problems
 from importlib.resources import files
 
 
-SOLUTION = "1074"
+SOLUTION: str = "1074"
 
 
-def read_number_file():
+def read_number_file() -> list[list[int]]:
     this_dir, _ = os.path.split(__file__)
 
     num_matrix = []
@@ -19,10 +19,10 @@ def read_number_file():
     return num_matrix
 
 
-MAX_PATH_CACHE = {}
+MAX_PATH_CACHE: dict[tuple[int, int], int] = {}
 
 
-def max_path(num_triangle, x, y):
+def max_path(num_triangle: list[list[int]], x: int, y: int) -> int:
     if y == len(num_triangle) - 1:
         return num_triangle[y][x]
 
@@ -41,7 +41,7 @@ def max_path(num_triangle, x, y):
     return max_path_num
 
 
-def solve():
+def solve() -> str:
     num_triangle = read_number_file()
 
     return str(max_path(num_triangle, 0, 0))

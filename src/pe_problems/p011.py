@@ -4,11 +4,11 @@ import operator
 from importlib.resources import files
 import pe_problems
 
-SOLUTION = "70600674"
-ADJ_NUMS = 4
+SOLUTION: str = "70600674"
+ADJ_NUMS: int = 4
 
 
-def read_grid_file():
+def read_grid_file() -> list[list[int]]:
     this_dir, _ = os.path.split(__file__)
 
     num_matrix = []
@@ -21,7 +21,7 @@ def read_grid_file():
     return num_matrix
 
 
-def solve():
+def solve() -> str:
     num_matrix = read_grid_file()
     nrows = len(num_matrix)
     ncols = len(num_matrix[0])

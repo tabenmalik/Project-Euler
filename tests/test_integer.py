@@ -5,7 +5,7 @@ from pe import integer
 
 class TestPalindromic(unittest.TestCase):
 
-    def test_palindromic(self):
+    def test_palindromic(self) -> None:
         self.assertTrue(integer.palindromic(110011))
         self.assertTrue(integer.palindromic(98230403289))
         self.assertTrue(integer.palindromic(1))

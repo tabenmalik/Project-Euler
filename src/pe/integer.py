@@ -4,8 +4,14 @@ from functools import reduce
 import math
 import operator
 
+from typing import Sequence
+from typing import Tuple
+from typing import Generator
+from typing import Iterator
+from typing import Iterable
 
-def concat(ints):
+
+def concat(ints: Iterable[int]) -> int:
     """
     Combine several single digit numbers into a single number.
 
@@ -15,16 +21,16 @@ def concat(ints):
     return int("".join(str(i) for i in ints))
 
 
-def split(x):
+def split(x: int) -> Sequence[int]:
     """ """
     return tuple(map(int, str(x)))
 
 
-def ireversed(x):
+def ireversed(x: int) -> int:
     return int("".join(reversed(str(x))))
 
 
-def palindromic(x):
+def palindromic(x: int) -> bool:
     """
     Returns True if the number is a palindrome.
     A palidrome integer is an integer where the sequence of digits in reverse
@@ -37,33 +43,35 @@ def palindromic(x):
     return x == ireversed(x)
 
 
-def sum_of_1_to_n(n):
+def sum_of_1_to_n(n: int) -> int:
     """
     Computes sum of all positive integers up to and including n
     """
     return (n * (n + 1)) // 2
 
 
-def sum_of_a_to_n(a, n):
+def sum_of_a_to_n(a: int, n: int) -> int:
     """
     Computes sum of all positive integers from a to n, including a and n.
     """
     return sum_of_1_to_n(n) - sum_of_1_to_n(a - 1)
 
 
-def sum_of_sqrs(num):
+def sum_of_sqrs(num: int) -> int:
     """TODO: what does this do?
     TODO: reference"""
     return int((((2 * num) + 1) * (num + 1) * num) / 6)
 
 
-def sum_of_cubes(num):
+def sum_of_cubes(num: int) -> int:
     """TODO: what does this do?
     TODO: reference"""
     return int(((num * num) * (num + 1) * (num + 1)) / 4)
 
 
-def prime_factors_of_n(n, method="trial_division"):
+def prime_factors_of_n(
+    n: int, method: str = "trial_division"
+) -> Generator[int, None, None]:
     """Prime factors of n."""
     methods = {
         "trial_division": prime_factors_trial_division,
@@ -73,7 +81,7 @@ def prime_factors_of_n(n, method="trial_division"):
     return methods[method](n)
 
 
-def prime_factors_trial_division_naive(num):
+def prime_factors_trial_division_naive(num: int) -> Generator[int, None, None]:
     """Prime factors of n using naive trial divison."""
     factor = 2
 
@@ -85,7 +93,7 @@ def prime_factors_trial_division_naive(num):
             factor += 1
 
 
-def prime_factors_trial_division(num):
+def prime_factors_trial_division(num: int) -> Generator[int, None, None]:
     """Prime factors of n using efficient trial division."""
     while num % 2 == 0:
         yield 2
@@ -103,11 +111,11 @@ def prime_factors_trial_division(num):
         yield num
 
 
-def product(*args):
+def product(*args: int) -> int:
     """Returns the product of all arguments."""
     return reduce(operator.mul, args, 1)
 
 
-def product_of_iter(iterable):
+def product_of_iter(iterable: Iterator[int]) -> int:
     """Returns the product of all elements in the iterable."""
     return product(*iterable)

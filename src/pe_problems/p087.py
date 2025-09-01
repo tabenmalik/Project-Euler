@@ -8,9 +8,7 @@ from typing import Generator
 SOLUTION: str = "1097343"
 
 
-def iter_index(
-    iterable: bytearray, value: Any, start: int = 0
-) -> Generator[int, None, None]:
+def iter_index(iterable: bytearray, value: Any, start: int = 0) -> Generator[int, None, None]:
     "Return indices where a value occurs in a sequence or iterable."
     # iter_index(list('AABCADEAF'), 'A') --> 0 1 4 7
     i = start - 1

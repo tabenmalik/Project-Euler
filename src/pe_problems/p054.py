@@ -81,9 +81,7 @@ class Hand:
         elif self.rank_value < right_hand.rank_value:
             return False
         else:
-            for value_1, value_2 in reversed(
-                list(zip(sorted(self.card_values()), sorted(right_hand.card_values())))
-            ):
+            for value_1, value_2 in reversed(list(zip(sorted(self.card_values()), sorted(right_hand.card_values())))):
                 if value_1 > value_2:
                     return True
                 elif value_1 < value_2:
@@ -117,15 +115,7 @@ class Hand:
         return iter(self.cards)
 
     def __str__(self) -> str:
-        return (
-            str(self.cards)
-            + ", "
-            + str(self.rank_cards)
-            + ", "
-            + self.rank_str()
-            + ", "
-            + str(self.rank_value)
-        )
+        return str(self.cards) + ", " + str(self.rank_cards) + ", " + self.rank_str() + ", " + str(self.rank_value)
 
     def __repr__(self) -> str:
         return str(self)
@@ -202,9 +192,7 @@ class Hand:
     def find_straight(hand: "Hand") -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         cards = tuple(sorted(hand.cards, key=lambda x: x.value))
 
-        diffs = [
-            card1.value - card2.value for card1, card2 in zip(cards[:-1], cards[1:])
-        ]
+        diffs = [card1.value - card2.value for card1, card2 in zip(cards[:-1], cards[1:])]
 
         if set(diffs) == {-1}:
             return cards, cards[-1].value

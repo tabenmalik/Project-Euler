@@ -19,17 +19,13 @@ def solve() -> str:
     primes = list(filter(lambda x: x >= 1000, primes))
 
     prime_pairs = [[p1, p2] for i, p1 in enumerate(primes) for p2 in primes[i + 1 :]]
-    prime_pairs = filter(
-        lambda x: sorted(split(x[0])) == sorted(split(x[1])), prime_pairs
-    )
+    prime_pairs = filter(lambda x: sorted(split(x[0])) == sorted(split(x[1])), prime_pairs)
     prime_pairs = list(prime_pairs)
 
     chains = prime_pairs.copy()
     for prime_pair in prime_pairs:
         for i, chain in enumerate(chains):
-            if prime_pair[0] == chain[-1] and set(difference(prime_pair)) == set(
-                difference(chain)
-            ):
+            if prime_pair[0] == chain[-1] and set(difference(prime_pair)) == set(difference(chain)):
                 chains[i].append(prime_pair[1])
 
     chains = filter(lambda x: len(x) > 2, chains)

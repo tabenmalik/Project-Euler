@@ -69,9 +69,7 @@ def sum_of_cubes(num: int) -> int:
     return int(((num * num) * (num + 1) * (num + 1)) / 4)
 
 
-def prime_factors_of_n(
-    n: int, method: str = "trial_division"
-) -> Generator[int, None, None]:
+def prime_factors_of_n(n: int, method: str = "trial_division") -> Generator[int, None, None]:
     """Prime factors of n."""
     methods = {
         "trial_division": prime_factors_trial_division,

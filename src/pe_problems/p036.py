@@ -16,9 +16,7 @@ def solve() -> str:
     limit = 1_000_000
 
     num_to_bin_strs = [(str(i), to_bin_str(i)) for i in range(limit)]
-    double_palindromes = filter(
-        lambda x: is_palindrome(x[0]) and is_palindrome(x[1]), num_to_bin_strs
-    )
+    double_palindromes = filter(lambda x: is_palindrome(x[0]) and is_palindrome(x[1]), num_to_bin_strs)
     ints = next(iter(zip(*double_palindromes)))
     ints = map(int, ints)
 

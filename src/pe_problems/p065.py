@@ -26,7 +26,5 @@ def continued_fraction_op(a: Fraction, b: Fraction) -> Fraction:
 def solve() -> str:
     """ """
     coeffs = list(islice(continued_frac_coeffs_for_e(), 100))
-    nth_convergent = reduce(
-        continued_fraction_op, map(Fraction, list(reversed(coeffs)))
-    )
+    nth_convergent = reduce(continued_fraction_op, map(Fraction, list(reversed(coeffs))))
     return str(sum(split(nth_convergent.numerator)))

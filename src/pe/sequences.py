@@ -145,9 +145,7 @@ class Hexagonals:
         if isinstance(n, slice):
             if n.stop is None:
                 raise ValueError("")
-            return tuple(
-                cast(int, self[i]) for i in range(n.start or 0, n.stop, n.step or 1)
-            )
+            return tuple(cast(int, self[i]) for i in range(n.start or 0, n.stop, n.step or 1))
         return n * ((2 * n) - 1)
 
     def index(self, value: int) -> int:

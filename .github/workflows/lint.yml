@@ -19,5 +19,5 @@ jobs:
         with:
           python-version: '3.11'
       - uses: actions/checkout@v4
-      - run: pip install mypy
-      - run: mypy --strict ./src ./tests
+      - run: pip install mypy pytest
+      - run: mypy --strict --allow-redefinition ./src ./tests

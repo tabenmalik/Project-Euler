@@ -1,7 +1,7 @@
 import math
 from functools import lru_cache
 
-SOLUTION = ''
+SOLUTION = "14316"
 
 @lru_cache
 def proper_divisors(n):

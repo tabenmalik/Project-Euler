@@ -4,31 +4,39 @@ from functools import reduce
 from operator import mul
 from collections import defaultdict
 from collections import Counter
+from pe.misc import sieve_of_eratosthenes_fast
+from typing import Sequence
 
 SOLUTION = "8319823"
+
+
+def totient_seq(limit: int) -> Sequence[int]:
+    totients = [0] * limit
+    primes = sieve_of_eratosthenes_fast(limit)
+
+    totients[0] = 0
+    totients[1] = 1
+    totients[2] = 1
+
+    for n in range(1, limit // 2):
+        for prime in primes:
+            if n * prime >= limit:
+                break
+            totients[n * prime] = totients[n] * (prime if n % prime == 0 else prime - 1)
+
+    return totients
 
 
 def solve() -> str:
     min_ratio = 10_000_000.0
     min_n = 0
-    prime_divisors = defaultdict(set)
-    max_n = 10_000_000
-    for i in range(4, max_n, 2):
-        prime_divisors[i].add(2)
-    for i in range(3, max_n):
-        if len(prime_divisors[i]) == 0:
-            for j in range(i * 2, max_n, i):
-                prime_divisors[j].add(i)
-
-    for i in range(1, max_n):
-        numerator = reduce(mul, prime_divisors[i], 1)
-        denominator = reduce(mul, ((p - 1) for p in prime_divisors[i]), 1)
-        numerator, denominator = i, denominator * (i // numerator)
-        if numerator != denominator and Counter(split(numerator)) == Counter(split(denominator)):
-            ratio = numerator / denominator
+    totients = totient_seq(10_000_000)
+    for n, totient_n in enumerate(totients[2:], 2):
+        if sorted(str(n)) == sorted(str(totient_n)):
+            ratio = n / totient_n
             if ratio < min_ratio:
                 min_ratio = ratio
-                min_n = i
+                min_n = n
     return str(min_n)
 
 

@@ -4,7 +4,7 @@ Acceptance test of all Euler Problem solutions
 All euler solvers must have a correct solution and must generate the solution in under 60sec.
 """
 
-from typing import Generator
+from collections.abc import Generator
 from typing import Any
 from _frozen_importlib import ModuleSpec
 import importlib

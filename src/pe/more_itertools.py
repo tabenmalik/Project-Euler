@@ -8,10 +8,10 @@ from itertools import tee, cycle, zip_longest, filterfalse, combinations
 import collections
 import operator
 import random
-from typing import Iterable
-from typing import Iterator
+from collections.abc import Iterable
+from collections.abc import Iterator
 from typing import Any
-from typing import Callable
+from collections.abc import Callable
 from typing import Optional
 from typing import cast
 from typing import ParamSpec
@@ -36,7 +36,7 @@ def nth(iterable: Iterable[Any], n: int, default: Any = None) -> Any:
 def first_true(
     iterable: Iterable[Any],
     default: bool = False,
-    pred: Optional[Callable[[Any], bool]] = None,
+    pred: Callable[[Any], bool] | None = None,
 ) -> Any:
     """
     Returns the first true value in the iterable.

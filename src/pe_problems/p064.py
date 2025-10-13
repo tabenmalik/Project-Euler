@@ -1,7 +1,7 @@
 """ """
 
 from typing import Optional
-from typing import Sequence
+from collections.abc import Sequence
 from math import floor, isqrt, sqrt, gcd
 
 SOLUTION: str = "1322"
@@ -17,7 +17,7 @@ def root_continued_fraction(n: int) -> tuple[int, Sequence[int]]:
     if a0 * a0 == n:
         return a0, []
 
-    first_triplet: Optional[tuple[int, int, int]] = None
+    first_triplet: tuple[int, int, int] | None = None
     coeffs: list[int] = list()
 
     while True:

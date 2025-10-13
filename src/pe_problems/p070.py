@@ -5,7 +5,7 @@ from operator import mul
 from collections import defaultdict
 from collections import Counter
 from pe.misc import sieve_of_eratosthenes_fast
-from typing import Sequence
+from collections.abc import Sequence
 
 SOLUTION = "8319823"
 

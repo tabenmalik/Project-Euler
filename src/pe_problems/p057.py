@@ -2,7 +2,7 @@ from functools import reduce
 import operator
 from typing import ParamSpec
 from typing import TypeVar
-from typing import Callable
+from collections.abc import Callable
 from typing import Any
 
 from pe.integer import split

@@ -1,6 +1,6 @@
 from itertools import starmap
 from functools import partial
-from typing import Iterable
+from collections.abc import Iterable
 import os
 from math import log
 

@@ -1,11 +1,11 @@
 import itertools
-from typing import Generator
+from collections.abc import Generator
 from typing import ParamSpec
 from typing import TypeVar
-from typing import Sequence
-from typing import Callable
+from collections.abc import Sequence
+from collections.abc import Callable
 from typing import Any
-from typing import Iterable
+from collections.abc import Iterable
 from pe.integer import split, concat
 from pe.misc import divisors
 from pe.misc import sieve_of_eratosthenes_fast

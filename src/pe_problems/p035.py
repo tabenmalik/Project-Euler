@@ -1,4 +1,4 @@
-from typing import Generator
+from collections.abc import Generator
 
 from pe.integer import split, concat
 from pe.misc import sieve_of_eratosthenes_fast, is_prime

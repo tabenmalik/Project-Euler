@@ -1,5 +1,5 @@
 import os
-from typing import Generator
+from collections.abc import Generator
 from typing import Optional
 from pe.integer import sum_of_1_to_n
 from importlib.resources import files
@@ -8,7 +8,7 @@ import pe_problems
 SOLUTION = "162"
 
 
-def triangle_num_seq(under: Optional[int] = None) -> Generator[int, None, None]:
+def triangle_num_seq(under: int | None = None) -> Generator[int, None, None]:
     n = 1
     while True:
         yield sum_of_1_to_n(n)

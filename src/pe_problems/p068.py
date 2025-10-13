@@ -1,7 +1,7 @@
 from itertools import permutations, chain
-from typing import Iterable
+from collections.abc import Iterable
 from typing import Any
-from typing import Generator
+from collections.abc import Generator
 from pe.integer import concat, split
 
 SOLUTION = "6531031914842725"

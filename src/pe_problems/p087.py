@@ -1,9 +1,9 @@
 import math
 import itertools
 import operator
-from typing import Iterable
+from collections.abc import Iterable
 from typing import Any
-from typing import Generator
+from collections.abc import Generator
 
 SOLUTION: str = "1097343"
 

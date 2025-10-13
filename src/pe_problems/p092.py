@@ -1,7 +1,7 @@
 import math
 import functools
 import itertools
-from typing import Generator
+from collections.abc import Generator
 
 from pe.integer import split
 

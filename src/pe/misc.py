@@ -1,6 +1,6 @@
 import math
-from typing import Sequence
-from typing import Generator
+from collections.abc import Sequence
+from collections.abc import Generator
 
 from pe.integer import prime_factors_trial_division
 

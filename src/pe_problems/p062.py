@@ -1,6 +1,6 @@
 from itertools import takewhile, combinations, groupby
-from typing import Generator
-from typing import Iterable
+from collections.abc import Generator
+from collections.abc import Iterable
 from typing import Any
 
 from pe.integer import split

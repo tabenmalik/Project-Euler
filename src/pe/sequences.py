@@ -1,8 +1,8 @@
 from collections import abc
 from typing import overload
 from typing import Optional
-from typing import Generator
-from typing import Iterator
+from collections.abc import Generator
+from collections.abc import Iterator
 from typing import Any
 from typing import cast
 import math
@@ -201,7 +201,7 @@ def prime_seq() -> Generator[int, None, None]:
         i += 2
 
 
-def fibonacci_seq(under: Optional[int] = None) -> Generator[int, None, None]:
+def fibonacci_seq(under: int | None = None) -> Generator[int, None, None]:
     """
     A generator of fibonacci numbers
     """

@@ -1,4 +1,4 @@
-from typing import Sequence
+from collections.abc import Sequence
 
 from pe.integer import concat
 from pe.sequences import permutations_seq

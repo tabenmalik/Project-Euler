@@ -1,8 +1,8 @@
 from pe.integer import split
-from typing import Callable
-from typing import Generator
-from typing import Iterable
-from typing import Sequence
+from collections.abc import Callable
+from collections.abc import Generator
+from collections.abc import Iterable
+from collections.abc import Sequence
 from itertools import takewhile, product
 
 SOLUTION = "28684"
@@ -96,7 +96,7 @@ def solve() -> str:
         "octs": list(octs),
     }
 
-    cycles = [(set(["octs"]), [o]) for o in octs]
+    cycles = [({"octs"}, [o]) for o in octs]
     new_cycles = []
 
     while True:
@@ -105,7 +105,7 @@ def solve() -> str:
                 if seq_name not in cycle_seqs:
                     for num in seq:
                         if is_cycle(cycle + [num], False):
-                            new_cycles.append((cycle_seqs | set([seq_name]), cycle + [num]))
+                            new_cycles.append((cycle_seqs | {seq_name}, cycle + [num]))
         cycles = new_cycles
         new_cycles = []
 

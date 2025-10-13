@@ -1,5 +1,5 @@
 from itertools import permutations
-from typing import Sequence
+from collections.abc import Sequence
 from pe.integer import concat, split
 
 SOLUTION = "932718654"

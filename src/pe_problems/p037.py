@@ -7,7 +7,7 @@ SOLUTION = "748317"
 
 
 def is_trucatable_prime(prime: int) -> bool:
-    single_digit_primes = set([2, 3, 5, 7])
+    single_digit_primes = {2, 3, 5, 7}
     if prime in single_digit_primes:
         return False
 

@@ -3,7 +3,7 @@
 from fractions import Fraction
 from functools import reduce
 from itertools import count, islice
-from typing import Generator
+from collections.abc import Generator
 
 from pe.integer import split
 

@@ -1,5 +1,5 @@
 from itertools import count, takewhile
-from typing import Iterable
+from collections.abc import Iterable
 
 from pe.integer import split
 

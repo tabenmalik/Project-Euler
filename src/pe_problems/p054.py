@@ -1,7 +1,7 @@
 import os
 from itertools import chain
-from typing import Sequence
-from typing import Iterable
+from collections.abc import Sequence
+from collections.abc import Iterable
 
 SOLUTION: str = "376"
 
@@ -29,7 +29,7 @@ class Card:
         self.suit = suit
 
     def __str__(self) -> str:
-        return "Card({})".format(self.card_str)
+        return f"Card({self.card_str})"
 
     def __repr__(self) -> str:
         return str(self)

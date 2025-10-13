@@ -4,11 +4,11 @@ from functools import reduce
 import math
 import operator
 
-from typing import Sequence
+from collections.abc import Sequence
 from typing import Tuple
-from typing import Generator
-from typing import Iterator
-from typing import Iterable
+from collections.abc import Generator
+from collections.abc import Iterator
+from collections.abc import Iterable
 
 
 def concat(ints: Iterable[int]) -> int:

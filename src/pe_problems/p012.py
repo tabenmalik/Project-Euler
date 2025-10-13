@@ -1,4 +1,4 @@
-from typing import Generator
+from collections.abc import Generator
 from pe.misc import divisors
 from pe.integer import sum_of_1_to_n
 

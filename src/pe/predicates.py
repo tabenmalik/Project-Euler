@@ -1,7 +1,7 @@
 """A module of functions to create predicates."""
 
 import operator
-from typing import Callable
+from collections.abc import Callable
 from typing import Any
 
 

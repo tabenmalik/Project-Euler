@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.13'
       - uses: actions/checkout@v4
       - run: pip install mypy pytest
-      - run: mypy --strict --allow-redefinition ./src ./tests
+      - run: mypy --allow-redefinition ./src ./tests

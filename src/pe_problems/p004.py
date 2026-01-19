@@ -12,7 +12,6 @@ from operator import mul
 
 from pe.integer import palindromic
 
-
 SOLUTION = "906609"
 
 

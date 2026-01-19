@@ -2,7 +2,6 @@ from collections.abc import Generator
 from pe.misc import divisors
 from pe.integer import sum_of_1_to_n
 
-
 SOLUTION = "76576500"
 NUM_DIVISORS = 500
 

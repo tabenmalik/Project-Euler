@@ -2,7 +2,6 @@ import os
 import pe_problems
 from importlib.resources import files
 
-
 SOLUTION: str = "1074"
 
 

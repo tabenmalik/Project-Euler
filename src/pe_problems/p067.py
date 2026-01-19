@@ -1,6 +1,5 @@
 import os
 
-
 NUM_FILE: str = "p067.txt"
 import pe_problems
 from importlib.resources import files

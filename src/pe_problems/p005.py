@@ -13,7 +13,6 @@ import math
 from pe.sequences import prime_seq
 from pe.predicates import lt
 
-
 SOLUTION = "232792560"
 MAX_NUM = 20
 

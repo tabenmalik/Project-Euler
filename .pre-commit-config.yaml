@@ -2,7 +2,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+    rev: v6.0.0
     hooks:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
@@ -10,14 +10,14 @@ repos:
 
 # From https://black.readthedocs.io/en/stable/integrations/source_version_control.html
 -   repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 25.9.0
+    rev: 26.1.0
     hooks:
     -   id: black
         language_version: python3.13
         args: [-l 132]
 
 -   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.18.2
+    rev: v1.19.1
     hooks:
     -   id: mypy
         args: [--allow-redefinition, --ignore-missing-imports]
@@ -33,7 +33,7 @@ repos:
    -  id: trailing-whitespace
 
 -  repo: https://github.com/asottile/pyupgrade
-   rev: v3.21.0
+   rev: v3.21.2
    hooks:
    -  id: pyupgrade
       args: [--py310-plus]

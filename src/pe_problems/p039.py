@@ -26,5 +26,5 @@ def solve() -> str:
 
                 k += 1
 
-    p_solutions = {k: len(v) for k, v in p_solutions.items()}
-    return str(max(p_solutions.keys(), key=lambda x: p_solutions[x]))
+    pp_solutions: dict[int, int] = {k: len(v) for k, v in p_solutions.items()}
+    return str(max(pp_solutions.keys(), key=lambda x: pp_solutions[x]))

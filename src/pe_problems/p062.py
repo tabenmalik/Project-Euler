@@ -1,6 +1,10 @@
-from itertools import takewhile, combinations, groupby
+from __future__ import annotations
+
 from collections.abc import Generator
 from collections.abc import Iterable
+from itertools import combinations
+from itertools import groupby
+from itertools import takewhile
 from typing import Any
 
 from pe.integer import split
@@ -8,7 +12,7 @@ from pe.integer import split
 SOLUTION = "127035954683"
 
 
-def positive_integers_seq(start: int = 1, step: int = 1) -> Generator[int, None, None]:
+def positive_integers_seq(start: int = 1, step: int = 1) -> Generator[int]:
     n = start
 
     while True:

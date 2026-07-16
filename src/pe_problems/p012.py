@@ -1,12 +1,15 @@
+from __future__ import annotations
+
 from collections.abc import Generator
-from pe.misc import divisors
+
 from pe.integer import sum_of_1_to_n
+from pe.misc import divisors
 
 SOLUTION = "76576500"
 NUM_DIVISORS = 500
 
 
-def triangle_num_seq() -> Generator[int, None, None]:
+def triangle_num_seq() -> Generator[int]:
     n = 1
     while True:
         yield sum_of_1_to_n(n)

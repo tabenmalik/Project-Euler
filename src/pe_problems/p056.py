@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from pe.integer import split
 
 SOLUTION = "972"

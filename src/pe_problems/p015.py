@@ -1,6 +1,8 @@
-from functools import reduce
-import operator
+from __future__ import annotations
+
 import math
+import operator
+from functools import reduce
 
 SOLUTION: str = "137846528820"
 

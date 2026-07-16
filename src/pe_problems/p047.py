@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from pe.misc import prime_factors
 
 SOLUTION = "134043"

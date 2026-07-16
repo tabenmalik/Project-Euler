@@ -1,6 +1,10 @@
-from itertools import permutations
+from __future__ import annotations
+
 from collections.abc import Sequence
-from pe.integer import concat, split
+from itertools import permutations
+
+from pe.integer import concat
+from pe.integer import split
 
 SOLUTION = "932718654"
 
@@ -16,7 +20,7 @@ def contains_multiples(num: int, digits: Sequence[int]) -> bool:
         if multiple_digits != sub_digits:
             return False
 
-        digits = digits[len(multiple_digits) :]
+        digits = digits[len(multiple_digits):]
         multiplier += 1
 
     return True

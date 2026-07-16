@@ -1,8 +1,10 @@
+from __future__ import annotations
+
 import itertools
 import os
+from importlib.resources import files
 
 import pe_problems
-from importlib.resources import files
 
 SOLUTION: str = "129448"
 
@@ -18,7 +20,10 @@ def read_number_file() -> list[int]:
 
 
 def decrypt(text: list[int], password: tuple[int, int, int]) -> str:
-    chunks = [text[i : i + len(password)] for i in range(0, len(text), len(password))]
+    chunks = [
+        text[i: i + len(password)]
+        for i in range(0, len(text), len(password))
+    ]
     decrypted_chunks = []
     for chunk in chunks:
         decrypted_chunks.append(list(map(lambda x, y: x ^ y, chunk, password)))

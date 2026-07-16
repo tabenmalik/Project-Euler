@@ -1,3 +1,4 @@
+from __future__ import annotations
 SOLUTION: str = "669171001"
 
 GRID_SIZE: int = 1001

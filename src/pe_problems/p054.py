@@ -1,7 +1,12 @@
+from __future__ import annotations
+
 import os
-from itertools import chain
-from collections.abc import Sequence
 from collections.abc import Iterable
+from collections.abc import Sequence
+from importlib.resources import files
+from itertools import chain
+
+import pe_problems
 
 SOLUTION: str = "376"
 
@@ -71,7 +76,7 @@ class Hand:
     def card_suits(self) -> tuple[str, ...]:
         return tuple(card.suit for card in self.cards)
 
-    def beats(self, right_hand: "Hand") -> bool:
+    def beats(self, right_hand: Hand) -> bool:
         if self.rank > right_hand.rank:
             return True
         elif self.rank < right_hand.rank:
@@ -122,7 +127,7 @@ class Hand:
 
     @staticmethod
     def find_royal_flush(
-        hand: "Hand",
+        hand: Hand,
     ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         straight_flush, value = Hand.find_straight_flush(hand)
 
@@ -136,7 +141,7 @@ class Hand:
 
     @staticmethod
     def find_straight_flush(
-        hand: "Hand",
+        hand: Hand,
     ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         straight, value = Hand.find_straight(hand)
         if straight is None or value is None:
@@ -149,14 +154,16 @@ class Hand:
 
     @staticmethod
     def find_four_of_a_kind(
-        hand: "Hand",
+        hand: Hand,
     ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         unique_card_values = set(hand.card_values())
         if len(unique_card_values) != 2:
             return None, None
 
         for unique_value in unique_card_values:
-            cards = tuple(card for card in hand.cards if card.value == unique_value)
+            cards = tuple(
+                card for card in hand.cards if card.value == unique_value
+            )
             if len(cards) == 4:
                 return cards, cards[0].value
 
@@ -164,7 +171,7 @@ class Hand:
 
     @staticmethod
     def find_full_house(
-        hand: "Hand",
+        hand: Hand,
     ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         three_of_a_kind, value1 = Hand.find_three_of_a_kind(hand)
 
@@ -183,16 +190,19 @@ class Hand:
         return hand.cards, value1 * 3 + value2 * 2
 
     @staticmethod
-    def find_flush(hand: "Hand") -> tuple[None, None] | tuple[tuple[Card, ...], int]:
+    def find_flush(hand: Hand) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         if len(set(hand.card_suits())) == 1:
             return hand.cards, max(hand.card_values())
         return None, None
 
     @staticmethod
-    def find_straight(hand: "Hand") -> tuple[None, None] | tuple[tuple[Card, ...], int]:
+    def find_straight(hand: Hand) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         cards = tuple(sorted(hand.cards, key=lambda x: x.value))
 
-        diffs = [card1.value - card2.value for card1, card2 in zip(cards[:-1], cards[1:])]
+        diffs = [
+            card1.value - card2.value for card1,
+            card2 in zip(cards[:-1], cards[1:])
+        ]
 
         if set(diffs) == {-1}:
             return cards, cards[-1].value
@@ -201,12 +211,12 @@ class Hand:
 
     @staticmethod
     def find_three_of_a_kind(
-        hand: "Hand",
+        hand: Hand,
     ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         three_of_kinds = []
         for i, card1 in enumerate(hand.cards):
-            for j, card2 in enumerate(hand.cards[i + 1 :], start=i + 1):
-                for card3 in hand.cards[j + 1 :]:
+            for j, card2 in enumerate(hand.cards[i + 1:], start=i + 1):
+                for card3 in hand.cards[j + 1:]:
                     if card1.value == card2.value == card3.value:
                         three_of_kinds.append((card1, card2, card3))
 
@@ -219,11 +229,11 @@ class Hand:
 
     @staticmethod
     def find_two_pairs(
-        hand: "Hand",
+        hand: Hand,
     ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         pairs = []
         for i, card1 in enumerate(hand.cards):
-            for card2 in hand.cards[i + 1 :]:
+            for card2 in hand.cards[i + 1:]:
                 if card1.value == card2.value:
                     pairs.append((card1, card2))
 
@@ -235,10 +245,10 @@ class Hand:
         return tuple(chain.from_iterable(pairs[:2])), pairs[0][0].value
 
     @staticmethod
-    def find_one_pair(hand: "Hand") -> tuple[None, None] | tuple[tuple[Card, ...], int]:
+    def find_one_pair(hand: Hand) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         pairs = []
         for i, card1 in enumerate(hand.cards):
-            for card2 in hand.cards[i + 1 :]:
+            for card2 in hand.cards[i + 1:]:
                 if card1.value == card2.value:
                     pairs.append((card1, card2))
 
@@ -254,15 +264,11 @@ class Hand:
 
     @staticmethod
     def find_high_card(
-        hand: "Hand",
+        hand: Hand,
     ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         max_card = max(hand.cards, key=lambda x: x.value)
 
         return (max_card,), max_card.value
-
-
-import pe_problems
-from importlib.resources import files
 
 
 def read_file() -> list[tuple[Hand, Hand]]:

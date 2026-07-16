@@ -1,12 +1,16 @@
+from __future__ import annotations
+
 from collections.abc import Generator
 
-from pe.integer import split, concat
-from pe.misc import sieve_of_eratosthenes_fast, is_prime
+from pe.integer import concat
+from pe.integer import split
+from pe.misc import is_prime
+from pe.misc import sieve_of_eratosthenes_fast
 
 SOLUTION = "55"
 
 
-def cycle_digits(num: int) -> Generator[int, None, None]:
+def cycle_digits(num: int) -> Generator[int]:
     yield num
 
     digits = list(split(num))

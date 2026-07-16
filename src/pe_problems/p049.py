@@ -1,6 +1,9 @@
+from __future__ import annotations
+
 import itertools
 
-from pe.integer import concat, split
+from pe.integer import concat
+from pe.integer import split
 from pe.misc import sieve_of_eratosthenes_fast
 
 SOLUTION = "296962999629"
@@ -18,8 +21,15 @@ def solve() -> str:
     primes = sieve_of_eratosthenes_fast(10000)
     primes = list(filter(lambda x: x >= 1000, primes))
 
-    prime_pairs = [[p1, p2] for i, p1 in enumerate(primes) for p2 in primes[i + 1 :]]
-    prime_pairs = filter(lambda x: sorted(split(x[0])) == sorted(split(x[1])), prime_pairs)
+    prime_pairs = [
+        [p1, p2]
+        for i, p1 in enumerate(primes) for p2 in primes[i + 1:]
+    ]
+    prime_pairs = filter(
+        lambda x: sorted(
+            split(x[0]),
+        ) == sorted(split(x[1])), prime_pairs,
+    )
     prime_pairs = list(prime_pairs)
 
     chains = prime_pairs.copy()

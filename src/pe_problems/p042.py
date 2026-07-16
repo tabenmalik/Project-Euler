@@ -1,14 +1,17 @@
+from __future__ import annotations
+
 import os
 from collections.abc import Generator
-from typing import Optional
-from pe.integer import sum_of_1_to_n
 from importlib.resources import files
+from typing import Optional
+
 import pe_problems
+from pe.integer import sum_of_1_to_n
 
 SOLUTION = "162"
 
 
-def triangle_num_seq(under: int | None = None) -> Generator[int, None, None]:
+def triangle_num_seq(under: int | None = None) -> Generator[int]:
     n = 1
     while True:
         yield sum_of_1_to_n(n)
@@ -45,6 +48,8 @@ def solve() -> str:
 
     triangle_number_set = set(triangle_num_seq(under=max_word_value + 1))
 
-    triangle_word_values = list(filter(lambda x: x in triangle_number_set, word_values))
+    triangle_word_values = list(
+        filter(lambda x: x in triangle_number_set, word_values),
+    )
 
     return str(len(triangle_word_values))

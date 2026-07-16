@@ -1,6 +1,10 @@
+from __future__ import annotations
+
 from typing import cast
 
-from pe.sequences import Hexagonals, Pentagonals, Triangulars
+from pe.sequences import Hexagonals
+from pe.sequences import Pentagonals
+from pe.sequences import Triangulars
 
 SOLUTION = "1533776805"
 

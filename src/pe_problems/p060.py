@@ -1,19 +1,23 @@
+from __future__ import annotations
+
 import itertools
+from collections.abc import Callable
 from collections.abc import Generator
+from collections.abc import Iterable
+from collections.abc import Sequence
+from typing import Any
 from typing import ParamSpec
 from typing import TypeVar
-from collections.abc import Sequence
-from collections.abc import Callable
-from typing import Any
-from collections.abc import Iterable
-from pe.integer import split, concat
+
+from pe.integer import concat
+from pe.integer import split
 from pe.misc import divisors
 from pe.misc import sieve_of_eratosthenes_fast
 
 SOLUTION = "26033"
 
 
-def prime_seq() -> Generator[int, None, None]:
+def prime_seq() -> Generator[int]:
     """
     A generator of prime numbers
     """
@@ -26,7 +30,7 @@ def prime_seq() -> Generator[int, None, None]:
         i += 2
 
 
-def num_splits(num: int) -> Generator[tuple[int, int], None, None]:
+def num_splits(num: int) -> Generator[tuple[int, int]]:
     digits = split(num)
     for i in range(1, len(digits)):
         yield concat(digits[:i]), concat(digits[i:])

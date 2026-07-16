@@ -1,14 +1,14 @@
 """Functions for testing or manipulating properties of integers"""
+from __future__ import annotations
 
-from functools import reduce
 import math
 import operator
-
-from collections.abc import Sequence
-from typing import Tuple
 from collections.abc import Generator
-from collections.abc import Iterator
 from collections.abc import Iterable
+from collections.abc import Iterator
+from collections.abc import Sequence
+from functools import reduce
+from typing import Tuple
 
 
 def concat(ints: Iterable[int]) -> int:
@@ -69,7 +69,7 @@ def sum_of_cubes(num: int) -> int:
     return int(((num * num) * (num + 1) * (num + 1)) / 4)
 
 
-def prime_factors_of_n(n: int, method: str = "trial_division") -> Generator[int, None, None]:
+def prime_factors_of_n(n: int, method: str = "trial_division") -> Generator[int]:
     """Prime factors of n."""
     methods = {
         "trial_division": prime_factors_trial_division,
@@ -79,7 +79,7 @@ def prime_factors_of_n(n: int, method: str = "trial_division") -> Generator[int,
     return methods[method](n)
 
 
-def prime_factors_trial_division_naive(num: int) -> Generator[int, None, None]:
+def prime_factors_trial_division_naive(num: int) -> Generator[int]:
     """Prime factors of n using naive trial divison."""
     factor = 2
 
@@ -91,7 +91,7 @@ def prime_factors_trial_division_naive(num: int) -> Generator[int, None, None]:
             factor += 1
 
 
-def prime_factors_trial_division(num: int) -> Generator[int, None, None]:
+def prime_factors_trial_division(num: int) -> Generator[int]:
     """Prime factors of n using efficient trial division."""
     while num % 2 == 0:
         yield 2

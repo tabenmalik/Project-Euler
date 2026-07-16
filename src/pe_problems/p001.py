@@ -7,6 +7,7 @@ The sum of these multiples is 23.
 
 Find the sum of all the multiples of 3 or 5 below 1000.
 """
+from __future__ import annotations
 
 SOLUTION: str = "233168"
 

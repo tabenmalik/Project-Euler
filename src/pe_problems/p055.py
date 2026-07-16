@@ -1,4 +1,9 @@
-from pe.integer import concat, split, ireversed, palindromic
+from __future__ import annotations
+
+from pe.integer import concat
+from pe.integer import ireversed
+from pe.integer import palindromic
+from pe.integer import split
 
 SOLUTION = "249"
 

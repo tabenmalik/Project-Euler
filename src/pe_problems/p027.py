@@ -1,5 +1,9 @@
+from __future__ import annotations
+
 import itertools
-from pe.misc import is_prime, sieve_of_eratosthenes_fast
+
+from pe.misc import is_prime
+from pe.misc import sieve_of_eratosthenes_fast
 
 SOLUTION = "-59231"
 
@@ -24,9 +28,16 @@ def solve() -> str:
     b = range(-MAX_NUM, MAX_NUM + 1)
     coeff_pairs = list(itertools.product(a, b))
 
-    quadratic_primes = list(itertools.starmap(consecutive_primes_of_quadratic, coeff_pairs))
+    quadratic_primes = list(
+        itertools.starmap(
+            consecutive_primes_of_quadratic, coeff_pairs,
+        ),
+    )
     lengths = map(len, quadratic_primes)
-    coeff_lengths = {coeff_pair: length for coeff_pair, length in zip(coeff_pairs, lengths)}
+    coeff_lengths = {
+        coeff_pair: length for coeff_pair,
+        length in zip(coeff_pairs, lengths)
+    }
 
     coeff_of_longest = max(coeff_lengths, key=lambda x: coeff_lengths[x])
     return str(coeff_of_longest[0] * coeff_of_longest[1])

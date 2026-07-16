@@ -1,7 +1,10 @@
+from __future__ import annotations
+
+import operator
 import os
 from functools import reduce
-import operator
 from importlib.resources import files
+
 import pe_problems
 
 SOLUTION: str = "70600674"
@@ -30,7 +33,7 @@ def solve() -> str:
 
     for row in range(0, nrows):
         for col in range(0, ncols - ADJ_NUMS):
-            adj_nums = num_matrix[row][col : col + ADJ_NUMS]
+            adj_nums = num_matrix[row][col: col + ADJ_NUMS]
             product = reduce(operator.mul, adj_nums)
             greatest_product = max(greatest_product, product)
 

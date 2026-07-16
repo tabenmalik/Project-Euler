@@ -1,6 +1,9 @@
-from pe.integer import concat, split
-from pe.misc import sieve_of_eratosthenes_fast
+from __future__ import annotations
+
+from pe.integer import concat
+from pe.integer import split
 from pe.misc import is_prime
+from pe.misc import sieve_of_eratosthenes_fast
 from pe.sequences import prime_seq
 
 SOLUTION = "748317"

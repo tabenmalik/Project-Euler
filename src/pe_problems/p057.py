@@ -1,9 +1,11 @@
-from functools import reduce
+from __future__ import annotations
+
 import operator
+from collections.abc import Callable
+from functools import reduce
+from typing import Any
 from typing import ParamSpec
 from typing import TypeVar
-from collections.abc import Callable
-from typing import Any
 
 from pe.integer import split
 
@@ -83,7 +85,11 @@ def expand_root_2(iterations: int) -> tuple[int, int]:
 
 def solve() -> str:
     expanded_fracs = map(expand_root_2, range(1, 1_001))
-    frac_digits = map(lambda frac: (split(frac[0]), split(frac[1])), expanded_fracs)
+    frac_digits = map(
+        lambda frac: (
+            split(frac[0]), split(frac[1]),
+        ), expanded_fracs,
+    )
     frac_digits = map(lambda frac: (len(frac[0]), len(frac[1])), frac_digits)
     frac_digits = filter(lambda frac: frac[0] > frac[1], frac_digits)
 

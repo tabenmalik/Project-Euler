@@ -1,11 +1,13 @@
+from __future__ import annotations
+
+import math
 from collections import abc
-from typing import overload
-from typing import Optional
 from collections.abc import Generator
 from collections.abc import Iterator
 from typing import Any
 from typing import cast
-import math
+from typing import Optional
+from typing import overload
 
 from pe.misc import divisors
 
@@ -163,7 +165,7 @@ class Hexagonals:
         raise ValueError()
 
 
-def permutations_seq(digits: list[int]) -> Generator[list[int], None, None]:
+def permutations_seq(digits: list[int]) -> Generator[list[int]]:
     yield digits.copy()
 
     largest_index_k = 0
@@ -183,11 +185,14 @@ def permutations_seq(digits: list[int]) -> Generator[list[int], None, None]:
                 digits[largest_index_l],
                 digits[largest_index_k],
             )
-            digits[largest_index_k + 1 :] = reversed(digits[largest_index_k + 1 :])
+            digits[
+                largest_index_k +
+                1:
+            ] = reversed(digits[largest_index_k + 1:])
             yield digits.copy()
 
 
-def prime_seq() -> Generator[int, None, None]:
+def prime_seq() -> Generator[int]:
     """
     Prime numbers sequence.
     OEIS A000040
@@ -201,7 +206,7 @@ def prime_seq() -> Generator[int, None, None]:
         i += 2
 
 
-def fibonacci_seq(under: int | None = None) -> Generator[int, None, None]:
+def fibonacci_seq(under: int | None = None) -> Generator[int]:
     """
     A generator of fibonacci numbers
     """
@@ -224,7 +229,7 @@ def fibonacci_seq(under: int | None = None) -> Generator[int, None, None]:
         fib_new = fib_2 + fib_1
 
 
-def even_fibonacci_seq() -> Generator[int, None, None]:
+def even_fibonacci_seq() -> Generator[int]:
     """
     Even fibonacci number sequence.
     OEIS A022342

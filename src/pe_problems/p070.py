@@ -1,11 +1,14 @@
-from math import isqrt
-from pe.integer import split
-from functools import reduce
-from operator import mul
-from collections import defaultdict
+from __future__ import annotations
+
 from collections import Counter
-from pe.misc import sieve_of_eratosthenes_fast
+from collections import defaultdict
 from collections.abc import Sequence
+from functools import reduce
+from math import isqrt
+from operator import mul
+
+from pe.integer import split
+from pe.misc import sieve_of_eratosthenes_fast
 
 SOLUTION = "8319823"
 
@@ -22,7 +25,8 @@ def totient_seq(limit: int) -> Sequence[int]:
         for prime in primes:
             if n * prime >= limit:
                 break
-            totients[n * prime] = totients[n] * (prime if n % prime == 0 else prime - 1)
+            totients[n * prime] = totients[n] * \
+                (prime if n % prime == 0 else prime - 1)
 
     return totients
 

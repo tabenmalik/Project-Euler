@@ -1,9 +1,11 @@
+from __future__ import annotations
+
 import itertools
 
 from pe.integer import split
-from pe.sequences import prime_seq
-from pe.sequences import permutations_seq
 from pe.misc import is_prime
+from pe.sequences import permutations_seq
+from pe.sequences import prime_seq
 
 SOLUTION = "121313"
 

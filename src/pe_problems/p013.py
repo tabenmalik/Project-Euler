@@ -1,6 +1,9 @@
+from __future__ import annotations
+
 import os
-import pe_problems
 from importlib.resources import files
+
+import pe_problems
 
 SOLUTION: str = "5537376230"
 

@@ -1,8 +1,11 @@
+from __future__ import annotations
+
 import os
 from collections import defaultdict
 from graphlib import TopologicalSorter
 
-from pe.integer import split, concat
+from pe.integer import concat
+from pe.integer import split
 
 SOLUTION = "73162890"
 

@@ -1,6 +1,8 @@
+from __future__ import annotations
+
 import math
-from collections.abc import Sequence
 from collections.abc import Generator
+from collections.abc import Sequence
 
 from pe.integer import prime_factors_trial_division
 
@@ -20,7 +22,7 @@ def prime_factorization(n: int) -> tuple[Sequence[int], Sequence[int]]:
     return prime_divisors, exps
 
 
-def prime_factors(num: int) -> Generator[int, None, None]:
+def prime_factors(num: int) -> Generator[int]:
     return prime_factors_trial_division(num)
 
 

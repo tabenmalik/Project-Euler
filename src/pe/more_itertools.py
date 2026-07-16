@@ -2,18 +2,27 @@
 Convienent itertools functions provided by Python docs:
     https://docs.python.org/3/library/itertools.html
 """
+from __future__ import annotations
 
-from itertools import islice, chain, count, groupby, repeat
-from itertools import tee, cycle, zip_longest, filterfalse, combinations
 import collections
 import operator
 import random
+from collections.abc import Callable
 from collections.abc import Iterable
 from collections.abc import Iterator
+from itertools import chain
+from itertools import combinations
+from itertools import count
+from itertools import cycle
+from itertools import filterfalse
+from itertools import groupby
+from itertools import islice
+from itertools import repeat
+from itertools import tee
+from itertools import zip_longest
 from typing import Any
-from collections.abc import Callable
-from typing import Optional
 from typing import cast
+from typing import Optional
 from typing import ParamSpec
 from typing import TypeVar
 
@@ -58,7 +67,9 @@ R = TypeVar("R")
 
 def rolling(iterable: Iterable[Any], func: Callable[..., R], window_size: int = 1) -> Iterable[R]:
     """Applies a function over a rolling window of the iterable elements"""
-    window = collections.deque(take(window_size - 1, iterable), maxlen=window_size)
+    window = collections.deque(
+        take(window_size - 1, iterable), maxlen=window_size,
+    )
 
     for x in iterable:
         window.append(x)

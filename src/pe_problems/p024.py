@@ -1,9 +1,11 @@
+from __future__ import annotations
+
 from collections.abc import Generator
 
 SOLUTION: str = "2783915460"
 
 
-def permutations(digits: list[int]) -> Generator[list[int], None, None]:
+def permutations(digits: list[int]) -> Generator[list[int]]:
     yield digits.copy()
 
     largest_index_k = 0
@@ -23,7 +25,10 @@ def permutations(digits: list[int]) -> Generator[list[int], None, None]:
                 digits[largest_index_l],
                 digits[largest_index_k],
             )
-            digits[largest_index_k + 1 :] = reversed(digits[largest_index_k + 1 :])
+            digits[
+                largest_index_k +
+                1:
+            ] = reversed(digits[largest_index_k + 1:])
             yield digits.copy()
 
 

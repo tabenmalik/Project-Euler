@@ -1,7 +1,10 @@
-import operator
-import math
+from __future__ import annotations
 
-from pe.integer import split, concat
+import math
+import operator
+
+from pe.integer import concat
+from pe.integer import split
 
 SOLUTION = "40730"
 

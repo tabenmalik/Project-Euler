@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import math
 
 from pe.misc import is_prime

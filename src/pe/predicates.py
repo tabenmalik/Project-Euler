@@ -1,4 +1,5 @@
 """A module of functions to create predicates."""
+from __future__ import annotations
 
 import operator
 from collections.abc import Callable

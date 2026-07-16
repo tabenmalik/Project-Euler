@@ -10,10 +10,11 @@ For example, 32 + 42 = 9 + 16 = 25 = 52.
 There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 Find the product abc.
 """
+from __future__ import annotations
 
 from pe.integer import product
-from pe.more_itertools import first_true
 from pe.more_itertools import arg_expander
+from pe.more_itertools import first_true
 
 SOLUTION = "31875000"
 
@@ -28,10 +29,13 @@ def is_pythagorean_triplet(a: int, b: int, c: int) -> bool:
 def solve() -> str:
     """Solves Project Euler problem 009"""
 
-    sum_triplets = ((a, b, SUM_NUM - a - b) for a in range(1, SUM_NUM) for b in range(a + 1, SUM_NUM - a))
+    sum_triplets = ((a, b, SUM_NUM - a - b) for a in range(1, SUM_NUM)
+                    for b in range(a + 1, SUM_NUM - a))
 
     pred_pythagorean_triplet = arg_expander(is_pythagorean_triplet)
-    pythagorean_triplet = first_true(sum_triplets, pred=pred_pythagorean_triplet)
+    pythagorean_triplet = first_true(
+        sum_triplets, pred=pred_pythagorean_triplet,
+    )
     prod_of_triplet = product(*pythagorean_triplet)
 
     return str(prod_of_triplet)

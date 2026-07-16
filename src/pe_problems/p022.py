@@ -1,7 +1,10 @@
-import os
+from __future__ import annotations
+
 import operator
-import pe_problems
+import os
 from importlib.resources import files
+
+import pe_problems
 
 SOLUTION: str = "871198282"
 

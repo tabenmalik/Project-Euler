@@ -1,5 +1,7 @@
-from itertools import islice
+from __future__ import annotations
+
 import unittest
+from itertools import islice
 
 from pe import sequences
 
@@ -56,7 +58,11 @@ class TestTriangulars(unittest.TestCase):
             self.assertEqual(i, tris.index(n))
 
         # test iter
-        self.assertSequenceEqual(self.triangle_numbers, list(islice(tris, len(self.triangle_numbers))))
+        self.assertSequenceEqual(
+            self.triangle_numbers, list(
+                islice(tris, len(self.triangle_numbers)),
+            ),
+        )
         # test getitem slice
         self.assertSequenceEqual(self.triangle_numbers[2:18:3], tris[2:18:3])
 
@@ -137,9 +143,15 @@ class TestPentagonals(unittest.TestCase):
             self.assertEqual(i, pents.index(n))
 
         # test iter
-        self.assertSequenceEqual(self.pentagonal_numbers, list(islice(pents, len(self.pentagonal_numbers))))
+        self.assertSequenceEqual(
+            self.pentagonal_numbers, list(
+                islice(pents, len(self.pentagonal_numbers)),
+            ),
+        )
         # test getitem slice
-        self.assertSequenceEqual(self.pentagonal_numbers[2:18:3], pents[2:18:3])
+        self.assertSequenceEqual(
+            self.pentagonal_numbers[2:18:3], pents[2:18:3],
+        )
 
     def test_failures(self) -> None:
         pents = sequences.Pentagonals()

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from pe.misc import sieve_of_eratosthenes_fast
 
 SOLUTION = "997651"
@@ -10,7 +12,7 @@ def solve() -> str:
     prime_sums = []
     for window_size in range(2, len(primes)):
         for start in range(0, len(primes) - window_size):
-            num = sum(primes[start : start + window_size])
+            num = sum(primes[start: start + window_size])
 
             if num > primes[-1]:
                 break

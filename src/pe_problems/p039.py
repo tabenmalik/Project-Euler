@@ -1,6 +1,8 @@
+from __future__ import annotations
+
+import pprint
 from collections.abc import Sequence
 from typing import Never
-import pprint
 
 SOLUTION: str = "840"
 

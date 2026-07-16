@@ -15,7 +15,10 @@ def next_triple(t, N):
 
     while Fraction((t[0] + t[1] * m), t[2]).denominator != 1:
         m += 1
-    return ((t[0] * m + N * t[1]) // abs(t[2]), (t[0] + t[1] * m) // abs(t[2]), (m * m - N) // t[2])
+    a = (t[0] * m + N * t[1]) // abs(t[2])
+    b = (t[0] + t[1] * m) // abs(t[2])
+    c = (m * m - N) // t[2]
+    return (a, b, c)
 
 
 def min_dio(D):

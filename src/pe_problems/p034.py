@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import math
-import operator
 
 from pe.integer import concat
 from pe.integer import split

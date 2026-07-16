@@ -17,7 +17,7 @@ def permutations(digits: list[int]) -> Generator[list[int]]:
 
         if largest_index_k != -1:
             largest_index_l = 0
-            for l in range(largest_index_k + 1, len(digits)):
+            for l in range(largest_index_k + 1, len(digits)):  # noqa: E741
                 if digits[largest_index_k] < digits[l]:
                     largest_index_l = l
 

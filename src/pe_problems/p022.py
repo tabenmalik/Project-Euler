@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import operator
 import os
 from importlib.resources import files
 

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import itertools
 import math
-import operator
 from collections.abc import Generator
 from collections.abc import Iterable
 from typing import Any
@@ -10,7 +9,11 @@ from typing import Any
 SOLUTION: str = "1097343"
 
 
-def iter_index(iterable: bytearray, value: Any, start: int = 0) -> Generator[int]:
+def iter_index(
+    iterable: bytearray,
+    value: Any,
+    start: int = 0,
+) -> Generator[int]:
     "Return indices where a value occurs in a sequence or iterable."
     # iter_index(list('AABCADEAF'), 'A') --> 0 1 4 7
     i = start - 1

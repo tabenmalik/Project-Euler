@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import itertools
 import math
 
 from pe.integer import sum_of_1_to_n

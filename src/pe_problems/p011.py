@@ -15,7 +15,8 @@ def read_grid_file() -> list[list[int]]:
     this_dir, _ = os.path.split(__file__)
 
     num_matrix = []
-    for line in files(pe_problems).joinpath("p011.txt").read_text().splitlines():
+    text = files(pe_problems).joinpath("p011.txt").read_text()
+    for line in text.splitlines():
         line = line.rstrip()
         nums = line.split(" ")
         line_nums = list(map(int, nums))

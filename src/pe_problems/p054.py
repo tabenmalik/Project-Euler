@@ -86,7 +86,15 @@ class Hand:
         elif self.rank_value < right_hand.rank_value:
             return False
         else:
-            for value_1, value_2 in reversed(list(zip(sorted(self.card_values()), sorted(right_hand.card_values())))):
+            pairs = reversed(
+                list(
+                    zip(
+                        sorted(self.card_values()),
+                        sorted(right_hand.card_values()),
+                    ),
+                ),
+            )
+            for value_1, value_2 in pairs:
                 if value_1 > value_2:
                     return True
                 elif value_1 < value_2:
@@ -120,7 +128,14 @@ class Hand:
         return iter(self.cards)
 
     def __str__(self) -> str:
-        return str(self.cards) + ", " + str(self.rank_cards) + ", " + self.rank_str() + ", " + str(self.rank_value)
+        return ", ".join(
+            [
+                str(self.cards),
+                str(self.rank_cards),
+                self.rank_str(),
+                str(self.rank_value),
+            ],
+        )
 
     def __repr__(self) -> str:
         return str(self)
@@ -190,13 +205,17 @@ class Hand:
         return hand.cards, value1 * 3 + value2 * 2
 
     @staticmethod
-    def find_flush(hand: Hand) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
+    def find_flush(
+        hand: Hand,
+    ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         if len(set(hand.card_suits())) == 1:
             return hand.cards, max(hand.card_values())
         return None, None
 
     @staticmethod
-    def find_straight(hand: Hand) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
+    def find_straight(
+        hand: Hand,
+    ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         cards = tuple(sorted(hand.cards, key=lambda x: x.value))
 
         diffs = [
@@ -245,7 +264,9 @@ class Hand:
         return tuple(chain.from_iterable(pairs[:2])), pairs[0][0].value
 
     @staticmethod
-    def find_one_pair(hand: Hand) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
+    def find_one_pair(
+        hand: Hand,
+    ) -> tuple[None, None] | tuple[tuple[Card, ...], int]:
         pairs = []
         for i, card1 in enumerate(hand.cards):
             for card2 in hand.cards[i + 1:]:

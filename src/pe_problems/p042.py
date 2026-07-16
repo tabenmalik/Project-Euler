@@ -3,7 +3,6 @@ from __future__ import annotations
 import os
 from collections.abc import Generator
 from importlib.resources import files
-from typing import Optional
 
 import pe_problems
 from pe.integer import sum_of_1_to_n

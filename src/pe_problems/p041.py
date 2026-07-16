@@ -1,6 +1,8 @@
+from __future__ import annotations
+
 from pe.integer import concat
-from pe.sequences import permutations_seq
 from pe.misc import prime_factors
+from pe.sequences import permutations_seq
 
 SOLUTION = "7652413"
 

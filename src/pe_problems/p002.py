@@ -9,6 +9,7 @@ By starting with 1 and 2, the first 10 terms will be:
 By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 find the sum of the even-valued terms.
 """
+from __future__ import annotations
 
 from itertools import takewhile
 
@@ -20,7 +21,7 @@ MAX_NUM = 4_000_000
 
 def solve() -> str:
     """Solves Project Euler problem 002"""
-    lt_4_mil = lambda x: x < MAX_NUM
+    def lt_4_mil(x): return x < MAX_NUM
     even_fibs_under_4_mil = takewhile(lt_4_mil, even_fibonacci_seq())
     total = sum(even_fibs_under_4_mil)
 

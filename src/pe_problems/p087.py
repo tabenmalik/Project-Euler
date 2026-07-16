@@ -1,14 +1,16 @@
-import math
+from __future__ import annotations
+
 import itertools
+import math
 import operator
+from collections.abc import Generator
 from collections.abc import Iterable
 from typing import Any
-from collections.abc import Generator
 
 SOLUTION: str = "1097343"
 
 
-def iter_index(iterable: bytearray, value: Any, start: int = 0) -> Generator[int, None, None]:
+def iter_index(iterable: bytearray, value: Any, start: int = 0) -> Generator[int]:
     "Return indices where a value occurs in a sequence or iterable."
     # iter_index(list('AABCADEAF'), 'A') --> 0 1 4 7
     i = start - 1
@@ -26,7 +28,7 @@ def sieve(n: int) -> Iterable[int]:
     data[:3] = 0, 0, 0
     limit = math.isqrt(n) + 1
     for p in itertools.compress(range(limit), data):
-        data[p * p : n : p + p] = bytes(len(range(p * p, n, p + p)))
+        data[p * p: n: p + p] = bytes(len(range(p * p, n, p + p)))
     data[2] = 1
     return iter_index(data, 1) if n > 2 else iter([])
 

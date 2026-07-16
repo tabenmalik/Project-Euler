@@ -1,7 +1,9 @@
+from __future__ import annotations
+
 from collections import Counter
-from pprint import pprint
 from itertools import count
 from math import gcd
+from pprint import pprint
 
 SOLUTION: str = "161667"
 

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from pe.sequences import fibonacci_seq
 
 SOLUTION = "4782"

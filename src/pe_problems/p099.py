@@ -1,11 +1,13 @@
-from itertools import starmap
-from functools import partial
-from collections.abc import Iterable
+from __future__ import annotations
+
 import os
+from collections.abc import Iterable
+from functools import partial
+from importlib.resources import files
+from itertools import starmap
 from math import log
 
 import pe_problems
-from importlib.resources import files
 
 SOLUTION: str = "709"
 

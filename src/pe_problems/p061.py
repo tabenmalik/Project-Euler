@@ -1,9 +1,13 @@
-from pe.integer import split
+from __future__ import annotations
+
 from collections.abc import Callable
 from collections.abc import Generator
 from collections.abc import Iterable
 from collections.abc import Sequence
-from itertools import takewhile, product
+from itertools import product
+from itertools import takewhile
+
+from pe.integer import split
 
 SOLUTION = "28684"
 
@@ -32,7 +36,7 @@ def octogonal(n: int) -> int:
     return n * ((3 * n) - 2)
 
 
-def infrange(start: int = 0, step: int = 1) -> Generator[int, None, None]:
+def infrange(start: int = 0, step: int = 1) -> Generator[int]:
     n = start
 
     while True:
@@ -105,7 +109,9 @@ def solve() -> str:
                 if seq_name not in cycle_seqs:
                     for num in seq:
                         if is_cycle(cycle + [num], False):
-                            new_cycles.append((cycle_seqs | {seq_name}, cycle + [num]))
+                            new_cycles.append(
+                                (cycle_seqs | {seq_name}, cycle + [num]),
+                            )
         cycles = new_cycles
         new_cycles = []
 

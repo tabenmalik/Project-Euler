@@ -1,6 +1,8 @@
-import math
+from __future__ import annotations
+
 import functools
 import itertools
+import math
 from collections.abc import Generator
 
 from pe.integer import split
@@ -16,7 +18,7 @@ def sum_of_square_digits(num: int) -> int:
     return sum(map(square, split(num)))
 
 
-def sum_of_square_digits_seq(num: int) -> Generator[int, None, None]:
+def sum_of_square_digits_seq(num: int) -> Generator[int]:
     yield num
 
     seen_1 = False

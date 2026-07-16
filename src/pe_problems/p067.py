@@ -1,8 +1,11 @@
+from __future__ import annotations
+
 import os
+from importlib.resources import files
+
+import pe_problems
 
 NUM_FILE: str = "p067.txt"
-import pe_problems
-from importlib.resources import files
 
 SOLUTION: str = "7273"
 

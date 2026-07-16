@@ -1,3 +1,4 @@
+from __future__ import annotations
 SOLUTION: str = "73682"
 MAX_NUM: int = 200
 

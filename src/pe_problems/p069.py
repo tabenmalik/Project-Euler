@@ -1,9 +1,13 @@
-from math import gcd, isqrt
+from __future__ import annotations
+
+from functools import reduce
+from itertools import takewhile
+from math import gcd
+from math import isqrt
+from operator import mul
+
 from pe.misc import sieve_of_eratosthenes_fast
 from pe.predicates import le
-from itertools import takewhile
-from functools import reduce
-from operator import mul
 
 SOLUTION = "510510"
 

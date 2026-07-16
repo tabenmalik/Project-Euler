@@ -1,5 +1,7 @@
-from functools import reduce
+from __future__ import annotations
+
 import operator
+from functools import reduce
 from typing import cast
 
 from pe.integer import split
@@ -15,7 +17,9 @@ def champernowne_digit(n: int) -> int:
         level += 1
         level_num_digits += 9 * (10 ** (level - 1)) * level
 
-    last_level_num_digits = cast(int, level_num_digits - (9 * (10 ** (level - 1)) * level))
+    last_level_num_digits = cast(
+        int, level_num_digits - (9 * (10 ** (level - 1)) * level),
+    )
     digits_into_level = n - last_level_num_digits
 
     sub_level = (digits_into_level - 1) // level

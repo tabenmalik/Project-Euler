@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from pe.sequences import Pentagonals
 
 SOLUTION = "5482660"

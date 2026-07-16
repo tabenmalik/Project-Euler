@@ -1,5 +1,8 @@
-from itertools import count, takewhile
+from __future__ import annotations
+
 from collections.abc import Iterable
+from itertools import count
+from itertools import takewhile
 
 from pe.integer import split
 

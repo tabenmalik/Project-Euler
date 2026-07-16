@@ -1,3 +1,4 @@
+from __future__ import annotations
 SOLUTION: str = "837799"
 MAX_NUM: int = 1_000_000
 CACHED_LENGTHS: dict[int, int] = {}

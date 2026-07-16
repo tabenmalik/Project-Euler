@@ -1,8 +1,11 @@
-from itertools import starmap
-from functools import reduce
-import operator
+from __future__ import annotations
 
-from pe.integer import split, concat
+import operator
+from functools import reduce
+from itertools import starmap
+
+from pe.integer import concat
+from pe.integer import split
 from pe.misc import prime_factors
 
 SOLUTION = "100"

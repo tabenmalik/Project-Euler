@@ -1,8 +1,13 @@
-from itertools import permutations, chain
-from collections.abc import Iterable
-from typing import Any
+from __future__ import annotations
+
 from collections.abc import Generator
-from pe.integer import concat, split
+from collections.abc import Iterable
+from itertools import chain
+from itertools import permutations
+from typing import Any
+
+from pe.integer import concat
+from pe.integer import split
 
 SOLUTION = "6531031914842725"
 
@@ -11,7 +16,7 @@ def flatten(list_of_lists: Iterable[Iterable[Any]]) -> chain[Any]:
     return chain.from_iterable(list_of_lists)
 
 
-def knapsacks(nums: list[int], t: int) -> Generator[tuple[tuple[int, int, int], ...], None, None]:
+def knapsacks(nums: list[int], t: int) -> Generator[tuple[tuple[int, int, int], ...]]:
     num_sets = 5
     solvedsets = set()
     for outers in permutations(nums, 5):

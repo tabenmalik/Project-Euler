@@ -1,5 +1,7 @@
-from functools import reduce
+from __future__ import annotations
+
 import operator
+from functools import reduce
 
 SOLUTION: str = "648"
 

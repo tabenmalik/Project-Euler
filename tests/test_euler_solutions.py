@@ -3,28 +3,32 @@ Acceptance test of all Euler Problem solutions
 
 All euler solvers must have a correct solution and must generate the solution in under 60sec.
 """
+from __future__ import annotations
 
-from collections.abc import Generator
-from typing import Any
-from _frozen_importlib import ModuleSpec
 import importlib
 import operator
 import pkgutil
+from _frozen_importlib import ModuleSpec
+from collections.abc import Generator
 from importlib.metadata import entry_points
 from importlib.util import find_spec
 from importlib.util import module_from_spec
+from typing import Any
 
 import pytest
 from _pytest.mark.structures import ParameterSet
 
 
-def iter_euler_problems() -> Generator[ParameterSet, None, None]:
+def iter_euler_problems() -> Generator[ParameterSet]:
     """Find and yield all euler problem modules."""
     problem_packages = entry_points(group="pe.problems")
     for problem_package_info in problem_packages:
         problem_package = problem_package_info.load()
         for problem_module_info in pkgutil.iter_modules(problem_package.__path__):
-            spec = find_spec(f".{problem_module_info.name}", problem_package_info.value)
+            spec = find_spec(
+                f".{problem_module_info.name}",
+                problem_package_info.value,
+            )
             yield pytest.param(spec, id=problem_module_info.name)
 
 

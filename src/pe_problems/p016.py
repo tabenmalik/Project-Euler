@@ -1,3 +1,4 @@
+from __future__ import annotations
 SOLUTION: str = "1366"
 
 

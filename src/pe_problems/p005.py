@@ -6,12 +6,13 @@ the numbers from 1 to 10 without any remainder.
 
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 """
+from __future__ import annotations
 
-from itertools import takewhile
 import math
+from itertools import takewhile
 
-from pe.sequences import prime_seq
 from pe.predicates import lt
+from pe.sequences import prime_seq
 
 SOLUTION = "232792560"
 MAX_NUM = 20

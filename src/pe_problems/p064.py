@@ -1,8 +1,12 @@
 """ """
+from __future__ import annotations
 
-from typing import Optional
 from collections.abc import Sequence
-from math import floor, isqrt, sqrt, gcd
+from math import floor
+from math import gcd
+from math import isqrt
+from math import sqrt
+from typing import Optional
 
 SOLUTION: str = "1322"
 

@@ -1,4 +1,7 @@
-from pe.integer import concat, split
+from __future__ import annotations
+
+from pe.integer import concat
+from pe.integer import split
 
 SOLUTION = "9110846700"
 

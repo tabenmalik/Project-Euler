@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from collections.abc import Sequence
 
 from pe.integer import concat
@@ -9,7 +11,7 @@ PRIMES = (2, 3, 5, 7, 11, 13, 17)
 
 
 def is_substring_divisible(digits: Sequence[int]) -> bool:
-    groups = (digits[i : i + 3] for i in range(1, len(digits) - 2))
+    groups = (digits[i: i + 3] for i in range(1, len(digits) - 2))
     group_nums = map(concat, groups)
 
     for num, prime in zip(group_nums, PRIMES):

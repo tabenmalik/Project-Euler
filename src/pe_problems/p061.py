@@ -2,9 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from collections.abc import Generator
-from collections.abc import Iterable
 from collections.abc import Sequence
-from itertools import product
 from itertools import takewhile
 
 from pe.integer import split

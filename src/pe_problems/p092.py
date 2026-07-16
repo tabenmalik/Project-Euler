@@ -1,8 +1,6 @@
 from __future__ import annotations
 
 import functools
-import itertools
-import math
 from collections.abc import Generator
 
 from pe.integer import split

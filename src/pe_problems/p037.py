@@ -4,7 +4,6 @@ from pe.integer import concat
 from pe.integer import split
 from pe.misc import is_prime
 from pe.misc import sieve_of_eratosthenes_fast
-from pe.sequences import prime_seq
 
 SOLUTION = "748317"
 
@@ -15,7 +14,10 @@ def is_trucatable_prime(prime: int) -> bool:
         return False
 
     digits = split(prime)
-    if digits[0] not in single_digit_primes or digits[-1] not in single_digit_primes:
+    if (
+        digits[0] not in single_digit_primes
+        or digits[-1] not in single_digit_primes
+    ):
         return False
 
     for i in range(1, len(digits)):

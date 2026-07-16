@@ -1,13 +1,7 @@
 from __future__ import annotations
 
-from collections import Counter
-from collections import defaultdict
 from collections.abc import Sequence
-from functools import reduce
-from math import isqrt
-from operator import mul
 
-from pe.integer import split
 from pe.misc import sieve_of_eratosthenes_fast
 
 SOLUTION = "8319823"

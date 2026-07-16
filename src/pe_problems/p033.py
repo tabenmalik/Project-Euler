@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import operator
 from functools import reduce
-from itertools import starmap
 
 from pe.integer import concat
 from pe.integer import split
@@ -25,7 +24,10 @@ def is_wrongly_canceled(numerator: int, denominator: int) -> bool:
             new_den.remove(digit)
             new_den = concat(new_den)
 
-            if new_den != 0 and (numerator / denominator) == (new_num / new_den):
+            if (
+                new_den != 0
+                and (numerator / denominator) == (new_num / new_den)
+            ):
                 return True
 
     return False

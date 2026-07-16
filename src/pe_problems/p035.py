@@ -4,7 +4,6 @@ from collections.abc import Generator
 
 from pe.integer import concat
 from pe.integer import split
-from pe.misc import is_prime
 from pe.misc import sieve_of_eratosthenes_fast
 
 SOLUTION = "55"

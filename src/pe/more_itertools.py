@@ -5,25 +5,10 @@ Convienent itertools functions provided by Python docs:
 from __future__ import annotations
 
 import collections
-import operator
-import random
 from collections.abc import Callable
 from collections.abc import Iterable
-from collections.abc import Iterator
-from itertools import chain
-from itertools import combinations
-from itertools import count
-from itertools import cycle
-from itertools import filterfalse
-from itertools import groupby
 from itertools import islice
-from itertools import repeat
-from itertools import tee
-from itertools import zip_longest
 from typing import Any
-from typing import cast
-from typing import Optional
-from typing import ParamSpec
 from typing import TypeVar
 
 
@@ -65,7 +50,11 @@ def first_true(
 R = TypeVar("R")
 
 
-def rolling(iterable: Iterable[Any], func: Callable[..., R], window_size: int = 1) -> Iterable[R]:
+def rolling(
+    iterable: Iterable[Any],
+    func: Callable[..., R],
+    window_size: int = 1,
+) -> Iterable[R]:
     """Applies a function over a rolling window of the iterable elements"""
     window = collections.deque(
         take(window_size - 1, iterable), maxlen=window_size,

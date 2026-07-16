@@ -3,7 +3,10 @@ SOLUTION: str = "983"
 MAX_NUM: int = 1000
 
 
-def long_division(numerator: int, denominator: int) -> tuple[int, list[int], list[int]]:
+def long_division(
+    numerator: int,
+    denominator: int,
+) -> tuple[int, list[int], list[int]]:
     whole = int(numerator // denominator)
 
     decimals = []

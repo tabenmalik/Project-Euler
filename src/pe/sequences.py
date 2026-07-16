@@ -6,7 +6,6 @@ from collections.abc import Generator
 from collections.abc import Iterator
 from typing import Any
 from typing import cast
-from typing import Optional
 from typing import overload
 
 from pe.misc import divisors
@@ -45,7 +44,10 @@ class Triangulars(abc.Iterable[int], abc.Container[int]):
         if isinstance(n, slice):
             if n.stop is None:
                 raise ValueError("")
-            return tuple(self[i] for i in range(n.start or 0, n.stop, n.step or 1))
+            return tuple(
+                self[i]
+                for i in range(n.start or 0, n.stop, n.step or 1)
+            )
 
         if n < 0:
             raise IndexError
@@ -70,8 +72,9 @@ class Triangulars(abc.Iterable[int], abc.Container[int]):
 class Pentagonals:
     """
     Computes the nth pentagonal number.
-    Similar to a trigonal number, but instead is about the number for the outline
-    of a pentagon, not the area.
+
+    Similar to a trigonal number, but instead is
+    about the number for the outline of a pentagon, not the area.
 
     Examples:
         1, 5, 12, 22, 35, 51, ...
@@ -99,7 +102,10 @@ class Pentagonals:
         if isinstance(n, slice):
             if n.stop is None:
                 raise ValueError("")
-            return tuple(self[i] for i in range(n.start or 0, n.stop, n.step or 1))
+            return tuple(
+                self[i]
+                for i in range(n.start or 0, n.stop, n.step or 1)
+            )
 
         if n < 0:
             raise IndexError
@@ -147,7 +153,10 @@ class Hexagonals:
         if isinstance(n, slice):
             if n.stop is None:
                 raise ValueError("")
-            return tuple(cast(int, self[i]) for i in range(n.start or 0, n.stop, n.step or 1))
+            return tuple(
+                cast(int, self[i])
+                for i in range(n.start or 0, n.stop, n.step or 1)
+            )
         return n * ((2 * n) - 1)
 
     def index(self, value: int) -> int:
@@ -177,7 +186,7 @@ def permutations_seq(digits: list[int]) -> Generator[list[int]]:
 
         if largest_index_k != -1:
             largest_index_l = 0
-            for l in range(largest_index_k + 1, len(digits)):
+            for l in range(largest_index_k + 1, len(digits)):  # noqa: E741
                 if digits[largest_index_k] < digits[l]:
                     largest_index_l = l
 

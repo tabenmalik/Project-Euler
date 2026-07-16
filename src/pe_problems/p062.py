@@ -1,11 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Generator
-from collections.abc import Iterable
-from itertools import combinations
-from itertools import groupby
 from itertools import takewhile
-from typing import Any
 
 from pe.integer import split
 

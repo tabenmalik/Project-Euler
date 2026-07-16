@@ -1,10 +1,6 @@
 from __future__ import annotations
 
 import itertools
-from pprint import pprint
-
-from pe.misc import divisors
-from pe.misc import sieve_of_eratosthenes_fast
 
 SOLUTION = "45228"
 

@@ -1,14 +1,12 @@
 """Functions for testing or manipulating properties of integers"""
 from __future__ import annotations
 
-import math
 import operator
 from collections.abc import Generator
 from collections.abc import Iterable
 from collections.abc import Iterator
 from collections.abc import Sequence
 from functools import reduce
-from typing import Tuple
 
 
 def concat(ints: Iterable[int]) -> int:
@@ -69,7 +67,10 @@ def sum_of_cubes(num: int) -> int:
     return int(((num * num) * (num + 1) * (num + 1)) / 4)
 
 
-def prime_factors_of_n(n: int, method: str = "trial_division") -> Generator[int]:
+def prime_factors_of_n(
+    n: int,
+    method: str = "trial_division",
+) -> Generator[int]:
     """Prime factors of n."""
     methods = {
         "trial_division": prime_factors_trial_division,

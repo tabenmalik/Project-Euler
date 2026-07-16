@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from functools import reduce
 from itertools import takewhile
-from math import gcd
 from math import isqrt
 from operator import mul
 
@@ -15,7 +14,11 @@ primes = sieve_of_eratosthenes_fast(1_000_000)
 
 
 def totient_ratio(n: int) -> int:
-    return reduce(mul, (p / (p - 1) for p in takewhile(le(isqrt(n)), primes) if n % p == 0), 1)
+    return reduce(
+        mul,
+        (p / (p - 1) for p in takewhile(le(isqrt(n)), primes) if n % p == 0),
+        1,
+    )
 
 
 def solve() -> str:

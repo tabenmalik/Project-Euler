@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import itertools
-
 from pe.integer import concat
 from pe.integer import split
 from pe.misc import sieve_of_eratosthenes_fast
@@ -9,10 +7,10 @@ from pe.misc import sieve_of_eratosthenes_fast
 SOLUTION = "296962999629"
 
 
-def difference(l: list[int]) -> list[int]:
+def difference(ints: list[int]) -> list[int]:
     d = []
-    for i in range(1, len(l)):
-        d.append(l[i - 1] - l[i])
+    for i in range(1, len(ints)):
+        d.append(ints[i - 1] - ints[i])
 
     return d
 
@@ -35,7 +33,10 @@ def solve() -> str:
     chains = prime_pairs.copy()
     for prime_pair in prime_pairs:
         for i, chain in enumerate(chains):
-            if prime_pair[0] == chain[-1] and set(difference(prime_pair)) == set(difference(chain)):
+            if (
+                prime_pair[0] == chain[-1]
+                and set(difference(prime_pair)) == set(difference(chain))
+            ):
                 chains[i].append(prime_pair[1])
 
     chains = filter(lambda x: len(x) > 2, chains)

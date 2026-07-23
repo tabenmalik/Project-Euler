@@ -1,5 +1,7 @@
 # Project Euler
 
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/tabenmalik/Project-Euler/main.svg)](https://results.pre-commit.ci/latest/github/tabenmalik/Project-Euler/main)
+
 ![](https://projecteuler.net/profile/tabenmalik.png)
 
 Welcome to my Project Euler solutions! [Project Euler](https://projecteuler.net/)

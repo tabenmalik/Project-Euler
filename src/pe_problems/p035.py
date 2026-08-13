@@ -4,7 +4,7 @@ from collections.abc import Generator
 
 from pe.integer import concat
 from pe.integer import split
-from pe.misc import sieve_of_eratosthenes_fast
+from pe.itertools import sieve
 
 SOLUTION = "55"
 
@@ -23,7 +23,7 @@ def cycle_digits(num: int) -> Generator[int]:
 
 def solve() -> str:
     limit = 1_000_000
-    primes = set(sieve_of_eratosthenes_fast(limit))
+    primes = set(sieve(limit))
 
     num_cycles = map(lambda x: (x, set(cycle_digits(x))), primes)
     prime_cycles = filter(lambda x: x[1].issubset(primes), num_cycles)

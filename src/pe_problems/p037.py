@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from pe.integer import concat
 from pe.integer import split
+from pe.itertools import sieve
 from pe.misc import is_prime
-from pe.misc import sieve_of_eratosthenes_fast
 
 SOLUTION = "748317"
 
@@ -34,7 +34,7 @@ def solve() -> str:
     limit = 11
 
     truncatable_primes = []
-    for prime in sieve_of_eratosthenes_fast(1000000):
+    for prime in sieve(1000000):
         if is_trucatable_prime(prime):
             truncatable_primes.append(prime)
             if len(truncatable_primes) == limit:

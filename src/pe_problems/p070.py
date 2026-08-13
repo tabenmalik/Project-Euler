@@ -2,14 +2,14 @@ from __future__ import annotations
 
 from collections.abc import Sequence
 
-from pe.misc import sieve_of_eratosthenes_fast
+from pe.itertools import sieve
 
 SOLUTION = "8319823"
 
 
 def totient_seq(limit: int) -> Sequence[int]:
     totients = [0] * limit
-    primes = sieve_of_eratosthenes_fast(limit)
+    primes = tuple(sieve(limit))
 
     totients[0] = 0
     totients[1] = 1

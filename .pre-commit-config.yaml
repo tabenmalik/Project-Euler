@@ -38,6 +38,7 @@ repos:
         alias: mypy-strict
         name: mypy strict
         args: [--config, pyproject.toml]
+        additional_dependencies: [pytest]
         exclude: |
             (?x)(
                 itertools\.py
@@ -60,5 +61,4 @@ repos:
                 | ^src/pe_problems/p063\.py$
                 | ^src/pe_problems/p066\.py$
                 | ^src/pe_problems/p099\.py$
-                | ^tests/test_euler_solutions\.py$
             )

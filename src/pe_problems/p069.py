@@ -5,12 +5,12 @@ from itertools import takewhile
 from math import isqrt
 from operator import mul
 
-from pe.misc import sieve_of_eratosthenes_fast
+from pe.itertools import sieve
 from pe.predicates import le
 
 SOLUTION = "510510"
 
-primes = sieve_of_eratosthenes_fast(1_000_000)
+primes = tuple(sieve(1_000_000))
 
 
 def totient_ratio(n: int) -> int:

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pe.integer import concat
 from pe.integer import split
-from pe.misc import sieve_of_eratosthenes_fast
+from pe.itertools import sieve
 
 SOLUTION = "296962999629"
 
@@ -16,7 +16,7 @@ def difference(ints: list[int]) -> list[int]:
 
 
 def solve() -> str:
-    primes = sieve_of_eratosthenes_fast(10000)
+    primes = sieve(10000)
     primes = list(filter(lambda x: x >= 1000, primes))
 
     prime_pairs = [

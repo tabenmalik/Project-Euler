@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-from pe.misc import sieve_of_eratosthenes_fast
+from pe.itertools import sieve
 
 SOLUTION = "997651"
 
 
 def solve() -> str:
-    primes = sieve_of_eratosthenes_fast(1_000_000)
+    primes = tuple(sieve(1_000_000))
     primes_set = set(primes)
 
     prime_sums = []

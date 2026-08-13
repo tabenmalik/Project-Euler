@@ -2,14 +2,14 @@ from __future__ import annotations
 
 import math
 
+from pe.itertools import sieve
 from pe.misc import is_prime
-from pe.misc import sieve_of_eratosthenes_fast
 
 SOLUTION = "5777"
 
 
 def is_goldbach_composite(n: int) -> bool:
-    primes = sieve_of_eratosthenes_fast(under=n)
+    primes = sieve(n)
 
     for prime in primes:
         a = (n - prime) / 2

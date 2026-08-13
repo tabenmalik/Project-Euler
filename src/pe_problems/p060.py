@@ -10,8 +10,8 @@ from typing import TypeVar
 
 from pe.integer import concat
 from pe.integer import split
+from pe.itertools import sieve
 from pe.misc import divisors
-from pe.misc import sieve_of_eratosthenes_fast
 
 SOLUTION = "26033"
 
@@ -57,7 +57,7 @@ def memoize(func: Callable[P, R]) -> Callable[P, R]:
     return _memoized_func
 
 
-PRIME_CACHE = set(sieve_of_eratosthenes_fast(100_000_000))
+PRIME_CACHE = set(sieve(100_000_000))
 MAX_CACHED_PRIME = max(PRIME_CACHE)
 
 

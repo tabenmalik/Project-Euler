@@ -2,9 +2,7 @@ from __future__ import annotations
 
 import os
 from collections.abc import Iterable
-from functools import partial
 from importlib.resources import files
-from itertools import starmap
 from math import log
 
 import pe_problems
@@ -29,12 +27,18 @@ def argmax(iterable: Iterable[int]) -> int:
 def solve() -> str:
     this_dir, _ = os.path.split(__file__)
 
-    exps = files(pe_problems).joinpath("p099.txt").read_text().splitlines()
+    lines = files(pe_problems).joinpath("p099.txt").read_text().splitlines()
 
-    exps = map(partial(str.split, sep=","), exps)
-    exps = map(tuple, map(partial(map, int), exps))
-    log_exps = starmap(lambda x, e: e * log(x), exps)
-    return str(argmax(log_exps) + 1)
+    max_val = 0.0
+    argmax = 0
+    for i, line in enumerate(lines, 1):
+        x, e = map(int, line.split(","))
+        val = e * log(x)
+        if val > max_val:
+            max_val = val
+            argmax = i
+
+    return str(argmax)
 
 
 if __name__ == "__main__":

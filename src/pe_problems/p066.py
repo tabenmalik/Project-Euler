@@ -1,17 +1,20 @@
 from __future__ import annotations
 
 import math
+from fractions import Fraction
 
 SOLUTION = "661"
 
 
-def issquare(x):
+def issquare(x: int) -> bool:
     return math.isqrt(x) ** 2 == x
 
 
-def next_triple(t, N):
+Triple = tuple[int, int, int]
+
+
+def next_triple(t: Triple, N: int) -> Triple:
     m = 1
-    from fractions import Fraction
 
     while Fraction((t[0] + t[1] * m), t[2]).denominator != 1:
         m += 1
@@ -21,7 +24,7 @@ def next_triple(t, N):
     return (a, b, c)
 
 
-def min_dio(D):
+def min_dio(D: int) -> Triple:
     a = int(math.isqrt(D) + 1)
     t = (a, 1, a * a - D)
     while t[2] != 1:

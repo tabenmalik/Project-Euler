@@ -1,30 +1,31 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Iterator
 from itertools import count
-from itertools import takewhile
 
 from pe.integer import split
 
 SOLUTION = "49"
 
 
-def positive_integers_seq(start: int = 1, step: int = 1) -> Iterable[int]:
-    return count(start, step)
+def n_digit_nth_powers(n: int) -> Iterator[int]:
+    for x in count(1):
+        num = x**n
+
+        digit_count = len(split(num))
+        if digit_count == n:
+            yield num
+        elif digit_count > n:
+            break
 
 
 def solve() -> str:
     n = 1
     total = 0
-    while True:
-        nums = map(lambda i: i**n, positive_integers_seq())
-        nums = takewhile(lambda num: len(split(num)) <= n, nums)
-        nums = filter(lambda num: len(split(num)) == n, nums)
-
-        subtotal = len(list(nums))
-        if subtotal == 0:
+    for n in count(1):
+        nums = tuple(n_digit_nth_powers(n))
+        if not nums:
             break
-        total += subtotal
-        n += 1
+        total += len(nums)
 
     return str(total)

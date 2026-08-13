@@ -30,3 +30,11 @@ public_problems = "pe_problems"
 
 [tool.setuptools.package-data]
 pe_problems = ["*.txt"]
+
+[tool.mypy]
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+disallow_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true

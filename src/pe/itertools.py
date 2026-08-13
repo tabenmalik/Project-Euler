@@ -23,7 +23,7 @@ def iter_index(
     value: Any,
     start: int = 0,
     stop: int | None = None,
-):
+) -> Iterator[int]:
     "Return indices where a value occurs in a sequence or iterable."
     # iter_index('AABCADEAF', 'A') → 0 1 4 7
     seq_index = getattr(iterable, 'index', None)

@@ -33,4 +33,32 @@ repos:
     rev: v2.3.0
     hooks:
     -   id: mypy
-        args: [--allow-redefinition, --ignore-missing-imports]
+        args: [--allow-redefinition, --ignore-missing-imports, --config, .mypy.no-config]
+    -   id: mypy
+        alias: mypy-strict
+        name: mypy strict
+        args: [--config, pyproject.toml]
+        exclude: |
+            (?x)(
+                itertools\.py
+                | ^src/pe_problems/p002\.py$
+                | ^src/pe_problems/p005\.py$
+                | ^src/pe_problems/p013\.py$
+                | ^src/pe_problems/p023\.py$
+                | ^src/pe_problems/p032\.py$
+                | ^src/pe_problems/p033\.py$
+                | ^src/pe_problems/p034\.py$
+                | ^src/pe_problems/p036\.py$
+                | ^src/pe_problems/p041\.py$
+                | ^src/pe_problems/p043\.py$
+                | ^src/pe_problems/p049\.py$
+                | ^src/pe_problems/p051\.py$
+                | ^src/pe_problems/p056\.py$
+                | ^src/pe_problems/p057\.py$
+                | ^src/pe_problems/p061\.py$
+                | ^src/pe_problems/p062\.py$
+                | ^src/pe_problems/p063\.py$
+                | ^src/pe_problems/p066\.py$
+                | ^src/pe_problems/p099\.py$
+                | ^tests/test_euler_solutions\.py$
+            )

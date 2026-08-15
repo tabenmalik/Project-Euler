@@ -1,50 +1,40 @@
 from __future__ import annotations
 
-from collections.abc import Generator
-from itertools import takewhile
+from collections import defaultdict
+from collections.abc import Iterator
+from itertools import count
 
 from pe.integer import split
 
 SOLUTION = "127035954683"
 
 
-def positive_integers_seq(start: int = 1, step: int = 1) -> Generator[int]:
-    n = start
+def n_digit_cubes(n: int) -> Iterator[int]:
+    start = int(10 ** ((n - 1) / 3)) + 1
+    for x in count(start):
+        cube = x ** 3
+        if len(split(cube)) > n:
+            break
+        yield cube
 
-    while True:
-        yield n
-        n += step
 
-
-def cube(n: int) -> int:
-    return n**3
+SortedDigits = tuple[int, ...]
+Permutations = list[int]
+GroupedPermutations = dict[SortedDigits, Permutations]
 
 
 def solve() -> str:
-    num_digits = 1
+    target_group_size = 5
 
-    while True:
-        start = 10 ** (num_digits - 1)
-        start = int(start ** (1 / 3)) + 1
+    for n_digits in count(1):
+        permutatation_groups: GroupedPermutations = defaultdict(list)
 
-        nums = positive_integers_seq(start=start)
-        nums = map(cube, nums)
-        nums = takewhile(lambda x: len(split(x)) == num_digits, nums)
-        nums = list(nums)
+        for cube in n_digit_cubes(n_digits):
+            digits_key = tuple(sorted(split(cube)))
+            permutation_group = permutatation_groups[digits_key]
+            permutation_group.append(cube)
 
-        digit_sets = map(split, nums)
-        digit_sets = map(sorted, digit_sets)
-        digit_sets = map(tuple, digit_sets)
+            if len(permutation_group) == target_group_size:
+                return str(min(permutation_group))
 
-        digit_set_to_nums: dict[tuple[int, ...], list[int]] = {}
-
-        for digit_set, num in zip(digit_sets, nums):
-            if digit_set in digit_set_to_nums:
-                digit_set_to_nums[digit_set].append(num)
-            else:
-                digit_set_to_nums[digit_set] = [num]
-
-            if len(digit_set_to_nums[digit_set]) == 5:
-                return str(min(digit_set_to_nums[digit_set]))
-
-        num_digits += 1
+    raise AssertionError('Should never get here')

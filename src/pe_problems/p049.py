@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+from collections import defaultdict
+from collections.abc import Sequence
+from itertools import combinations
+
 from pe.integer import concat
 from pe.integer import split
 from pe.itertools import sieve
@@ -7,7 +11,7 @@ from pe.itertools import sieve
 SOLUTION = "296962999629"
 
 
-def difference(ints: list[int]) -> list[int]:
+def differences(ints: Sequence[int]) -> list[int]:
     d = []
     for i in range(1, len(ints)):
         d.append(ints[i - 1] - ints[i])
@@ -15,34 +19,31 @@ def difference(ints: list[int]) -> list[int]:
     return d
 
 
+SortedDigits = tuple[int, ...]
+Primes = list[int]
+
+
 def solve() -> str:
-    primes = sieve(10000)
-    primes = list(filter(lambda x: x >= 1000, primes))
+    num_terms = 3
+    existing_sequence = (1487, 4817, 8147)
 
-    prime_pairs = [
-        [p1, p2]
-        for i, p1 in enumerate(primes) for p2 in primes[i + 1:]
-    ]
-    prime_pairs = filter(
-        lambda x: sorted(
-            split(x[0]),
-        ) == sorted(split(x[1])), prime_pairs,
-    )
-    prime_pairs = list(prime_pairs)
+    # primes with only 4 digits
+    primes = tuple(prime for prime in sieve(10000) if prime >= 1000)
 
-    chains = prime_pairs.copy()
-    for prime_pair in prime_pairs:
-        for i, chain in enumerate(chains):
+    primes_by_digits: dict[SortedDigits, Primes] = defaultdict(list)
+    for prime in primes:
+        digits = tuple(sorted(split(prime)))
+        primes_by_digits[digits].append(prime)
+
+    for prime_family in primes_by_digits.values():
+        if len(prime_family) < num_terms:
+            continue
+
+        for sequence in combinations(prime_family, num_terms):
             if (
-                prime_pair[0] == chain[-1]
-                and set(difference(prime_pair)) == set(difference(chain))
+                len(set(differences(sequence))) == 1
+                and sequence != existing_sequence
             ):
-                chains[i].append(prime_pair[1])
+                return str(concat(sequence))
 
-    chains = filter(lambda x: len(x) > 2, chains)
-    chains = list(chains)
-
-    result_nums = chains[1]
-    result_nums = list(map(split, result_nums))
-    result = [i for a in result_nums for i in a]
-    return str(concat(result))
+    raise AssertionError('unreachable')

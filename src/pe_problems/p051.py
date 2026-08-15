@@ -7,24 +7,26 @@ from pe.sequences import prime_seq
 SOLUTION = "121313"
 
 
-def digit_replacements(num: int, digit: int) -> list[int]:
-    num_str = str(num)
-    digit_str = str(digit)
-    results = map(
-        lambda i: num_str.replace(digit_str, i),
-        ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
-    )
-    results = map(int, results)
-    num_factor_lower = 10 ** (len(num_str) - 1)
-    results = filter(lambda x: x >= num_factor_lower, results)
-    return list(results)
+def replace_digit(num: int, old: int, new: int) -> int:
+    return int(str(num).replace(str(old), str(new)))
+
+
+def prime_family(prime: int, digit: int) -> tuple[int, ...]:
+    prime_len = len(split(prime))
+    family = []
+    for new_digit in range(10):
+        num = replace_digit(prime, digit, new_digit)
+        if len(split(num)) == prime_len and is_prime(num):
+            family.append(num)
+
+    return tuple(family)
 
 
 def solve() -> str:
     for prime in prime_seq():
         for digit in set(split(prime)):
-            replacement_nums = digit_replacements(prime, digit)
-            replacement_nums = list(filter(is_prime, replacement_nums))
-            if len(replacement_nums) == 8:
-                return str(replacement_nums[0])
-    return ""
+            family = prime_family(prime, digit)
+            if len(family) == 8:
+                return str(prime)
+
+    raise AssertionError('should never get here')

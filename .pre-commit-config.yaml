@@ -53,5 +53,4 @@ repos:
                 | ^src/pe_problems/p041\.py$
                 | ^src/pe_problems/p043\.py$
                 | ^src/pe_problems/p049\.py$
-                | ^src/pe_problems/p051\.py$
             )

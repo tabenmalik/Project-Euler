@@ -56,5 +56,4 @@ repos:
                 | ^src/pe_problems/p051\.py$
                 | ^src/pe_problems/p056\.py$
                 | ^src/pe_problems/p057\.py$
-                | ^src/pe_problems/p061\.py$
             )

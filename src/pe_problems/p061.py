@@ -2,8 +2,9 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from collections.abc import Generator
+from collections.abc import Iterator
 from collections.abc import Sequence
-from itertools import takewhile
+from itertools import count
 
 from pe.integer import split
 
@@ -42,19 +43,14 @@ def infrange(start: int = 0, step: int = 1) -> Generator[int]:
         n += step
 
 
-def get_4_digit_ns_from_seq(func: Callable[[int], int]) -> list[int]:
-    def _under_5_digits(n: int) -> int:
-        return len(split(n)) < 5
-
-    def _only_4_digits(n: int) -> int:
-        return len(split(n)) == 4
-
-    fns = map(func, infrange(1))
-    fns = takewhile(_under_5_digits, fns)
-    fns = filter(_only_4_digits, fns)
-    fns = list(fns)
-
-    return fns
+def get_4_digit_ns_from_seq(func: Callable[[int], int]) -> Iterator[int]:
+    for x in count(1):
+        num = func(x)
+        num_digits = split(num)
+        if len(num_digits) == 4:
+            yield num
+        elif len(num_digits) > 4:
+            break
 
 
 def is_cycle(nums: Sequence[int], full: bool) -> bool:
@@ -87,7 +83,7 @@ def solve() -> str:
     pens = get_4_digit_ns_from_seq(pentagonal)
     hexs = get_4_digit_ns_from_seq(hexagonal)
     heps = get_4_digit_ns_from_seq(heptagonal)
-    octs = get_4_digit_ns_from_seq(octogonal)
+    octs = list(get_4_digit_ns_from_seq(octogonal))
 
     seqs = {
         "tris": list(tris),

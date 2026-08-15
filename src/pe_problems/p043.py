@@ -1,29 +1,33 @@
 from __future__ import annotations
 
 from collections.abc import Sequence
+from itertools import permutations
 
 from pe.integer import concat
-from pe.sequences import permutations_seq
 
 SOLUTION = "16695334890"
 
-PRIMES = (2, 3, 5, 7, 11, 13, 17)
-
 
 def is_substring_divisible(digits: Sequence[int]) -> bool:
-    groups = (digits[i: i + 3] for i in range(1, len(digits) - 2))
-    group_nums = map(concat, groups)
-
-    for num, prime in zip(group_nums, PRIMES):
-        if num % prime != 0:
-            return False
-
-    return True
+    if (
+        digits[0] == 0
+        or concat(digits[7:10]) % 17 != 0
+        or concat(digits[6:9]) % 13 != 0
+        or concat(digits[5:8]) % 11 != 0
+        or concat(digits[4:7]) % 7 != 0
+        or concat(digits[3:6]) % 5 != 0
+        or concat(digits[2:5]) % 3 != 0
+        or concat(digits[1:4]) % 2 != 0
+    ):
+        return False
+    else:
+        return True
 
 
 def solve() -> str:
-    pandigital_numbers = permutations_seq([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
-    pandigital_numbers = filter(lambda x: x[0] != 0, pandigital_numbers)
-    special_nums = filter(is_substring_divisible, pandigital_numbers)
-    special_nums = map(concat, special_nums)
+    special_nums = []
+    for pandigital_number in permutations(list(range(10))):
+        if is_substring_divisible(pandigital_number):
+            special_nums.append(concat(pandigital_number))
+
     return str(sum(special_nums))

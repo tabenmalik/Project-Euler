@@ -15,13 +15,10 @@ def to_bin_str(num: int) -> str:
 def solve() -> str:
     limit = 1_000_000
 
-    num_to_bin_strs = [(str(i), to_bin_str(i)) for i in range(limit)]
-    double_palindromes = filter(
-        lambda x: is_palindrome(
-            x[0],
-        ) and is_palindrome(x[1]), num_to_bin_strs,
-    )
-    ints = next(iter(zip(*double_palindromes)))
-    ints = map(int, ints)
-
-    return str(sum(ints))
+    total = 0
+    for n in range(limit):
+        n_str = str(n)
+        n_bin_str = to_bin_str(n)
+        if is_palindrome(n_str) and is_palindrome(n_bin_str):
+            total += n
+    return str(total)

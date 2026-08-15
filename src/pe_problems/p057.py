@@ -87,13 +87,9 @@ def expand_root_2(iterations: int) -> tuple[int, int]:
 
 
 def solve() -> str:
-    expanded_fracs = map(expand_root_2, range(1, 1_001))
-    frac_digits = map(
-        lambda frac: (
-            split(frac[0]), split(frac[1]),
-        ), expanded_fracs,
-    )
-    frac_digits = map(lambda frac: (len(frac[0]), len(frac[1])), frac_digits)
-    frac_digits = filter(lambda frac: frac[0] > frac[1], frac_digits)
-
-    return str(len(list(frac_digits)))
+    result = 0
+    for expanded_frac in map(expand_root_2, range(1, 1001)):
+        frac_digits = split(expanded_frac[0]), split(expanded_frac[1])
+        if len(frac_digits[0]) > len(frac_digits[1]):
+            result += 1
+    return str(result)

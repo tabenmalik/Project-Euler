@@ -1,14 +1,16 @@
 from __future__ import annotations
 
+from itertools import product
+
 from pe.integer import split
 
 SOLUTION = "972"
 
 
 def solve() -> str:
-    nums = [x**y for x in range(0, 100) for y in range(0, 100)]
+    max_digit_sum = 0
+    for x, y in product(range(0, 100), range(0, 100)):
+        digits = split(x**y)
+        max_digit_sum = max(max_digit_sum, sum(digits))
 
-    nums = map(split, nums)
-    digit_sums = map(sum, nums)
-
-    return str(max(digit_sums))
+    return str(max_digit_sum)

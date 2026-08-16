@@ -10,10 +10,8 @@ divisible by all of the numbers from 1 to 20?
 from __future__ import annotations
 
 import math
-from itertools import takewhile
 
-from pe.predicates import lt
-from pe.sequences import prime_seq
+from pe.itertools import sieve
 
 SOLUTION = "232792560"
 MAX_NUM = 20
@@ -21,11 +19,8 @@ MAX_NUM = 20
 
 def solve() -> str:
     """Solves Project Euler problem 005"""
-    primes = prime_seq()
-    primes = takewhile(lt(MAX_NUM + 1), primes)
-
     product = 1
-    for prime in primes:
+    for prime in sieve(MAX_NUM + 1):
         exp = 1
         if prime * prime <= MAX_NUM:
             exp = int(math.log(MAX_NUM) // math.log(prime))

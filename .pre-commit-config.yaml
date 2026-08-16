@@ -33,13 +33,4 @@ repos:
     rev: v2.3.0
     hooks:
     -   id: mypy
-        args: [--allow-redefinition, --ignore-missing-imports, --config, .mypy.no-config]
-    -   id: mypy
-        alias: mypy-strict
-        name: mypy strict
-        args: [--config, pyproject.toml]
         additional_dependencies: [pytest]
-        exclude: |
-            (?x)(
-                itertools\.py
-            )

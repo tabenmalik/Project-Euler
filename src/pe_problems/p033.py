@@ -1,58 +1,72 @@
 from __future__ import annotations
 
-import operator
-from functools import reduce
+import math
+from collections import Counter
+from collections.abc import Iterator
+from fractions import Fraction
+from itertools import starmap
+from typing import NamedTuple
 
 from pe.integer import concat
 from pe.integer import split
-from pe.misc import prime_factors
 
 SOLUTION = "100"
 
 
-def is_wrongly_canceled(numerator: int, denominator: int) -> bool:
-    num_digits = split(numerator)
-    den_digits = split(denominator)
+class Rational(NamedTuple):
+    numerator: int
+    denominator: int
 
-    for digit in num_digits:
-        if digit in den_digits and digit != 0:
-            new_num = list(num_digits)
-            new_num.remove(digit)
-            new_num = concat(new_num)
+    def as_fraction(self) -> Fraction:
+        return Fraction(self.numerator, self.denominator)
 
-            new_den = list(den_digits)
-            new_den.remove(digit)
-            new_den = concat(new_den)
+    def equivalent(self, other: Rational) -> bool:
+        return self.as_fraction() == other.as_fraction()
 
-            if (
-                new_den != 0
-                and (numerator / denominator) == (new_num / new_den)
-            ):
-                return True
 
-    return False
+def rationals() -> Iterator[Rational]:
+    for numerator in range(10, 100):
+        for denominator in range(numerator + 1, 100):
+            yield Rational(numerator, denominator)
+
+
+def trivial(rational: Rational) -> bool:
+    return (
+        rational.numerator % 10 == 0
+        and rational.denominator % 10 == 0
+    )
+
+
+def cancel(rational: Rational) -> Rational:
+    numerator_digits = list(split(rational.numerator))
+    denominator_digits = list(split(rational.denominator))
+
+    numerator_digit_count = Counter(numerator_digits)
+    denominator_digit_count = Counter(denominator_digits)
+    common_digit_counts = numerator_digit_count & denominator_digit_count
+
+    for digit, count in common_digit_counts.items():
+        for _ in range(count):
+            numerator_digits.remove(digit)
+            denominator_digits.remove(digit)
+
+    if not denominator_digits or denominator_digits[0] == 0:
+        return rational
+
+    return Rational(concat(numerator_digits), concat(denominator_digits))
 
 
 def solve() -> str:
-    fractions = [(i, j) for i in range(10, 100) for j in range(i + 1, 100)]
-    bad_fractions = filter(lambda x: is_wrongly_canceled(*x), fractions)
-    bad_fractions = list(bad_fractions)
+    special_rationals = []
+    for rational in rationals():
+        if not trivial(rational):
+            cancelled_rational = cancel(rational)
+            if (
+                rational != cancelled_rational
+                and rational.equivalent(cancelled_rational)
+            ):
+                special_rationals.append(rational)
 
-    num_prod, den_prod = tuple(zip(*bad_fractions))
-    num_prod = reduce(operator.mul, num_prod)
-    den_prod = reduce(operator.mul, den_prod)
-
-    num_factors = list(prime_factors(num_prod))
-    den_factors = list(prime_factors(den_prod))
-    new_num_factors = list()
-    for num in num_factors:
-        if num in den_factors:
-            den_factors.remove(num)
-        else:
-            new_num_factors.append(num)
-
-    if len(new_num_factors) == 0:
-        new_num_factors.append(1)
-
-    den_prod = reduce(operator.mul, den_factors)
-    return str(den_prod)
+    special_fractions = tuple(starmap(Fraction, special_rationals))
+    product = math.prod(special_fractions)
+    return str(product.denominator)

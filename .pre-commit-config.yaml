@@ -47,5 +47,4 @@ repos:
                 | ^src/pe_problems/p013\.py$
                 | ^src/pe_problems/p023\.py$
                 | ^src/pe_problems/p032\.py$
-                | ^src/pe_problems/p033\.py$
             )

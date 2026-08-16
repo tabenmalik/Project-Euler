@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+from itertools import product
 
 from pe.integer import sum_of_1_to_n
 
@@ -27,14 +28,17 @@ def is_abundant(n: int) -> int:
 
 
 def solve() -> str:
-    abundant_nums = list(filter(is_abundant, range(2, MAX_NUM + 1)))
-    abundant_num_pairs = (
-        (num, num2) for i, num in enumerate(
-            abundant_nums,
-        ) for num2 in abundant_nums[i:]
+    abundant_nums = tuple(
+        n
+        for n in range(2, MAX_NUM + 1)
+        if is_abundant(n)
     )
-    abundant_sums = set(map(sum, abundant_num_pairs))
-    abundant_sums = filter(lambda x: x <= MAX_NUM, abundant_sums)
-    abundant_sums = sorted(list(abundant_sums))
-    non_abundant_sum = sum_of_1_to_n(MAX_NUM) - sum(abundant_sums)
+
+    abundant_sums = tuple(
+        a + b
+        for a, b in product(abundant_nums, repeat=2)
+        if a + b <= MAX_NUM
+    )
+
+    non_abundant_sum = sum_of_1_to_n(MAX_NUM) - sum(set(abundant_sums))
     return str(non_abundant_sum)

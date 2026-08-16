@@ -23,7 +23,7 @@ MAX_NUM = 4_000_000
 
 def solve() -> str:
     """Solves Project Euler problem 002"""
-    def lt_4_mil(x): return x < MAX_NUM
+    def lt_4_mil(x: int) -> bool: return x < MAX_NUM
     even_fibs_under_4_mil = takewhile(lt_4_mil, even_fibonacci_seq())
     total = sum(even_fibs_under_4_mil)
 

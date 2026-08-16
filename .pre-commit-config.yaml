@@ -42,5 +42,4 @@ repos:
         exclude: |
             (?x)(
                 itertools\.py
-                | ^src/pe_problems/p002\.py$
             )

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import math
+from itertools import count
+from itertools import repeat
 
 from pe.integer import concat
 from pe.integer import split
@@ -14,20 +16,29 @@ def digit_factorial_sum(num: int) -> int:
     return sum(digit_factorials)
 
 
-def solve() -> str:
-    i = 2
-    while True:
-        digit_limit = i * math.factorial(9)
-        num = concat(9 for _ in range(i))
-        if digit_limit < num:
+def find_max() -> int:
+    # for an n-digit number the max factorial sum
+    # will be sum(9! * n). if the max n-digit number
+    # exeeds the max n-digit factorial sum then
+    # the factorial sum will always be less for larger numbers
+    max_factorial_sum = 0
+
+    for num_digits in count(2):
+        max_factorial_sum = num_digits * math.factorial(9)
+        num = concat(repeat(9, num_digits))
+        if max_factorial_sum < num:
             break
-        i += 1
 
-    limit = digit_limit
+    return max_factorial_sum
 
-    nums = list(range(10, limit))
-    fact_sums = list(map(digit_factorial_sum, nums))
-    equals = list(filter(lambda x: x[0] == x[1], zip(nums, fact_sums)))
-    equals = next(iter(zip(*equals)))
 
-    return str(sum(equals))
+def solve() -> str:
+    limit = find_max()
+
+    total = 0
+    for n in range(10, limit):
+        fact_sum = digit_factorial_sum(n)
+        if n == fact_sum:
+            total += n
+
+    return str(total)

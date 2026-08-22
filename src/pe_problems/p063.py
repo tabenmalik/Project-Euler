@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections.abc import Iterator
 from itertools import count
 
-from pe.integer import split
+from pe.integer import count_digits
 
 SOLUTION = "49"
 
@@ -12,7 +12,7 @@ def n_digit_nth_powers(n: int) -> Iterator[int]:
     for x in count(1):
         num = x**n
 
-        digit_count = len(split(num))
+        digit_count = count_digits(num)
         if digit_count == n:
             yield num
         elif digit_count > n:

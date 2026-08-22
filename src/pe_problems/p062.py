@@ -4,6 +4,7 @@ from collections import defaultdict
 from collections.abc import Iterator
 from itertools import count
 
+from pe.integer import count_digits
 from pe.integer import split
 
 SOLUTION = "127035954683"
@@ -13,7 +14,7 @@ def n_digit_cubes(n: int) -> Iterator[int]:
     start = int(10 ** ((n - 1) / 3)) + 1
     for x in count(start):
         cube = x ** 3
-        if len(split(cube)) > n:
+        if count_digits(cube) > n:
             break
         yield cube
 

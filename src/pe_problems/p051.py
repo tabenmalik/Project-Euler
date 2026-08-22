@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pe.integer import count_digits
 from pe.integer import split
 from pe.misc import is_prime
 from pe.sequences import prime_seq
@@ -12,11 +13,11 @@ def replace_digit(num: int, old: int, new: int) -> int:
 
 
 def prime_family(prime: int, digit: int) -> tuple[int, ...]:
-    prime_len = len(split(prime))
+    prime_len = count_digits(prime)
     family = []
     for new_digit in range(10):
         num = replace_digit(prime, digit, new_digit)
-        if len(split(num)) == prime_len and is_prime(num):
+        if count_digits(num) == prime_len and is_prime(num):
             family.append(num)
 
     return tuple(family)

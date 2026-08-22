@@ -1,12 +1,21 @@
 """Functions for testing or manipulating properties of integers"""
 from __future__ import annotations
 
+import math
 import operator
 from collections.abc import Generator
 from collections.abc import Iterable
 from collections.abc import Iterator
 from collections.abc import Sequence
 from functools import reduce
+
+
+def count_digits(n: int) -> int:
+    "The number of base-10 digits, e.g. 0 -> 1, 123 -> 3"
+    try:
+        return int(math.log10(n)) + 1
+    except ValueError:
+        return 1
 
 
 def concat(ints: Iterable[int]) -> int:

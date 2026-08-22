@@ -3,6 +3,7 @@ from __future__ import annotations
 from itertools import permutations
 
 from pe.integer import concat
+from pe.integer import count_digits
 from pe.integer import split
 from pe.itertools import sieve
 
@@ -18,7 +19,7 @@ def solve() -> str:
     primes = {
         prime
         for prime in sieve(largest)
-        if prime >= 10**(len(split(largest)) - 1)
+        if prime >= 10**(count_digits(largest) - 1)
     }
     for pandigital_digits in permutations(split(largest)):
         pandigital = concat(pandigital_digits)

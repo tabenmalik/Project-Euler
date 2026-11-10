@@ -1,40 +1,36 @@
 [build-system]
-requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
+requires = [ "setuptools>=61" ]
 
 [project]
-name = "project_euler"
+name = "project-euler"
 version = "6.28318"
-authors = [
-    { name="Taben Malik", email="tabenjmalik@gmail.com" },
-]
 description = "Solutions to ProjectEuler problems."
 readme = "README.md"
+authors = [
+  { name = "Taben Malik", email = "tabenjmalik@gmail.com" },
+]
 requires-python = ">=3.13"
 classifiers = [
-    "Programming Language :: Python :: 3",
-    "Operating System :: OS Independent",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
 ]
-
-[project.optional-dependencies]
-dev = [
-    "pytest",
-    "pytest-xdist",
-    "pytest-timeout",
-    "black",
-    "reorder-python-imports",
+optional-dependencies.dev = [
+  "black",
+  "pytest",
+  "pytest-timeout",
+  "pytest-xdist",
+  "reorder-python-imports",
 ]
+entry-points."pe.problems".public_problems = "pe_problems"
 
-[project.entry-points."pe.problems"]
-public_problems = "pe_problems"
-
-[tool.setuptools.package-data]
-pe_problems = ["*.txt"]
+[tool.setuptools]
+package-data.pe_problems = [ "*.txt" ]
 
 [tool.mypy]
-check_untyped_defs = true
 disallow_any_generics = true
-disallow_incomplete_defs = true
 disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
 warn_redundant_casts = true
 warn_unused_ignores = true
